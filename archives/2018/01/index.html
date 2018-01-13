@@ -1,200 +1,625 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
+<html lang="en">
 
-  
-  <title>归档: 2018/1 | inerdstack</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="start from zero">
-<meta property="og:type" content="website">
-<meta property="og:title" content="inerdstack">
-<meta property="og:url" content="http://songda1005.cn/archives/2018/01/index.html">
-<meta property="og:site_name" content="inerdstack">
-<meta property="og:description" content="start from zero">
-<meta property="og:locale" content="zh-CN">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="inerdstack">
-<meta name="twitter:description" content="start from zero">
-  
-    <link rel="alternate" href="/atom.xml" title="inerdstack" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="程序亦非猿的Android之路">
+    <meta name="keyword"  content="程序亦非猿,Android,RxJava,Java,进阶,高级,源码,源码分析,深入理解,设计模式">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+          LayoutInflater 源码分析（四）闪耀的彩蛋 - 程序亦非猿的博客 | 程序亦非猿&#39;s Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://yifeiyuan.me/2017/01/10/analyze-layoutinflater4-blinklayout/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="http://cdn.staticfile.org/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
 </head>
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">inerdstack</a>
-      </h1>
-      
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">the stack of it nerds</a>
-        </h2>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://songda1005.cn"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">程序亦非猿</a>
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/01/12/文章标题/" class="archive-article-date">
-  <time datetime="2018-01-12T11:17:22.000Z" itemprop="datePublished">1月 12</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/12/文章标题/">first</a>
-    </h1>
-  
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/01/12/hello-world/" class="archive-article-date">
-  <time datetime="2018-01-12T10:59:59.836Z" itemprop="datePublished">1月 12</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/12/hello-world/">Hello World</a>
-    </h1>
-  
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
 
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
+                    <li>        
+                        <a href="https://github.com/RTFSC-Android/RTFSC">RTFSC</a>
+                    </li>  
+                    <li>
+                        <a href=" http://readingnotes.yifeiyuan.me/">读书笔记</a>
+                    </li>  
 
+                    
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
+                        
+                    
 
-  
-    
+                        
+                        <li>
+                            <a href="/donate/">予人玫瑰,手有余香</a>
+                        </li>
+                        
+                    
 
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a></li></ul>
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">tags</a>
+                        </li>
+                        
+                    
+
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
     </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2018/01/12/文章标题/">first</a>
-          </li>
-        
-          <li>
-            <a href="/2018/01/12/hello-world/">Hello World</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2018 inerdstack<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
+    <!-- /.container -->
 </nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
     
+<!-- Image to hack wechat -->
+<!-- <img src="http://yifeiyuan.me/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/opluo.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#RTFSC" title="RTFSC">RTFSC</a>
+                        
+                          <a class="tag" href="/tags/#LayoutInflater" title="LayoutInflater">LayoutInflater</a>
+                        
+                          <a class="tag" href="/tags/#BlinkLayout" title="BlinkLayout">BlinkLayout</a>
+                        
+                    </div>
+                    <h1>LayoutInflater 源码分析（四）闪耀的彩蛋</h1>
+                    
+                    <h2 class="subheading"></h2>
+                    
+                    <span class="meta">
+                        Posted by 程序亦非猿 on
+                        2017-01-10
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h2 id="BlinkLayout源码分析">BlinkLayout源码分析</h2><pre><code><span class="keyword">private</span> static <span class="class"><span class="keyword">class</span> <span class="title">BlinkLayout</span> <span class="keyword"><span class="keyword">extends</span></span> <span class="title">FrameLayout</span></span>
+</code></pre><p>首先，我猜，你肯定不知道有这个<code>BlinkLayout</code>的存在！！！  </p>
+<p>据我所知，没有一本书里讲到过它（反正我是没见过），甚至国内的博客都没有人提及过它！！  </p>
+<p>因为它隐藏的非常深，是<code>LayoutInflater</code>的静态内部类，是我在看<code>LayoutInflater</code>源码的时候发现的！简直是个彩蛋！！    </p>
+<a id="more"></a>
+<p>在这里发现的：  </p>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (name.<span class="keyword">equals</span>(TAG_1995)) &#123;</div><div class="line">    <span class="comment">// Let's party like it's 1995!</span></div><div class="line">    <span class="keyword">return</span> <span class="literal">new</span> BlinkLayout(context, attrs);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>oh,它其实还真算是个彩蛋，似乎是为了庆祝1995年的复活节，有兴趣可以看看<br><a href="https://www.reddit.com/r/androiddev/comments/3sekn8/lets_party_like_its_1995_from_the_layoutinflater/" target="_blank" rel="external">reddit</a>上的讨论。  </p>
+<p>blink 有 使…闪烁的意思，可以用来做一闪一闪的效果哦！！！ </p>
+<p>先上个简单的效果图看看它的效果：  </p>
+<p><img src="http://ww2.sinaimg.cn/large/98900c07jw1f6pxwz67aqg207l0ckq30.gif" alt="效果图"></p>
+<p>是不是很闪？  </p>
+<p>明明这么闪耀，为何要躲起来？</p>
+<p><code>BlinkLayout</code>的使用也有些特殊，它跟<code>merge</code>、<code>include</code>这些标签一样，用标签<code>blink</code>来表示。</p>
+<p>贴一下上图效果的XML：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">blink</span></span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">    &gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">ImageView</span></span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:src</span>=<span class="string">"@mipmap/ic_launcher"</span></div><div class="line">        &gt;</div><div class="line">    <span class="tag">&lt;/<span class="name">ImageView</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:text</span>=<span class="string">"Hello World!"</span>/&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">blink</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>非常简单！</p>
+<p>那么它是怎么实现的呢？</p>
+<p>接下去源码分析。</p>
+<h2 id="源码分析">源码分析</h2><p><code>BlinkLayout</code>的源码非常简单，只有几十行！我就全部贴出来啦！  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">BlinkLayout</span> <span class="keyword">extends</span> <span class="title">FrameLayout</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> MESSAGE_BLINK = <span class="number">0x42</span>;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> BLINK_DELAY = <span class="number">500</span>;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> mBlink;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> mBlinkState;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Handler mHandler;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">BlinkLayout</span><span class="params">(Context context, AttributeSet attrs)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(context, attrs);</div><div class="line">        mHandler = <span class="keyword">new</span> Handler(<span class="keyword">new</span> Handler.Callback() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">handleMessage</span><span class="params">(Message msg)</span> </span>&#123;</div><div class="line">                <span class="keyword">if</span> (msg.what == MESSAGE_BLINK) &#123;</div><div class="line">                    <span class="keyword">if</span> (mBlink) &#123;</div><div class="line">                        mBlinkState = !mBlinkState;</div><div class="line">                        <span class="comment">// 循环调用 makeBlink</span></div><div class="line">                        makeBlink();</div><div class="line">                    &#125;</div><div class="line">                    <span class="comment">// 触发 dispatchDraw</span></div><div class="line">                    invalidate();</div><div class="line">                    <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 发送blink指令</span></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">makeBlink</span><span class="params">()</span> </span>&#123;</div><div class="line">        Message message = mHandler.obtainMessage(MESSAGE_BLINK);</div><div class="line">        mHandler.sendMessageDelayed(message, BLINK_DELAY);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onAttachedToWindow</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onAttachedToWindow();</div><div class="line">        <span class="comment">// 设置为可以闪啦</span></div><div class="line">        mBlink = <span class="keyword">true</span>;</div><div class="line">        mBlinkState = <span class="keyword">true</span>;</div><div class="line">        <span class="comment">// 发送消息</span></div><div class="line">        makeBlink();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDetachedFromWindow</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onDetachedFromWindow();</div><div class="line"></div><div class="line">        mBlink = <span class="keyword">false</span>;</div><div class="line">        mBlinkState = <span class="keyword">true</span>;</div><div class="line">        <span class="comment">// 移除消息 避免内存泄漏</span></div><div class="line">        mHandler.removeMessages(MESSAGE_BLINK);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">dispatchDraw</span><span class="params">(Canvas canvas)</span> </span>&#123;</div><div class="line">    	<span class="comment">// 通过这个开关来控制是否分发绘制事件，来达到一闪一闪的效果</span></div><div class="line">        <span class="keyword">if</span> (mBlinkState) &#123;</div><div class="line">            <span class="keyword">super</span>.dispatchDraw(canvas);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>从源码中可以看出，<code>BlinkLayout</code>通过Handler循环调用<code>invalidate()</code>方法，触发并控制<code>dispatchDraw</code>来做到一闪一闪的效果，默认的闪烁间隔为Handler的DELAY时间，即500毫秒。  </p>
+<p>##　小结</p>
+<p><code>BlinkLayout</code>的使用场景或许不多，但是它的代码还是非常漂亮哒！~  </p>
+<p>如果有类似需求，仿造它的源码写一个功能更强的View也是非常简单的！  </p>
+<p>深入源码阅读是一件相对枯燥的事情，能发现这么个小彩蛋也是棒棒的，心情也美丽了些，哈哈！~~  </p>
+
+                <div></div>
+                <hr>
+
+                
+                <!-- 多说 Share start -->
+                </style>
+                <div class="ds-share"
+                    style="text-align: right"
+                    data-thread-key="2017/01/10/analyze-layoutinflater4-blinklayout/"
+                    data-title="LayoutInflater 源码分析（四）闪耀的彩蛋"
+                    data-url="http://yifeiyuan.me/2017/01/10/analyze-layoutinflater4-blinklayout/"
+                    data-images=""
+                    data-content="BlinkLayout源码分析private static class BlinkLayout... | 程序亦非猿的博客 | 程序亦非猿&#39;s Blog " >
+                    <div class="ds-share-inline">
+                      <ul  class="ds-share-icons-16">
+                        <li data-toggle="ds-share-icons-more"><a class="ds-more" href="#">分享到：</a></li>
+                        <li><a class="ds-wechat flat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+                        <li><a class="ds-weibo flat" href="javascript:void(0);" data-service="weibo">微博</a></li>
+                        <li><a class="ds-douban flat" href="javascript:void(0);" data-service="douban">豆瓣</a></li>
+                      </ul>
+                      <div class="ds-share-icons-more">
+                      </div>
+                    </div>
+                <hr>
+                </div>
+                <!-- 多说 Share end-->
+                
+
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2017/01/13/invalidate-and-postinvalidate/" data-toggle="tooltip" data-placement="top" title="invalidate和postInvalidate的关系与区别">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2017/01/04/analyze-layoutinflater3-fragment/" data-toggle="tooltip" data-placement="top" title="LayoutInflater源码分析（三）fragment 标签的处理">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+                
+
+                
+                <!-- 多说评论框 start -->
+                <div class="comment">
+                    <div class="ds-thread"
+                        data-thread-key="2017/01/10/analyze-layoutinflater4-blinklayout/"
+                        data-title="LayoutInflater 源码分析（四）闪耀的彩蛋"
+                        data-url="http://yifeiyuan.me/2017/01/10/analyze-layoutinflater4-blinklayout/" >
+                    </div>
+                </div>
+                <!-- 多说评论框 end -->
+                
 
 
-<script src="/js/script.js"></script>
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#RTFSC" title="RTFSC">RTFSC</a>
+                        
+                          <a class="tag" href="/tags/#LayoutInflater" title="LayoutInflater">LayoutInflater</a>
+                        
+                          <a class="tag" href="/tags/#BlinkLayout" title="BlinkLayout">BlinkLayout</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="http://mrfu.me/" target="_blank">MrFu</a></li>
+                    
+                        <li><a href="http://www.jianshu.com/users/df40282480b4/latest_articles" target="_blank">小鄧子</a></li>
+                    
+                        <li><a href="http://blog.zhaiyifan.cn" target="_blank">markzhai&#39;s home</a></li>
+                    
+                        <li><a href="http://itangqi.me/" target="_blank">汤奇</a></li>
+                    
+                        <li><a href="http://abner-nimengbo.cn" target="_blank">Abner</a></li>
+                    
+                        <li><a href="http://tikitoo.me" target="_blank">Tikitoo</a></li>
+                    
+                        <li><a href="http://gudong.name/" target="_blank">咕咚</a></li>
+                    
+                        <li><a href="http://www.easydone.cn/" target="_blank">涛哥Ail</a></li>
+                    
+                        <li><a href="http://www.bingjie.me/" target="_blank">猫猫姐姐</a></li>
+                    
+                        <li><a href="http://wuxiaolong.me/" target="_blank">吴小龙同学</a></li>
+                    
+                        <li><a href="http://droidyue.com/" target="_blank">小黑屋</a></li>
+                    
+                        <li><a href="http://www.jayfeng.com/" target="_blank">冯建</a></li>
+                    
+                        <li><a href="http://blog.csdn.net/lzyzsd/" target="_blank">教父大头鬼</a></li>
+                    
+                        <li><a href="http://blog.csdn.net/singwhatiwanna" target="_blank">主席</a></li>
+                    
+                        <li><a href="http://hukai.me/" target="_blank">胡凯</a></li>
+                    
+                        <li><a href="http://drakeet.me/" target="_blank">Drakeet</a></li>
+                    
+                        <li><a href="http://kymjs.com/" target="_blank">排位20连跪的青铜剩斗士张涛</a></li>
+                    
+                        <li><a href="http://www.jcodecraeer.com/" target="_blank">泡网</a></li>
+                    
+                        <li><a href="http://www.race604.com/" target="_blank">Android笔记</a></li>
+                    
+                        <li><a href="http:gank.io/" target="_blank">肥皂家的Gank</a></li>
+                    
+                        <li><a href="http://chenqichao.me/" target="_blank">启超</a></li>
+                    
+                        <li><a href="http://www.inferjay.com/" target="_blank">脉脉不得语</a></li>
+                    
+                        <li><a href="http://droidyue.com/" target="_blank">小黑屋</a></li>
+                    
+                        <li><a href="http://blog.csdn.net/sinyu890807/" target="_blank">郭霖</a></li>
+                    
+                        <li><a href="http://blog.csdn.net/lmj623565791" target="_blank">鸿洋</a></li>
+                    
+                        <li><a href="http://blog.csdn.net/eclipsexys" target="_blank">医生</a></li>
+                    
+                        <li><a href="http://www.devtf.cn/" target="_blank">开发技术前线</a></li>
+                    
+                        <li><a href="http://www.codekk.com/open-source-project-analysis" target="_blank">CodeKK</a></li>
+                    
+                        <li><a href="http://www.liangfeizc.com/" target="_blank">梁飞</a></li>
+                    
+                        <li><a href="http://gityuan.com/" target="_blank">gityuan</a></li>
+                    
+                        <li><a href="http://www.opencdk.com/blogroll/" target="_blank">笨鸟不乖</a></li>
+                    
+                        <li><a href="https://geminiwen.xyz/" target="_blank">温已婚</a></li>
+                    
+                        <li><a href="http://yifeiyuan.me/" target="_blank">换友链请联系我</a></li>
+                    
+                </ul>
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    // dynamic User by Hux
+    var _user = 'yifeiyuan';
+
+    // duoshuo comment query.
+    var duoshuoQuery = {short_name: _user };
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+</script>
+<!-- 多说公共JS代码 end -->
 
 
 
-  </div>
+
+
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/alancheen06">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/yifeiyuan">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/alancheeen">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/AlanCheen">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 程序亦非猿 2017 
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    <span id="busuanzi_container_site_pv">
+    PV:<span id="busuanzi_value_site_pv"></span>
+</span>
+<span id="busuanzi_container_site_uv">
+  UV:<span id="busuanzi_value_site_uv">From(16.6.14)</span>
+</span>
+                    
+                    
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://yifeiyuan.me/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("http://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-76763188-1';
+    var _gaDomain = 'yifeiyuan.me';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = 'bdc587745eeea6144f7851024cf7649f';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+<!-- Side Catalog -->
+
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="http://yifeiyuan.me/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
 </body>
+
 </html>
