@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        Hello World · A-D技术博客
+        HTML标准模式，和怪异模式 · A-D技术博客
         
     </title>
     <link rel="icon" href= /assets/44.jpg>
@@ -72,7 +72,7 @@
                 <a href="/" >程序亦非猿</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">Hello World</a>
+                <a href="#" class="post-name">HTML标准模式，和怪异模式</a>
             </div>
     </div>
     
@@ -93,7 +93,7 @@
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            Hello World
+            HTML标准模式，和怪异模式
             <!-- 404 -->
             
         </h1>
@@ -112,7 +112,7 @@
             <script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "2", "bdMiniList": false, "bdPic": "", "bdStyle": "1", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = "/static/api/js/share.js"];</script>
             <div class="post-intro-meta">
                 <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                <span class="post-intro-time">2018/01/12</span>
+                <span class="post-intro-time">2018/01/15</span>
                 <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                     <span class="iconfont-archer">&#xe604;</span>
                     <span id="busuanzi_value_page_pv"></span>
@@ -195,27 +195,27 @@
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <h2 id="一、什么是标准模式和怪异模式"><a href="#一、什么是标准模式和怪异模式" class="headerlink" title="一、什么是标准模式和怪异模式"></a>一、什么是标准模式和怪异模式</h2><p>在实现html和css标准化之前，各个浏览器对html和css的解析各有不同，甚至是同一个浏览器的不同版本渲染方式也不同（比如IE6和IE7）。在W3C制定标准之后，浏览器既要按照标准去实现HTML和CSS的支持，又要保证能够兼容以前的非标准的旧网页，于是就有了现在所说的标准模式（严格模式）和兼容模式（怪异模式）。</p>
+<h2 id="二、浏览器如何确定渲染模式呢"><a href="#二、浏览器如何确定渲染模式呢" class="headerlink" title="二、浏览器如何确定渲染模式呢"></a>二、浏览器如何确定渲染模式呢</h2><p>在编写HTML文档时，一般都会在文档的开头，html标签之前声明文档类型：DOCTYPE，当浏览器在解析html文档时，若遇到正确的文档声明，则启用标准模式，按照标准来解析和渲染文档。而对于旧的html文档，或没有DOCTYPE声明的文档，则按照怪异模式来解析文档。html5的文档声明方式：&lt;!DOCTYPE HTML&gt; 。</p>
+<h2 id="三、标准模式和怪异模式的区别？"><a href="#三、标准模式和怪异模式的区别？" class="headerlink" title="三、标准模式和怪异模式的区别？"></a>三、<strong>标准模式和怪异模式的区别？</strong></h2><p>1、width不同，在标准模式中：width是内容（content）宽度，元素真正的宽度是外边距、内边距、边框宽度的和，即元素宽度 = margin-left + border-left-width + padding-left + width + padding-right + border-right-width + margin-right，在怪异模式中：width则是元素的实际宽度，width = border-left-width + padding-left+ 内容(content)宽度 + padding-right + border-right-width。</p>
+<p>2、内联元素的尺寸标准模式中，给span等行内元素设置width和height都不会生效，而在怪异模式下，却会生效。</p>
+<p>3、可设置百分比的高度在标准模式下，一个元素的高度由其包含的内容content决定，如果父元素没有设置高度，子元素设置一个百分比高度是无效的。</p>
+<p>4、用margin : 0 auto设置水平居中在标准模式下可以使元素水平居中，但是在怪异模式下，无效，可以用text-align : center;来实现居中。</p>
+<p>5、怪异模式下设置图片的padding会失效</p>
+<p>6、怪异模式下table中的字体属性不能继承上层的设置</p>
+<p>7、元素溢出的处理，标准模式下，overflow默认去visible，在怪异模式下，溢出会被当做扩展box来对待，溢出不会裁减，元素框自动调整大小，能够包含溢出内容。</p>
 
     </article>
     <!-- 前后页  -->
     <ul class="post-pager">
         
-            <li class="next">
+        
+            <li class="previous">
                 <a href= "/2018/01/13/HTML5新特性，语义化/" title= HTML5新特性，语义化 >
-                    <span>Next Post</span>
+                    <span>Previous Post</span>
                     <span>HTML5新特性，语义化</span>
                 </a>
             </li>
-        
         
     </ul>
     <!-- 评论插件 -->
@@ -300,7 +300,7 @@
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、什么是标准模式和怪异模式"><span class="toc-number">1.</span> <span class="toc-text">一、什么是标准模式和怪异模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、浏览器如何确定渲染模式呢"><span class="toc-number">2.</span> <span class="toc-text">二、浏览器如何确定渲染模式呢</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、标准模式和怪异模式的区别？"><span class="toc-number">3.</span> <span class="toc-text">三、标准模式和怪异模式的区别？</span></a></li></ol>
     </div>
     
     <div class="back-top">&#xe639;</div>
