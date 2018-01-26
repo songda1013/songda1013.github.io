@@ -230,7 +230,7 @@
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Warning: Task "default" not found. Use --force to continue.</span><br><span class="line"></span><br><span class="line">Aborted due to warnings.</span><br></pre></td></tr></table></figure>
 <p>说没有找到”default”的Task,那么怎么实现Task的执行任务呢</p>
 <p>首先我们今天就来讲讲js文件压缩，和css文件合并压缩，先准备一个js文件，和css文件，里面有一个你需要压缩的js文件，和css文件，在准备一个空文件夹名字叫做dist文件夹，这个文件夹是用来装你压缩过的文件，让我们看看现在的目录结构是什么样子的</p>
-<p><a href="http://p35c82bq0.bkt.clouddn.com/image/png/img2.png" target="_blank" rel="noopener">http://p35c82bq0.bkt.clouddn.com/image/png/img2.png</a></p>
+<p><img src="http://p35c82bq0.bkt.clouddn.com/image/png/img2.png" alt="Alt text"></p>
 <p>现在我们开始配置我们Gruntfile文件里的内容了，内容是这样的:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//这个约定了Grunt所有插件在这里配置。</span></span><br><span class="line"> <span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span> (<span class="params">grunt</span>) </span>&#123;<span class="comment">//这是Node.js的典型写法，使用exports公开API</span></span><br><span class="line">     grunt.initConfig(&#123;  <span class="comment">//定义各种模块的参数，每一个成员项对应一个同名模块,项目配置以及任务配置。</span></span><br><span class="line">         pkg:grunt.file.readJSON(<span class="string">'package.json'</span>),<span class="comment">//获取依赖关系提供你需要的插件的版本和名称</span></span><br><span class="line">         uglify:&#123;<span class="comment">//压缩js代码</span></span><br><span class="line">             options: &#123;<span class="comment">//这里是uglify任务的配置信息</span></span><br><span class="line">                 banner: <span class="string">'/*! &lt;%= pkg.name %&gt; &lt;%= grunt.template.today("yyyy-mm-dd") %&gt; */\n'</span></span><br><span class="line">             &#125;,</span><br><span class="line">             build:&#123;  <span class="comment">//源文件</span></span><br><span class="line">                 files: &#123;</span><br><span class="line">                     <span class="string">'dist/index.min.js'</span>:<span class="string">'js/index.js'</span></span><br><span class="line">                 &#125;</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;,</span><br><span class="line">         cssmin:&#123;<span class="comment">//Css压缩合并</span></span><br><span class="line">             options:&#123;</span><br><span class="line">                 <span class="comment">// keepSpecialComments:0</span></span><br><span class="line">             &#125;,</span><br><span class="line">             compress:&#123;</span><br><span class="line">                 files:&#123;</span><br><span class="line">                     <span class="string">'dist/default.min.css'</span>:[</span><br><span class="line">                         <span class="string">'css/saibaiwei.css'</span>,</span><br><span class="line">                         <span class="string">'css/saibaiwei1.css'</span></span><br><span class="line">                     ]</span><br><span class="line">                 &#125;</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;);</span><br><span class="line">     grunt.loadNpmTasks(<span class="string">'grunt-contrib-uglify'</span>);<span class="comment">//告诉grunt我们使用的模块</span></span><br><span class="line">     grunt.loadNpmTasks(<span class="string">'grunt-contrib-cssmin'</span>);</span><br><span class="line">     grunt.registerTask(<span class="string">'yasuo'</span>,[<span class="string">'uglify'</span>,<span class="string">'cssmin'</span>])<span class="comment">//定义具体的任务。</span></span><br><span class="line">     <span class="comment">// 第一个参数为任务名，第二个参数是一个数组， 表示该任务需要依次使用的模块。</span></span><br><span class="line"> &#125;;</span><br></pre></td></tr></table></figure>
 <p>好了朋友们现在配置文件已经写好了，那我们来执行任务吧，首先我们应该安装js压缩，还有css压缩合并需要的插件</p>
@@ -247,7 +247,7 @@
 <p>$ grunt yasuo</p>
 </blockquote>
 <p>命令执行之后你的dist文件里会多出两个压缩的文件，让我们来看看</p>
-<p><a href="http://p35c82bq0.bkt.clouddn.com/image/png/img1.png" target="_blank" rel="noopener">http://p35c82bq0.bkt.clouddn.com/image/png/img1.png</a></p>
+<p><img src="http://p35c82bq0.bkt.clouddn.com/image/png/img1.png" alt="Alt text"></p>
 <h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h2><p>grunt是最早的，打包工工具，现在有很多打包工具的，比如gulp,webpack，这些都是前端是实用的打包工具，但是随着这些打包工具的出现，grunt也大不如以前了，grunt相当于打包的鼻祖了</p>
 <h5 id="1-其实grunt配置很简单，Gruntfile文件是js格式的，比较贴近前端的知识"><a href="#1-其实grunt配置很简单，Gruntfile文件是js格式的，比较贴近前端的知识" class="headerlink" title="1.其实grunt配置很简单，Gruntfile文件是js格式的，比较贴近前端的知识"></a>1.其实grunt配置很简单，Gruntfile文件是js格式的，比较贴近前端的知识</h5><h5 id="2-Grunt还有很多插件等着我们去使用"><a href="#2-Grunt还有很多插件等着我们去使用" class="headerlink" title="2.Grunt还有很多插件等着我们去使用"></a>2.Grunt还有很多插件等着我们去使用</h5><h5 id="3-每个人的具体需求不一样，可以按自己的习惯合理配置，组合成最适合自己项目的自动化工作流。"><a href="#3-每个人的具体需求不一样，可以按自己的习惯合理配置，组合成最适合自己项目的自动化工作流。" class="headerlink" title="3.每个人的具体需求不一样，可以按自己的习惯合理配置，组合成最适合自己项目的自动化工作流。"></a>3.每个人的具体需求不一样，可以按自己的习惯合理配置，组合成最适合自己项目的自动化工作流。</h5>
     </article>
@@ -404,6 +404,20 @@
     
     
     
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/26</span><a class="archive-post-title" href= "/2018/01/26/grunt的安装与介绍/" >grunt的安装与介绍</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
     <div class="archive-year"> Invalid date </div>
     <ul class="year-list">
     
@@ -420,11 +434,6 @@
     
     <div class="archive-year"> 2018 </div>
     <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">01/26</span><a class="archive-post-title" href= "/2018/01/26/grunt的安装与介绍/" >grunt的安装与介绍</a>
-        </li>
     
     
         <li class="archive-post-item">
