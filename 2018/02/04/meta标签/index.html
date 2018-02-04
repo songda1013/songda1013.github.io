@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        HTML标准模式，和怪异模式 · A-D技术博客
+        meta标签 · A-D技术博客
         
     </title>
     <link rel="icon" href= /assets/44.jpg>
@@ -72,7 +72,7 @@
                 <a href="/" >程序亦非猿</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">HTML标准模式，和怪异模式</a>
+                <a href="#" class="post-name">meta标签</a>
             </div>
     </div>
     
@@ -93,7 +93,7 @@
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            HTML标准模式，和怪异模式
+            meta标签
             <!-- 404 -->
             
         </h1>
@@ -112,7 +112,7 @@
             <script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "2", "bdMiniList": false, "bdPic": "", "bdStyle": "1", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = "/static/api/js/share.js"];</script>
             <div class="post-intro-meta">
                 <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                <span class="post-intro-time">2018/01/15</span>
+                <span class="post-intro-time">2018/02/04</span>
                 <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                     <span class="iconfont-archer">&#xe604;</span>
                     <span id="busuanzi_value_page_pv"></span>
@@ -195,32 +195,34 @@
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h2 id="一、什么是标准模式和怪异模式"><a href="#一、什么是标准模式和怪异模式" class="headerlink" title="一、什么是标准模式和怪异模式"></a>一、什么是标准模式和怪异模式</h2><p>在实现html和css标准化之前，各个浏览器对html和css的解析各有不同，甚至是同一个浏览器的不同版本渲染方式也不同（比如IE6和IE7）。在W3C制定标准之后，浏览器既要按照标准去实现HTML和CSS的支持，又要保证能够兼容以前的非标准的旧网页，于是就有了现在所说的标准模式（严格模式）和兼容模式（怪异模式）。</p>
-<h2 id="二、浏览器如何确定渲染模式呢"><a href="#二、浏览器如何确定渲染模式呢" class="headerlink" title="二、浏览器如何确定渲染模式呢"></a>二、浏览器如何确定渲染模式呢</h2><p>在编写HTML文档时，一般都会在文档的开头，html标签之前声明文档类型：DOCTYPE，当浏览器在解析html文档时，若遇到正确的文档声明，则启用标准模式，按照标准来解析和渲染文档。而对于旧的html文档，或没有DOCTYPE声明的文档，则按照怪异模式来解析文档。html5的文档声明方式：&lt;!DOCTYPE HTML&gt; 。</p>
-<h2 id="三、标准模式和怪异模式的区别？"><a href="#三、标准模式和怪异模式的区别？" class="headerlink" title="三、标准模式和怪异模式的区别？"></a>三、<strong>标准模式和怪异模式的区别？</strong></h2><p>1、width不同，在标准模式中：width是内容（content）宽度，元素真正的宽度是外边距、内边距、边框宽度的和，即元素宽度 = margin-left + border-left-width + padding-left + width + padding-right + border-right-width + margin-right，在怪异模式中：width则是元素的实际宽度，width = border-left-width + padding-left+ 内容(content)宽度 + padding-right + border-right-width。</p>
-<p>2、内联元素的尺寸标准模式中，给span等行内元素设置width和height都不会生效，而在怪异模式下，却会生效。</p>
-<p>3、可设置百分比的高度在标准模式下，一个元素的高度由其包含的内容content决定，如果父元素没有设置高度，子元素设置一个百分比高度是无效的。</p>
-<p>4、用margin : 0 auto设置水平居中在标准模式下可以使元素水平居中，但是在怪异模式下，无效，可以用text-align : center;来实现居中。</p>
-<p>5、怪异模式下设置图片的padding会失效</p>
-<p>6、怪异模式下table中的字体属性不能继承上层的设置</p>
-<p>7、元素溢出的处理，标准模式下，overflow默认去visible，在怪异模式下，溢出会被当做扩展box来对待，溢出不会裁减，元素框自动调整大小，能够包含溢出内容。</p>
+        <h2 id="什么是meta标签"><a href="#什么是meta标签" class="headerlink" title="什么是meta标签"></a>什么是meta标签</h2><p>根据w3c定义，meta元素是可提供有关页面的元信息（meta-information），比如针对搜索引擎和更新频度的描述和关键词。 meta标签位于文档的头部，不包含任何内容。 标签的属性定义了与文档相关联的名称/值对。 简单来说，meta标签是给搜索引擎看的标签，对于seo有着举足轻重的作用。</p>
+<h4 id="常用的meta标签"><a href="#常用的meta标签" class="headerlink" title="常用的meta标签"></a>常用的meta标签</h4><h5 id="description"><a href="#description" class="headerlink" title="description"></a>description</h5><p>meta description，被认为是最有用的meta标签，是网站的简介信息。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=<span class="string">"description"</span> content=<span class="string">"description of your site"</span>/&gt;</span><br></pre></td></tr></table></figure>
+<p>这个标签在搜索引擎中的占比很高，所以是seo的主要标签，随着各类网站seo的滥用和搜索引擎的算法变更，目前该标签作用逐渐变弱。不过一般推荐还是设置一下，content控制在100个字符以内比较好。</p>
+<h5 id="keywords"><a href="#keywords" class="headerlink" title="keywords"></a>keywords</h5><p>meta keywords，慎用的标签。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=<span class="string">"keywords"</span> content=<span class="string">"keyword1 keyword2"</span>/&gt;</span><br></pre></td></tr></table></figure>
+<p>曾经是seo重点优化标签，现在由于滥用，基本不再是搜索引擎搜索的标签，而且被发现滥用可能导致搜索引擎把你权重下降，得不偿失。</p>
+<h5 id="title"><a href="#title" class="headerlink" title="title"></a>title</h5><p>严格意义上来说，title不算是meta标签。不过title标签对于搜索引擎的占比很高，所以把它作为meta标签的一类。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;title&gt;Title Name&lt;<span class="regexp">/title&gt;</span></span><br></pre></td></tr></table></figure>
+<p>建议控制title在50个字符以内。</p>
+<h5 id="charset"><a href="#charset" class="headerlink" title="charset"></a>charset</h5><p>meta charset，默认字符编码。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta charset=<span class="string">"utf-8"</span>/&gt;</span><br></pre></td></tr></table></figure>
+<p>建议采用这种简写方式，向后兼容。</p>
+<h5 id="Compatible"><a href="#Compatible" class="headerlink" title="Compatible"></a>Compatible</h5><p>兼容标签，针对不同浏览器。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta http-equiv=<span class="string">"X-UA-Compatible"</span> content=<span class="string">"IE=edge"</span>/&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="我的简单优化-带注释"><a href="#我的简单优化-带注释" class="headerlink" title="我的简单优化(带注释)"></a>我的简单优化(带注释)</h4><p>除了以上一些，还有一些别的meta标签，以下是我博客的meta信息。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta charset=<span class="string">"utf-8"</span> /&gt; <span class="comment">// 字符编码</span></span><br><span class="line">&lt;meta http-equiv=<span class="string">"X-UA-Compatible"</span> content=<span class="string">"IE=edge,chrome=1"</span> /&gt; <span class="comment">// 兼容适配</span></span><br><span class="line">&lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width, initial-scale=1.0"</span> /&gt; <span class="comment">// 设备适配</span></span><br><span class="line">&lt;meta name=<span class="string">"description"</span> content=<span class="string">"前端技术博客，关注代码的点点滴滴"</span> /&gt; <span class="comment">// 简介</span></span><br><span class="line">&lt;meta name=<span class="string">"generator"</span> content=<span class="string">"Ghost 0.78"</span> /&gt; <span class="comment">// 生产工具</span></span><br><span class="line">&lt;meta name=<span class="string">"author"</span> content=<span class="string">"韩小平"</span> /&gt; <span class="comment">// 作者</span></span><br><span class="line">&lt;meta name=<span class="string">"robots"</span> content=<span class="string">"index,follow"</span> /&gt; <span class="comment">// 搜索优化，下同</span></span><br><span class="line">&lt;meta name=<span class="string">"google"</span> content=<span class="string">"index,follow"</span> /&gt;</span><br><span class="line">&lt;meta name=<span class="string">"googlebot"</span> content=<span class="string">"index,follow"</span> /&gt;</span><br><span class="line">&lt;meta name=<span class="string">"verify"</span> content=<span class="string">"index,follow"</span> /&gt;</span><br><span class="line">&lt;meta name=<span class="string">"apple-mobile-web-app-capable"</span> content=<span class="string">"yes"</span> /&gt; <span class="comment">// webapp全屏</span></span><br><span class="line">&lt;meta name=<span class="string">"apple-mobile-web-app-status-bar-style"</span> content=<span class="string">"black-translucent"</span> /&gt; <span class="comment">// apple状态栏颜色</span></span><br><span class="line">&lt;meta name=<span class="string">"format-detection"</span> content=<span class="string">"telephone=no, email=no"</span> /&gt; <span class="comment">// 禁止电话邮件自动识别</span></span><br><span class="line">&lt;meta name=<span class="string">"HandheldFriendly"</span> content=<span class="string">"true"</span> /&gt; <span class="comment">// 移动设备优化，针对不支持viewpoint设备</span></span><br><span class="line">&lt;meta name=<span class="string">"MobileOptimized"</span> content=<span class="string">"320"</span> /&gt; <span class="comment">// 微软旧浏览器适配</span></span><br><span class="line">&lt;title&gt;&#123;&#123;meta_title&#125;&#125; - my-的前端博客&lt;<span class="regexp">/title&gt; /</span><span class="regexp">/ title</span></span><br></pre></td></tr></table></figure>
+<p>本文借鉴于：<a href="https://excaliburhan.com/post/seo-and-optimize-meta.html" target="_blank" rel="noopener">https://excaliburhan.com/post/seo-and-optimize-meta.html</a></p>
 
     </article>
     <!-- 前后页  -->
     <ul class="post-pager">
         
-            <li class="next">
-                <a href= "/2018/01/26/grunt的安装与介绍/" title= grunt的安装与介绍 >
-                    <span>Next Post</span>
-                    <span>grunt的安装与介绍</span>
-                </a>
-            </li>
-        
         
             <li class="previous">
-                <a href= "/2018/01/13/HTML5新特性，语义化/" title= HTML5新特性，语义化 >
+                <a href= "/2018/02/04/HTML5-data-自定义属性/" title= HTML5 data-* 自定义属性 >
                     <span>Previous Post</span>
-                    <span>HTML5新特性，语义化</span>
+                    <span>HTML5 data-* 自定义属性</span>
                 </a>
             </li>
         
@@ -307,7 +309,7 @@
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、什么是标准模式和怪异模式"><span class="toc-number">1.</span> <span class="toc-text">一、什么是标准模式和怪异模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、浏览器如何确定渲染模式呢"><span class="toc-number">2.</span> <span class="toc-text">二、浏览器如何确定渲染模式呢</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、标准模式和怪异模式的区别？"><span class="toc-number">3.</span> <span class="toc-text">三、标准模式和怪异模式的区别？</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是meta标签"><span class="toc-number">1.</span> <span class="toc-text">什么是meta标签</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#常用的meta标签"><span class="toc-number">1.0.1.</span> <span class="toc-text">常用的meta标签</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#description"><span class="toc-number">1.0.1.1.</span> <span class="toc-text">description</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#keywords"><span class="toc-number">1.0.1.2.</span> <span class="toc-text">keywords</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#title"><span class="toc-number">1.0.1.3.</span> <span class="toc-text">title</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#charset"><span class="toc-number">1.0.1.4.</span> <span class="toc-text">charset</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Compatible"><span class="toc-number">1.0.1.5.</span> <span class="toc-text">Compatible</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#我的简单优化-带注释"><span class="toc-number">1.0.2.</span> <span class="toc-text">我的简单优化(带注释)</span></a></li></ol></li></ol></li></ol>
     </div>
     
     <div class="back-top">&#xe639;</div>
