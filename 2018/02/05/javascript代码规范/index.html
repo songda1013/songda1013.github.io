@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        html和xhtml和xml的区别 · A-D技术博客
+        javascript代码规范 · A-D技术博客
         
     </title>
     <link rel="icon" href= /assets/44.jpg>
@@ -72,7 +72,7 @@
                 <a href="/" >程序亦非猿</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">html和xhtml和xml的区别</a>
+                <a href="#" class="post-name">javascript代码规范</a>
             </div>
     </div>
     
@@ -93,7 +93,7 @@
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            html和xhtml和xml的区别
+            javascript代码规范
             <!-- 404 -->
             
         </h1>
@@ -112,7 +112,7 @@
             <script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "2", "bdMiniList": false, "bdPic": "", "bdStyle": "1", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = "/static/api/js/share.js"];</script>
             <div class="post-intro-meta">
                 <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                <span class="post-intro-time">2018/01/31</span>
+                <span class="post-intro-time">2018/02/05</span>
                 <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                     <span class="iconfont-archer">&#xe604;</span>
                     <span id="busuanzi_value_page_pv"></span>
@@ -195,40 +195,37 @@
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <p>1、html即是超文本标记语言（Hyper Text Markup Language），是最早写网页的语言，但是由于时间早，规范不是很好，大小写混写且编码不规范；</p>
-<p>2、xhtml即是升级版的html（Extensible Hyper Text Markup Language），对html进行了规范，编码更加严谨纯洁，也是一种过渡语言，html向xml过渡的语言；</p>
-<p>3、xml即时可扩展标记语言（Extensible Markup Language），是一种跨平台语言，编码更自由，可以自由创建标签。</p>
-<p>4、网页编码从html&gt;&gt;xhtml&gt;&gt;xml这个过程发展。</p>
-<h3 id="html和xhtml和xml的区别"><a href="#html和xhtml和xml的区别" class="headerlink" title="html和xhtml和xml的区别"></a>html和xhtml和xml的区别</h3><p>可以参考这个网页：<a href="http://www.dreamdu.com/xhtml/html_xhtml/" target="_blank" rel="noopener">http://www.dreamdu.com/xhtml/html_xhtml/</a></p>
-<p>1、xhtml对比与html，xhtml文档具有良好完整的排版，体现在两方面：a、元素必须要有结束标签；b、元素必须嵌套；</p>
-<p>2、对于html的元素和属性，xhtml必须小写，因为xml是严格区分大小写的，<li>和</li><li>是不同的标签；</li></p>
-<p>3、xhtml的属性值必须在引号之中；</p>
-<p>4、xhtml不支持属性最小化，什么是属性最小化了？</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">正确:非最小化属性(unminimized attributes)</span><br><span class="line"></span><br><span class="line">　　&lt;input checked=<span class="string">"checked"</span>&gt;</span><br><span class="line"></span><br><span class="line">不正确:最小化属性(minimized attributes)</span><br><span class="line"></span><br><span class="line">　　&lt;input checked&gt;</span><br></pre></td></tr></table></figure>
-<p>5、 在xhtml中，name属性是不赞成使用的，在以后的版本中将被删除。</p>
-<h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h2><h3 id="再说说为什么网页编码要从html-gt-gt-xhtml-gt-gt-xml这么发展？"><a href="#再说说为什么网页编码要从html-gt-gt-xhtml-gt-gt-xml这么发展？" class="headerlink" title="再说说为什么网页编码要从html&gt;&gt;xhtml&gt;&gt;xml这么发展？"></a>再说说为什么网页编码要从html&gt;&gt;xhtml&gt;&gt;xml这么发展？</h3><p>话说早起的网页使用html语言编写的，但是它拥有三个严重的缺点：</p>
-<p>1、编码不规范，结构混乱臃肿，需要智能的终端才能很好的显示；</p>
-<p>2、表现和结构混乱，不利于开发和维护；</p>
-<p>3、不能使用更多的网络设备，比如手机、PDA等;</p>
-<p>因此HTML需要发展才能解决这个问题，于是W3C又制定了XHTML，XHTML是HTML向XML 过度的一个桥梁。而xml是web发展的趋势。</p>
-<p>本文借鉴于:<a href="http://www.cnblogs.com/fredshare/archive/2011/11/10/2244308.html" target="_blank" rel="noopener">http://www.cnblogs.com/fredshare/archive/2011/11/10/2244308.html</a></p>
+        <ol>
+<li><p>运算符、操作符左右两边加空格</p>
+</li>
+<li><p>语句结尾加分号( );</p>
+</li>
+<li><p>函数定义-&gt; function空格，sum空格()，参数列表空格{}</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 正确写法</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="comment">// 代码  </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  箭头函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 正确写法</span></span><br><span class="line"><span class="keyword">let</span> sum = <span class="function">(<span class="params">a，b</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> a + b ;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 单参数写法</span></span><br><span class="line"><span class="keyword">let</span> square = <span class="function"><span class="params">number</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> number * number;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>TabSize定义为2个空格</p>
+</li>
+<li><p>统一字符串使用双引号<code>&quot;&quot;</code>,多行文本使用模版字符串``</p>
+</li>
+<li><p>涉及到判断是否一致，全部使用 <code>===</code>和<code>!==</code></p>
+</li>
+<li><p>代码段中多于行删除</p>
+</li>
+<li><p>代码段与代码段之间加空行</p>
+</li>
+</ol>
 
     </article>
     <!-- 前后页  -->
     <ul class="post-pager">
         
-            <li class="next">
-                <a href= "/2018/02/04/HTML5-data-自定义属性/" title= HTML5 data-* 自定义属性 >
-                    <span>Next Post</span>
-                    <span>HTML5 data-* 自定义属性</span>
-                </a>
-            </li>
-        
         
             <li class="previous">
-                <a href= "/2018/01/30/React中state和props分别是什么？/" title= React中state和props分别是什么？ >
+                <a href= "/2018/02/05/未命名/" title=  >
                     <span>Previous Post</span>
-                    <span>React中state和props分别是什么？</span>
+                    <span>[Untitled Post]</span>
                 </a>
             </li>
         
@@ -315,7 +312,7 @@
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#html和xhtml和xml的区别"><span class="toc-number">1.</span> <span class="toc-text">html和xhtml和xml的区别</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结："><span class="toc-number"></span> <span class="toc-text">总结：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#再说说为什么网页编码要从html-gt-gt-xhtml-gt-gt-xml这么发展？"><span class="toc-number">1.</span> <span class="toc-text">再说说为什么网页编码要从html&gt;&gt;xhtml&gt;&gt;xml这么发展？</span></a></li></ol>
+        
     </div>
     
     <div class="back-top">&#xe639;</div>
