@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        React中state和props分别是什么？ · A-D技术博客
+        JavaScritp变量--匈牙利命名法 · A-D技术博客
         
     </title>
     <link rel="icon" href= /assets/44.jpg>
@@ -72,7 +72,7 @@
                 <a href="/" >程序亦非猿</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">React中state和props分别是什么？</a>
+                <a href="#" class="post-name">JavaScritp变量--匈牙利命名法</a>
             </div>
     </div>
     
@@ -93,7 +93,7 @@
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            React中state和props分别是什么？
+            JavaScritp变量--匈牙利命名法
             <!-- 404 -->
             
         </h1>
@@ -112,7 +112,7 @@
             <script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "2", "bdMiniList": false, "bdPic": "", "bdStyle": "1", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = "/static/api/js/share.js"];</script>
             <div class="post-intro-meta">
                 <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                <span class="post-intro-time">2018/01/30</span>
+                <span class="post-intro-time">2018/02/12</span>
                 <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                     <span class="iconfont-archer">&#xe604;</span>
                     <span id="busuanzi_value_page_pv"></span>
@@ -195,67 +195,59 @@
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <p>整理一下React中关于state和props的知识点。</p>
-<p>在任何应用中，数据都是必不可少的。我们需要直接的改变页面上一块的区域来使得视图的刷新，或者间接地改变其他地方的数据。React的数据是自顶向下单向流动的，即从父组件到子组件中，组件的数据存储在<code>props</code>和<code>state</code>中，这两个属性有啥子区别呢？</p>
-<h3 id="props"><a href="#props" class="headerlink" title="props"></a>props</h3><p>React的核心思想就是组件化思想，页面会被切分成一些独立的、可复用的组件。</p>
-<p>组件从概念上看就是一个函数，可以接受一个参数作为输入值，这个参数就是<code>props</code>，所以可以把<code>props</code>理解为从外部传入组件内部的数据。由于React是单向数据流，所以<code>props</code>基本上也就是从服父级组件向子组件传递的数据。</p>
-<h4 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h4><p>假设我们现在需要实现一个列表，根据React组件化思想，我们可以把列表中的行当做一个组件，也就是有这样两个组件：<code>&lt;ItemList/&gt;</code>和<code>&lt;Item/&gt;</code>。</p>
-<p>先看看<code>&lt;ItemList/&gt;</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import Item from &quot;./item&quot;;</span><br><span class="line">export default class ItemList extends React.Component&#123;</span><br><span class="line">  const itemList = data.map(item =&gt; &lt;Item item=item /&gt;);</span><br><span class="line">  render()&#123;</span><br><span class="line">    return (</span><br><span class="line">      &#123;itemList&#125;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>列表的数据我们就暂时先假设是放在一个<code>data</code>变量中，然后通过<code>map</code>函数返回一个每一项都是<code>&lt;Item item=&#39;数据&#39;/&gt;</code>的数组，也就是说这里其实包含了<code>data.length</code>个<code>&lt;Item/&gt;</code>组件，数据通过在组件上自定义一个参数传递。当然，这里想传递几个自定义参数都可以。</p>
-<p>在<code>&lt;Item /&gt;</code>中是这样的：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">export default class Item extends React.Component&#123;</span><br><span class="line">  render()&#123;</span><br><span class="line">    return (</span><br><span class="line">      &lt;li&gt;&#123;this.props.item&#125;&lt;/li&gt;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在<code>render</code>函数中可以看出，组件内部是使用<code>this.props</code>来获取传递到该组件的所有数据，它是一个对象，包含了所有你对这个组件的配置，现在只包含了一个<code>item</code>属性，所以通过<code>this.props.item</code>来获取即可。</p>
-<h3 id="只读性"><a href="#只读性" class="headerlink" title="只读性"></a>只读性</h3><p><code>props</code>经常被用作渲染组件和初始化状态，当一个组件被实例化之后，它的<code>props</code>是只读的，不可改变的。如果<code>props</code>在渲染过程中可以被改变，会导致这个组件显示的形态变得不可预测。只有通过父组件重新渲染的方式才可以把新的<code>props</code>传入组件中。</p>
-<h3 id="默认参数"><a href="#默认参数" class="headerlink" title="默认参数"></a>默认参数</h3><p>在组件中，我们最好为<code>props</code>中的参数设置一个<code>defaultProps</code>，并且制定它的类型。比如，这样：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Item.defaultProps = &#123;</span><br><span class="line">  item: 'Hello Props',</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Item.propTypes = &#123;</span><br><span class="line">  item: PropTypes.string,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>关于<code>propTypes</code>，可以声明为以下几种类型：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">optionalArray: PropTypes.array,</span><br><span class="line">optionalBool: PropTypes.bool,</span><br><span class="line">optionalFunc: PropTypes.func,</span><br><span class="line">optionalNumber: PropTypes.number,</span><br><span class="line">optionalObject: PropTypes.object,</span><br><span class="line">optionalString: PropTypes.string,</span><br><span class="line">optionalSymbol: PropTypes.symbol,</span><br></pre></td></tr></table></figure>
-<p>注意，<code>bool</code>和<code>func</code>是简写。</p>
-<p>这些知识基础数据类型，还有一些复杂的，附上链接：<a href="https://doc.react-china.org/" target="_blank" rel="noopener">https://doc.react-china.org/</a></p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><code>props</code>是一个从外部传进组件的参数，主要作为就是从父组件向子组件传递数据，它具有可读性和不变性，只能通过外部组件主动传入新的<code>props</code>来重新渲染子组件，否则子组件的<code>props</code>以及展现形式不会改变。</p>
-<h3 id="state"><a href="#state" class="headerlink" title="state"></a>state</h3><p><code>state</code>是什么呢？</p>
-<blockquote>
-<p>State is similar to props, but it is private and fully controlled by the component.</p>
-</blockquote>
-<p>一个组件的显示形态可以由数据状态和外部参数所决定，外部参数也就是<code>props</code>，而数据状态就是<code>state</code>。</p>
-<h3 id="用法-1"><a href="#用法-1" class="headerlink" title="用法"></a>用法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">export default class ItemList extends React.Component&#123;</span><br><span class="line">  constructor()&#123;</span><br><span class="line">    super();</span><br><span class="line">    this.state = &#123;</span><br><span class="line">      itemList:&apos;一些数据&apos;,</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  render()&#123;</span><br><span class="line">    return (</span><br><span class="line">      &#123;this.state.itemList&#125;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>首先，在组件初始化的时候，通过<code>this.state</code>给组件设定一个初始的<code>state</code>，在第一次<code>render</code>的时候就会用这个数据来渲染组件。</p>
-<h3 id="setState"><a href="#setState" class="headerlink" title="setState"></a>setState</h3><p><code>state</code>不同于<code>props</code>的一点是，<code>state</code>是可以被改变的。不过，不可以直接通过<code>this.state=</code>的方式来修改，而需要通过<code>this.setState()</code>方法来修改<code>state</code>。</p>
-<p>比如，我们经常会通过异步操作来获取数据，我们需要在<code>didMount</code>阶段来执行异步操作：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">componentDidMount()&#123;</span><br><span class="line">  fetch(&apos;url&apos;)</span><br><span class="line">    .then(response =&gt; response.json())</span><br><span class="line">    .then((data) =&gt; &#123;</span><br><span class="line">      this.setState(&#123;itemList:item&#125;);  </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>当数据获取完成后，通过<code>this.setState</code>来修改数据状态。</p>
-<p>当我们调用<code>this.setState</code>方法时，React会更新组件的数据状态<code>state</code>，并且重新调用<code>render</code>方法，也就是会对组件进行重新渲染。</p>
-<p><strong>注意：通过this.state=来初始化state，使用this.setState来修改state，constructor是唯一能够初始化的地方。</strong> </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">export default class ItemList extends React.Component&#123;</span><br><span class="line">  constructor()&#123;</span><br><span class="line">    super();</span><br><span class="line">    this.state = &#123;</span><br><span class="line">      name:&apos;axuebin&apos;,</span><br><span class="line">      age:25,</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  componentDidMount()&#123;</span><br><span class="line">    this.setState(&#123;age:18&#125;)  </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在执行完<code>setState</code>之后的<code>state</code>应该是<code>{name:&#39;axuebin&#39;,age:18}</code>。</p>
-<p><code>setState</code>还可以接受第二个参数，它是一个函数，会在<code>setState</code>调用完成并且组件开始重新渲染时被调用，可以用来监听渲染是否完成：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">this.setState(&#123;</span><br><span class="line">  name:&apos;xb&apos;</span><br><span class="line">&#125;,()=&gt;console.log(&apos;setState finished&apos;))</span><br></pre></td></tr></table></figure>
-<h3 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h3><p><code>state</code>的主要作用是用于组件保存、控制以及修改自己的状态，它只能在<code>constructor</code>中初始化，它算是组件的私有属性，不可通过外部访问和修改，只能通过组件内部的<code>this.setState</code>来修改，修改<code>state</code>属性会导致组件的重新渲染。</p>
-<h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><ol>
-<li><code>state</code>是组件自己管理数据，控制自己的状态，可变；</li>
-<li><code>props</code>是外部传入的数据参数，不可变;</li>
-<li>没有<code>state</code>的叫做无状态组件，有<code>state</code>的叫做有状态组件</li>
-<li>多用<code>props</code>，少用<code>state</code>。也就是多写无状态组件。</li>
-</ol>
-<p>本文借鉴于：<a href="https://segmentfault.com/a/1190000011184076" target="_blank" rel="noopener">https://segmentfault.com/a/1190000011184076</a></p>
+        <p>JavaScript变量–匈牙利命名法</p>
+<p>匈牙利命名法语法：<br>变量名＝类型＋对象描述<br>类型指变量的类型<br>对象描述指对象名字全称或名字的一部分，要求有明确含义，命名要容易记忆容易理解。<br>提示: 虽然JavaScript变量表面上没有类型，但是JavaScript内部还是会为变量赋予相应的类型。 </p>
+<p>提示: 匈牙利命名法是一位微软程序员发明的，多数的C,C++程序都使用此命名法。</p>
+<h3 id="JavaScript变量匈牙利命名类型"><a href="#JavaScript变量匈牙利命名类型" class="headerlink" title="JavaScript变量匈牙利命名类型"></a>JavaScript变量匈牙利命名类型</h3><table>
+<thead>
+<tr>
+<th>JavaScript变量起名类型</th>
+<th>变量命名前缀</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Array 数组</td>
+<td>a</td>
+</tr>
+<tr>
+<td>Float 浮点</td>
+<td>l</td>
+</tr>
+<tr>
+<td>Function 函数</td>
+<td>f</td>
+</tr>
+<tr>
+<td>Integer(int) 整型</td>
+<td>n</td>
+</tr>
+<tr>
+<td>Object 对象</td>
+<td>o</td>
+</tr>
+<tr>
+<td>Regular Expression 正则</td>
+<td>r</td>
+</tr>
+<tr>
+<td>String 字符串</td>
+<td>s</td>
+</tr>
+</tbody>
+</table>
+<p><strong>JavaScript变量名匈牙利命名法示例 </strong>var sWebURL=”www.jb51.net”;<br>从变量的名字可以看出s代表字符串WebURL是网址。<br>var nCheckCount=5;<br>从变量的名字可以看出n代表Integer(整型)，CheckCount代表某种数量。<br>var oDiv1=document.getElementById(‘box1’);<br>从变量的名字可以看出o代表Object(对象)。</p>
+<p>使用匈牙利命名法非常简单直观，方便判断变量的类型，而且方便程序的阅读与维护。</p>
 
     </article>
     <!-- 前后页  -->
     <ul class="post-pager">
         
-            <li class="next">
-                <a href= "/2018/01/31/html和xhtml和xml的区别/" title= html和xhtml和xml的区别 >
-                    <span>Next Post</span>
-                    <span>html和xhtml和xml的区别</span>
-                </a>
-            </li>
-        
         
             <li class="previous">
-                <a href= "/2018/01/30/React中元素与组件的区别/" title= React中元素与组件的区别,和组件有几种类型 >
+                <a href= "/2018/02/12/HTML5-canvas介绍及应用/" title= HTML5 canvas介绍及应用 >
                     <span>Previous Post</span>
-                    <span>React中元素与组件的区别,和组件有几种类型</span>
+                    <span>HTML5 canvas介绍及应用</span>
                 </a>
             </li>
         
@@ -342,7 +334,7 @@
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#props"><span class="toc-number">1.</span> <span class="toc-text">props</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#用法"><span class="toc-number">1.1.</span> <span class="toc-text">用法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#只读性"><span class="toc-number">2.</span> <span class="toc-text">只读性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#默认参数"><span class="toc-number">3.</span> <span class="toc-text">默认参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#state"><span class="toc-number">5.</span> <span class="toc-text">state</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#用法-1"><span class="toc-number">6.</span> <span class="toc-text">用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#setState"><span class="toc-number">7.</span> <span class="toc-text">setState</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结-1"><span class="toc-number">8.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#区别"><span class="toc-number">9.</span> <span class="toc-text">区别</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#JavaScript变量匈牙利命名类型"><span class="toc-number">1.</span> <span class="toc-text">JavaScript变量匈牙利命名类型</span></a></li></ol>
     </div>
     
     <div class="back-top">&#xe639;</div>
