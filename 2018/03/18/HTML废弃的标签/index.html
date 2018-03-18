@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        HTML5 canvas介绍及应用 · A-D技术博客
+        HTML废弃的标签 · A-D技术博客
         
     </title>
     <link rel="icon" href= /assets/44.jpg>
@@ -72,7 +72,7 @@
                 <a href="/" >程序亦非猿</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">HTML5 canvas介绍及应用</a>
+                <a href="#" class="post-name">HTML废弃的标签</a>
             </div>
     </div>
     
@@ -86,14 +86,14 @@
     
     <!-- 404页  -->
             
-    <div class="site-intro-img" style="background-image: url(http://oumn0o088.bkt.clouddn.com/post-bg.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/assets/hzw.jpg)"></div>
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            HTML5 canvas介绍及应用
+            HTML废弃的标签
             <!-- 404 -->
             
         </h1>
@@ -112,7 +112,7 @@
             <script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "2", "bdMiniList": false, "bdPic": "", "bdStyle": "1", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = "/static/api/js/share.js"];</script>
             <div class="post-intro-meta">
                 <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                <span class="post-intro-time">2018/02/12</span>
+                <span class="post-intro-time">2018/03/18</span>
                 <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                     <span class="iconfont-archer">&#xe604;</span>
                     <span id="busuanzi_value_page_pv"></span>
@@ -195,23 +195,24 @@
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        
+        <h3 id="为什么HTML中有一部分标签会被废弃"><a href="#为什么HTML中有一部分标签会被废弃" class="headerlink" title="为什么HTML中有一部分标签会被废弃?"></a>为什么HTML中有一部分标签会被废弃?</h3><p>因为当前的HTML中的标签只有一个作用, 就是用来添加语义<br>而早期的HTML标签中有一部分标签是没有语义的,<br>有一部分标签是用来修改样式的<br>所以这部分标签就被淘汰了</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;br&gt; &lt;hr&gt; &lt;font&gt;</span><br><span class="line">&lt;b&gt; &lt;u&gt; &lt;i&gt; &lt;s&gt;以上标签都是没有语义的,都是用来修改样式的</span><br><span class="line">b(bold) 加粗文本, 没有任何语义的</span><br><span class="line">u(underline) 给文本添加下划线, 没有任何语义的</span><br><span class="line">i(italic) 将文本倾斜, 没有任何语义的</span><br><span class="line">s(strikethourgh) 给文本添加删除线, 没有任何语义的</span><br></pre></td></tr></table></figure>
+<h3 id="注意点"><a href="#注意点" class="headerlink" title="注意点:"></a>注意点:</h3><p>以后在企业开发中, 不到万不得已一定不要使用这些被废弃掉的标签<br>如果一定要使用, 一般情况下都是用来作为CSS的钩子来使用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">strong == b</span><br><span class="line">ins == u</span><br><span class="line">em == i</span><br><span class="line">del == s</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">strong语义: 定义重要性强调的文字</span><br><span class="line">ins语义(inseted): 定义插入的文字</span><br><span class="line">em语义(emphasized): 定义强调的文字</span><br><span class="line">del语义(deleted): 定义被删除的文字</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;b&gt;我是文字&lt;<span class="regexp">/b&gt;</span></span><br><span class="line"><span class="regexp">&lt;u&gt;我是文字&lt;/u</span>&gt;</span><br><span class="line">&lt;i&gt;我是文字&lt;<span class="regexp">/i&gt;</span></span><br><span class="line"><span class="regexp">&lt;s&gt;我是文字&lt;/</span>s&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;strong&gt;我是文字&lt;<span class="regexp">/strong&gt;</span></span><br><span class="line"><span class="regexp">&lt;ins&gt;我是文字&lt;/i</span>ns&gt;</span><br><span class="line">&lt;em&gt;我是文字&lt;<span class="regexp">/em&gt;</span></span><br><span class="line"><span class="regexp">&lt;del&gt;我是文字&lt;/</span>del&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;p <span class="class"><span class="keyword">class</span></span>=<span class="string">"one"</span>&gt;我是文字&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">&lt;p class="two"&gt;我是文字&lt;/</span>p&gt;</span><br><span class="line">&lt;p <span class="class"><span class="keyword">class</span></span>=<span class="string">"three"</span>&gt;我是文字&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">&lt;p class="four"&gt;我是文字&lt;/</span>p&gt;</span><br></pre></td></tr></table></figure>
+
     </article>
     <!-- 前后页  -->
     <ul class="post-pager">
         
-            <li class="next">
-                <a href= "/2018/02/12/JavaScritp变量-匈牙利命名法/" title= JavaScritp变量--匈牙利命名法 >
-                    <span>Next Post</span>
-                    <span>JavaScritp变量--匈牙利命名法</span>
-                </a>
-            </li>
-        
         
             <li class="previous">
-                <a href= "/2018/02/07/react-webpack简单配置/" title= react-webpack简单配置 >
+                <a href= "/2018/03/05/减肥ING/" title= 减肥ING >
                     <span>Previous Post</span>
-                    <span>react-webpack简单配置</span>
+                    <span>减肥ING</span>
                 </a>
             </li>
         
@@ -294,7 +295,7 @@
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么HTML中有一部分标签会被废弃"><span class="toc-number">1.</span> <span class="toc-text">为什么HTML中有一部分标签会被废弃?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注意点"><span class="toc-number">2.</span> <span class="toc-text">注意点:</span></a></li></ol>
     </div>
     
     <div class="back-top">&#xe639;</div>
