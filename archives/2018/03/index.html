@@ -158,6 +158,34 @@
     
     
         <article class="index-post">
+            <a class="abstract-title" href = "/2018/03/26/css、js放置位置和原因/" >
+                
+                    <span>css、js放置位置和原因 </span>
+            </a>
+            <a class="content-show-full" href = "/2018/03/26/css、js放置位置和原因/" >
+                <div class="abstract-content">
+                    一天，小明正在网上查找资料，项目中遇到的问题需要通过查阅资料来解决，他看到一个标题很有意思，觉得这应该是他要找的答案，于是他就点了进去，结果进入网站后几秒钟的时间，网页还是一片空白，过了好久才加载完成。
+为什么会出现这种情况？说到这我们必须了解一下网站加载的整个过程了
+
+首先浏览器在服务器接收HTML代码，然后开始解析HTML
+构建DOM树，（从HTML自顶向下进行构建），并且在同时构建渲染树
+遇到js文件加载执行，将阻塞DOM树的构建，遇到css文件，将阻塞渲染树的构建
+script标签的defer属性：构建DOM树的过程和js文件的加载异步，（并行）进行，但是js执行需要DOM树构建...
+                </div>
+            </a>
+            <div class="abstract-post-meta">
+                <!-- tags  -->
+                
+                <!-- date  -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/03/26</span>
+                </div>
+            </div>
+        </article>
+    
+    
+    
+        <article class="index-post">
             <a class="abstract-title" href = "/2018/03/18/HTML废弃的标签/" >
                 
                     <span>HTML废弃的标签</span>
@@ -467,7 +495,20 @@
     
     
     
-    <div class="total-archive"> Total : 16 </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-archive"> Total : 17 </div>
     
     <div class="post-archive">
     
@@ -476,6 +517,11 @@
     
     <div class="archive-year"> 2018 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/26</span><a class="archive-post-title" href= "/2018/03/26/css、js放置位置和原因/" >css、js放置位置和原因 </a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -528,6 +574,29 @@
         </li>
     
     
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/01/12/hello-world/" >Hello World</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
+    
+    
         <li class="archive-post-item">
             <span class="archive-post-date">01/30</span><a class="archive-post-title" href= "/2018/01/30/React中元素与组件的区别/" >React中元素与组件的区别,和组件有几种类型</a>
         </li>
@@ -550,20 +619,6 @@
     
         <li class="archive-post-item">
             <span class="archive-post-date">01/13</span><a class="archive-post-title" href= "/2018/01/13/HTML5新特性，语义化/" >HTML5新特性，语义化</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/01/12/hello-world/" >Hello World</a>
         </li>
     
     </div>
