@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        EJS模版 · A-D技术博客
+        盒模型，boxsizing · A-D技术博客
         
     </title>
     <link rel="icon" href= /assets/44.jpg>
@@ -72,7 +72,7 @@
                 <a href="/" >程序亦非猿</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">EJS模版</a>
+                <a href="#" class="post-name">盒模型，boxsizing</a>
             </div>
     </div>
     
@@ -93,7 +93,7 @@
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            EJS模版
+            盒模型，boxsizing
             <!-- 404 -->
             
         </h1>
@@ -112,7 +112,7 @@
             <script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "2", "bdMiniList": false, "bdPic": "", "bdStyle": "1", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = "/static/api/js/share.js"];</script>
             <div class="post-intro-meta">
                 <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                <span class="post-intro-time">2018/01/30</span>
+                <span class="post-intro-time">2018/03/29</span>
                 <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                     <span class="iconfont-archer">&#xe604;</span>
                     <span id="busuanzi_value_page_pv"></span>
@@ -195,25 +195,43 @@
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h1 id="一、EJS模版概念"><a href="#一、EJS模版概念" class="headerlink" title="一、EJS模版概念"></a>一、EJS模版概念</h1><p>E”是“有效的，EJS是一个简单高效的模版语言，通过数据和模版，可以让您使用普通的JavaScript生成HTML标记</p>
-<p><img src="/assets/img1.png" alt="Alt text"></p>
+        <h4 id="盒模型：标准盒模型"><a href="#盒模型：标准盒模型" class="headerlink" title="盒模型：标准盒模型"></a>盒模型：标准盒模型</h4><p>是前端布局的概念，把页面中的每一个元素都看做是一个盒子。</p>
+<p>盒子的基本属性？</p>
+<ol>
+<li>宽高</li>
+<li>边框</li>
+</ol>
+<p>盒子和盒子之间有哪些关系？</p>
+<ol>
+<li>邻居</li>
+<li>盒子里面，还可以装盒子，是嵌套关系</li>
+</ol>
+<p>盒模型的组成：内容 + 内边距 + 边框+外边距</p>
+<h4 id="box-sizing：怪异盒模型"><a href="#box-sizing：怪异盒模型" class="headerlink" title="box-sizing：怪异盒模型"></a>box-sizing：怪异盒模型</h4><p><code>box-sizing</code> 属性用于更改计算元素宽度和高度的默认的 <code>CSS</code> 盒模型，可以使用此属性来模拟不正确支持 <code>CSS</code> 盒子模型规范的浏览器的行为。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 关键字 值 */</span></span><br><span class="line"><span class="selector-tag">box-sizing</span>: <span class="selector-tag">content-box</span>;</span><br><span class="line"><span class="selector-tag">box-sizing</span>: <span class="selector-tag">border-box</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 全局 值 */</span></span><br><span class="line"><span class="selector-tag">box-sizing</span>: <span class="selector-tag">inherit</span>;</span><br><span class="line"><span class="selector-tag">box-sizing</span>: <span class="selector-tag">initial</span>;</span><br><span class="line"><span class="selector-tag">box-sizing</span>: <span class="selector-tag">unset</span>;</span><br></pre></td></tr></table></figure>
+<p>在 <code>CSS</code> 中，你设置元素的 <code>width</code> 和 <code>height</code>，只会应用到这个元素的内容区。如果这个元素有任何的 <code>border</code>和 <code>padding</code>，绘制到屏幕上时一定要注意这个元素的边框，和内边距，当我们实现响应式时，这点很烦人。</p>
+<p>boxsizing 属性就是用来解决这些问题的：</p>
+<ul>
+<li><code>content-box</code> 是默认值。如果你设置一个元素为100px，那么这个元素的内容宽度就会有100px，并且任何边框和内边距的宽度都会被增加到最后绘制出来的元素宽度中</li>
+<li><code>border-box</code> 意识就是告诉浏览器你设置的 <code>border</code> 和 <code>padding</code> 都包含在你的 <code>width</code> 中，也就是说你给这个元素设置 <code>width</code> 100px，你的 <code>border</code> 和 <code>padding</code> 也都会包含在内，内容区的实际宽度会是 <code>width</code> 减去 <code>border</code> + <code>padding</code> 的计算值。大多数情况下这使得我们更容易的去设定一个元素的宽高。</li>
+</ul>
+<p><img src="/assets/box-sizing.jpg" alt="Alt text"></p>
+<ul>
+<li><code>width</code> 和 <code>height</code> 属性包括内容，内边距和边框，但不包括外边距</li>
+</ul>
+<p>这里的维度计算为：</p>
+<p><em>width = border + padding + 内容的  width</em>，</p>
+<p><em>height = border + padding + 内容的 height</em>。</p>
 
     </article>
     <!-- 前后页  -->
     <ul class="post-pager">
         
-            <li class="next">
-                <a href= "/2018/01/30/React中元素与组件的区别/" title= React中元素与组件的区别,和组件有几种类型 >
-                    <span>Next Post</span>
-                    <span>React中元素与组件的区别,和组件有几种类型</span>
-                </a>
-            </li>
-        
         
             <li class="previous">
-                <a href= "/2018/01/26/grunt的安装与介绍/" title= grunt的安装与介绍 >
+                <a href= "/2018/03/26/css、js放置位置和原因/" title= css、js放置位置和原因  >
                     <span>Previous Post</span>
-                    <span>grunt的安装与介绍</span>
+                    <span>css、js放置位置和原因 </span>
                 </a>
             </li>
         
@@ -296,7 +314,7 @@
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、EJS模版概念"><span class="toc-number">1.</span> <span class="toc-text">一、EJS模版概念</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#盒模型：标准盒模型"><span class="toc-number">1.</span> <span class="toc-text">盒模型：标准盒模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#box-sizing：怪异盒模型"><span class="toc-number">2.</span> <span class="toc-text">box-sizing：怪异盒模型</span></a></li></ol>
     </div>
     
     <div class="back-top">&#xe639;</div>
