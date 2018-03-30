@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        grunt的安装与介绍 · A-D技术博客
+        CSS3新特性的概述 · A-D技术博客
         
     </title>
     <link rel="icon" href= /assets/44.jpg>
@@ -72,7 +72,7 @@
                 <a href="/" >程序亦非猿</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">grunt的安装与介绍</a>
+                <a href="#" class="post-name">CSS3新特性的概述</a>
             </div>
     </div>
     
@@ -86,14 +86,14 @@
     
     <!-- 404页  -->
             
-    <div class="site-intro-img" style="background-image: url(http://oumn0o088.bkt.clouddn.com/post-bg.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/assets/)"></div>
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            grunt的安装与介绍
+            CSS3新特性的概述
             <!-- 404 -->
             
         </h1>
@@ -112,7 +112,7 @@
             <script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "2", "bdMiniList": false, "bdPic": "", "bdStyle": "1", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = "/static/api/js/share.js"];</script>
             <div class="post-intro-meta">
                 <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                <span class="post-intro-time">2018/01/26</span>
+                <span class="post-intro-time">2018/03/29</span>
                 <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                     <span class="iconfont-archer">&#xe604;</span>
                     <span id="busuanzi_value_page_pv"></span>
@@ -195,77 +195,149 @@
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h1 id="Grunt安装及使用介绍"><a href="#Grunt安装及使用介绍" class="headerlink" title="Grunt安装及使用介绍"></a>Grunt安装及使用介绍</h1><p>Grunt都能做什么，自动化，减少像压缩，编译，单元测试，代码效验，打包，管理，优化，多余的东西干掉，这些重复且无业务关联的工作，我们做的越少，就可以留出更多的精力，来专注与我们的业务代码，那为什么我们选择grunt呢，是因为grunt的生态实在是在强大了，只要你能想到的任务，基本上都可以找到grunt的相关的自动化插件，并且grunt的生态一直在持续增长，我们不能给grunt全世界，但是grunt的全世界都给了我们</p>
-<p>首先我们先创建一个文件夹名字叫<code>grunt-test</code></p>
-<p>官方站点：<a href="http://gruntjs.com/" target="_blank" rel="noopener">http://gruntjs.com/</a></p>
-<p>然后进入到这个文件夹，在这个文件夹中执行</p>
+        <h3 id="CSS3新特性大致分为一下六类"><a href="#CSS3新特性大致分为一下六类" class="headerlink" title="CSS3新特性大致分为一下六类"></a><em>CSS3新特性大致分为一下六类</em></h3><ul>
+<li><em>CSS3选择器</em></li>
+<li><em>CSS3边框与圆角</em></li>
+<li><em>CSS3背景与渐变</em></li>
+<li><em>CSS3过渡</em></li>
+<li><em>CSS3变换</em></li>
+<li><em>CSS3动画</em></li>
+</ul>
+<p><em>下面说一下以上六类都有哪些内容</em></p>
+<h4 id="CSS3选择器"><a href="#CSS3选择器" class="headerlink" title="CSS3选择器"></a><em>CSS3选择器</em></h4><h6 id="1、基本选择器"><a href="#1、基本选择器" class="headerlink" title="1、基本选择器"></a><em>1、基本选择器</em></h6><p><em>基本选择器又分为</em></p>
+<p><em>子选择器</em></p>
+<p><em>相邻兄弟选择器</em></p>
+<p><em>通用兄弟选择器</em></p>
+<p><em>群组选择器</em></p>
+<h6 id="2、属性选择器"><a href="#2、属性选择器" class="headerlink" title="2、属性选择器"></a><em>2、属性选择器</em></h6><p><em>1、element[attribute]</em></p>
+<p><em>带有attribute属性的元素设置样式</em></p>
+<p><em>2、element[attrbute=’value’]</em></p>
+<p><em>带有attribute=’value’的元素设置样式</em></p>
+<p><em>3、element[attribute~=’value’]</em></p>
+<p><em>带有attribute属性值中，包含单词value的元素设置样式</em></p>
+<p>4、<em>element</em> <em>[</em> <em>attribute</em> <em>= </em>‘value’]*</p>
+<p><em>带有attribute属性值中，包含value的元素设置样式</em></p>
+<p><em>5、element[attribute^=’value’]</em></p>
+<p><em>带有attribute属性值中，以value开头的元素设置样式</em></p>
+<p><em>6、element[attribute$=’value’]</em></p>
+<p><em>带有 <code>attribute</code> 属性值中，以 <code>value</code> 结尾的元素设置样式</em></p>
+<p><em>注意比较3和4的区别</em></p>
+<h6 id="3、伪类选择器"><a href="#3、伪类选择器" class="headerlink" title="3、伪类选择器"></a><em>3、伪类选择器</em></h6><ul>
+<li><em>动态伪类</em></li>
+</ul>
+<p><em>定义：这些伪类一般不出现HTML中，只有当用户和网站交互的时候才能体现出来</em></p>
+<p><em>1、锚点伪类</em></p>
 <blockquote>
-<p>npm init</p>
+<p><em>: link</em></p>
+<p><em>: visited</em></p>
 </blockquote>
-<p>然后会提示你是否会创建这一个文件，然后会让我们输入一些东西，比如，版本啊，描述啊，作者啊，关键词啊，等等，我们就默认就行了，最后我们目录下就会生成一个<code>package.json</code>的文件</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"name"</span>: <span class="string">"grunt-test"</span>,</span><br><span class="line">  <span class="attr">"version"</span>: <span class="string">"1.0.0"</span>,</span><br><span class="line">  <span class="attr">"description"</span>: <span class="string">""</span>,</span><br><span class="line">  <span class="attr">"main"</span>: <span class="string">"index.js"</span>,</span><br><span class="line">  <span class="attr">"scripts"</span>: &#123;</span><br><span class="line">    <span class="attr">"test"</span>: <span class="string">"echo \"Error: no test specified\" &amp;&amp; exit 1"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"author"</span>: <span class="string">""</span>,</span><br><span class="line">  <span class="attr">"license"</span>: <span class="string">"ISC"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这样就生成了一个package.json的文件，现在有这个文件了，我们需要在安装执行grunt需要的命令行，就是</p>
+<p><em>2、用户行为伪类</em></p>
 <blockquote>
-<p>npm i -g grunt-cli  注意Mac OS linux 命令前面需要加sudo的语句</p>
+<p><em>: hover</em></p>
+<p><em>: active</em></p>
+<p><em>: focus</em></p>
 </blockquote>
-<p>然后我们执行一段命令,把真正的grunt安装到我们的项目里面来</p>
+<p><em>3、目标伪类</em></p>
 <blockquote>
-<p>$ npm  i grunt –save-dev</p>
+<p><em>: target</em></p>
+<p><em>当我们点击锚点链接的时候，对应的id元素会显示在视口</em></p>
 </blockquote>
-<p>安装完之后你会发现你项目的目录里会多了一个文件，叫node_modules的文件,里面有很多第三方的库，来支持grunt的运转，然后回到你的package.json,文件里会发现多了点东西</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"name"</span>: <span class="string">"grunt-test"</span>,</span><br><span class="line">  <span class="attr">"version"</span>: <span class="string">"1.0.0"</span>,</span><br><span class="line">  <span class="attr">"description"</span>: <span class="string">""</span>,</span><br><span class="line">  <span class="attr">"main"</span>: <span class="string">"index.js"</span>,</span><br><span class="line">  <span class="attr">"scripts"</span>: &#123;</span><br><span class="line">    <span class="attr">"test"</span>: <span class="string">"echo \"Error: no test specified\" &amp;&amp; exit 1"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"author"</span>: <span class="string">""</span>,</span><br><span class="line">  <span class="attr">"license"</span>: <span class="string">"ISC"</span>,</span><br><span class="line">  <span class="attr">"devDependencies"</span>: &#123;</span><br><span class="line">    <span class="attr">"grunt"</span>: <span class="string">"^1.0.1"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>多了依赖，就是我们项目用的’grunt’:’^1.0.1’,然后我们在执行<code>grunt</code></p>
-<blockquote>
-<p>$ grunt</p>
-<p>不能找到你的Gruntfile</p>
-<p>Fatal error: Unable to find Gruntfile.</p>
-</blockquote>
-<p>又报错了，说找不到你的Gruntfile文件，Gruntfile文件是什么呢，就是grunt写任务的文件夹，grunt所有的配置都在这个文件里面写，那我们就在项目的根目录创建一个Gruntfile.js文件，创建完之后现在项目的结构是这样的</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">|--grunt-test</span><br><span class="line">|--|--node_modules</span><br><span class="line">|--|--Gruntfile.js</span><br><span class="line">|--|--package.json</span><br><span class="line">|--|--package-lock.json</span><br></pre></td></tr></table></figure>
-<p>到现在为止我们的grunt就算是安装完了，然后在执行命令</p>
-<blockquote>
-<p>$ grunt</p>
-</blockquote>
-<p>会提示这一句话</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Warning: Task "default" not found. Use --force to continue.</span><br><span class="line"></span><br><span class="line">Aborted due to warnings.</span><br></pre></td></tr></table></figure>
-<p>说没有找到”default”的Task,那么怎么实现Task的执行任务呢</p>
-<p>首先我们今天就来讲讲js文件压缩，和css文件合并压缩，先准备一个js文件，和css文件，里面有一个你需要压缩的js文件，和css文件，在准备一个空文件夹名字叫做dist文件夹，这个文件夹是用来装你压缩过的文件，让我们看看现在的目录结构是什么样子的</p>
-<p><img src="http://p35c82bq0.bkt.clouddn.com/image/png/img2.png" alt="Alt text"></p>
-<p>现在我们开始配置我们Gruntfile文件里的内容了，内容是这样的:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//这个约定了Grunt所有插件在这里配置。</span></span><br><span class="line"> <span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span> (<span class="params">grunt</span>) </span>&#123;<span class="comment">//这是Node.js的典型写法，使用exports公开API</span></span><br><span class="line">     grunt.initConfig(&#123;  <span class="comment">//定义各种模块的参数，每一个成员项对应一个同名模块,项目配置以及任务配置。</span></span><br><span class="line">         pkg:grunt.file.readJSON(<span class="string">'package.json'</span>),<span class="comment">//获取依赖关系提供你需要的插件的版本和名称</span></span><br><span class="line">         uglify:&#123;<span class="comment">//压缩js代码</span></span><br><span class="line">             options: &#123;<span class="comment">//这里是uglify任务的配置信息</span></span><br><span class="line">                 banner: <span class="string">'/*! &lt;%= pkg.name %&gt; &lt;%= grunt.template.today("yyyy-mm-dd") %&gt; */\n'</span></span><br><span class="line">             &#125;,</span><br><span class="line">             build:&#123;  <span class="comment">//源文件</span></span><br><span class="line">                 files: &#123;</span><br><span class="line">                     <span class="string">'dist/index.min.js'</span>:<span class="string">'js/index.js'</span></span><br><span class="line">                 &#125;</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;,</span><br><span class="line">         cssmin:&#123;<span class="comment">//Css压缩合并</span></span><br><span class="line">             options:&#123;</span><br><span class="line">                 <span class="comment">// keepSpecialComments:0</span></span><br><span class="line">             &#125;,</span><br><span class="line">             compress:&#123;</span><br><span class="line">                 files:&#123;</span><br><span class="line">                     <span class="string">'dist/default.min.css'</span>:[</span><br><span class="line">                         <span class="string">'css/saibaiwei.css'</span>,</span><br><span class="line">                         <span class="string">'css/saibaiwei1.css'</span></span><br><span class="line">                     ]</span><br><span class="line">                 &#125;</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;);</span><br><span class="line">     grunt.loadNpmTasks(<span class="string">'grunt-contrib-uglify'</span>);<span class="comment">//告诉grunt我们使用的模块</span></span><br><span class="line">     grunt.loadNpmTasks(<span class="string">'grunt-contrib-cssmin'</span>);</span><br><span class="line">     grunt.registerTask(<span class="string">'yasuo'</span>,[<span class="string">'uglify'</span>,<span class="string">'cssmin'</span>])<span class="comment">//定义具体的任务。</span></span><br><span class="line">     <span class="comment">// 第一个参数为任务名，第二个参数是一个数组， 表示该任务需要依次使用的模块。</span></span><br><span class="line"> &#125;;</span><br></pre></td></tr></table></figure>
-<p>好了朋友们现在配置文件已经写好了，那我们来执行任务吧，首先我们应该安装js压缩，还有css压缩合并需要的插件</p>
-<p>js压缩插件</p>
-<blockquote>
-<p>$ npm i grunt-contrib-uglify</p>
-</blockquote>
-<p>css压缩合并插件</p>
-<blockquote>
-<p>$ npm i grunt-contrib-cssmin</p>
-</blockquote>
-<p>安装完之后我们就可以执行了，我们需要用grunt命令来执行 <code>grunt.registerTask(&#39;yasuo&#39;,[&#39;uglify&#39;,&#39;cssmin&#39;])</code>里的第一个参数</p>
-<blockquote>
-<p>$ grunt yasuo</p>
-</blockquote>
-<p>命令执行之后你的dist文件里会多出两个压缩的文件，让我们来看看</p>
-<p><img src="http://p35c82bq0.bkt.clouddn.com/image/png/img1.png" alt="Alt text"></p>
-<h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h2><p>grunt是最早的，打包工工具，现在有很多打包工具的，比如gulp,webpack，这些都是前端是实用的打包工具，但是随着这些打包工具的出现，grunt也大不如以前了，grunt相当于打包的鼻祖了</p>
-<h5 id="1-其实grunt配置很简单，Gruntfile文件是js格式的，比较贴近前端的知识"><a href="#1-其实grunt配置很简单，Gruntfile文件是js格式的，比较贴近前端的知识" class="headerlink" title="1.其实grunt配置很简单，Gruntfile文件是js格式的，比较贴近前端的知识"></a>1.其实grunt配置很简单，Gruntfile文件是js格式的，比较贴近前端的知识</h5><h5 id="2-Grunt还有很多插件等着我们去使用"><a href="#2-Grunt还有很多插件等着我们去使用" class="headerlink" title="2.Grunt还有很多插件等着我们去使用"></a>2.Grunt还有很多插件等着我们去使用</h5><h5 id="3-每个人的具体需求不一样，可以按自己的习惯合理配置，组合成最适合自己项目的自动化工作流。"><a href="#3-每个人的具体需求不一样，可以按自己的习惯合理配置，组合成最适合自己项目的自动化工作流。" class="headerlink" title="3.每个人的具体需求不一样，可以按自己的习惯合理配置，组合成最适合自己项目的自动化工作流。"></a>3.每个人的具体需求不一样，可以按自己的习惯合理配置，组合成最适合自己项目的自动化工作流。</h5>
+<p><em>4、<code>checked</code>状态伪类</em></p>
+<p><em>这里我们只要知道 <code>checkbox</code> 只能设置宽高，不能设置背景和边框，如果想要设置那我们需要用<code></code> <code>appearance:none;</code> 来清除 <code>input</code> 的默认样式</em></p>
+<ul>
+<li><em>CSS3结构类：</em> <em><code>nth</code> 选择器</em></li>
+</ul>
+<p><em><code>:first-child/last-child</code></em></p>
+<p><em>语法：</em> <em><code>element:first-child</code></em></p>
+<p><em>选择属于父元素的首个/最后一个子元素的每个 <code>element</code> 元素，注意 <code>element</code> 为子元素。</em></p>
+<p><em>`:nth-child(n)</em>`</p>
+<p><em>选择某元素下的第n个 <code>element</code> 元素（n是一个简单的表达式，不能用其他的字母代替），括号里还可以传 <code>odd</code>和  <code>even</code> 两个关键字</em></p>
+<p><em><code>:nth-last-child(n)</code></em></p>
+<p><em>选择某个元素下的n个 <code>element</code> 子元素，从最后一个子元素计算</em></p>
+<p><em><code>:nth-of-type(n)</code></em></p>
+<p><em>语法：</em> <em><code>element:nth-of-type(n)</code></em></p>
+<p><em>匹配属于父元素的特定类型的第n个子元素，<code>element</code> 为指定类型的子元素</em></p>
+<p><em><code>:nth-last-of-type</code></em></p>
+<p><em>匹配属于父元素的特定类型的第n个子元素，从最后一个计数</em></p>
+<p><em><code>:first-of-type/:last-of-type</code></em></p>
+<p><em>匹配属于其父元素的特定类型的首个/最后一个子元素的每个元素</em></p>
+<p><em><code>:only-child</code></em></p>
+<p><em>匹配属于父元素的唯一子元素的每个元素</em></p>
+<p><em><code>:only-of-type</code></em><br><em>匹配属于其父元素特定类型的唯一子元素的每个元素</em></p>
+<p><em><code>:empty</code></em></p>
+<p><em>匹配没有子元素（包括文本节点）的每个元素</em></p>
+<ul>
+<li><em>否定选择器：<code>not</code></em></li>
+</ul>
+<p><em>定义：匹配非 元素或者选择器 的每个元素</em></p>
+<p><em>语法：父元素：<code>not</code>（子元素或者选择器）</em></p>
+<p><em>例如：<code>ul:not(span){}</code></em></p>
+<ul>
+<li><em>伪元素（也可以使用：）</em></li>
+</ul>
+<p><em><code>element::first-line</code></em><br><em>定义：对元素的第一行文本进行设置，只能用于块级元素</em><br><em><code>element::first-letter</code></em><br><em>定义：用于向文本的首字母设置特殊样式，只能用于块级元素</em><br><em><code>element::before</code></em><br><em>定义：在元素的内容前面插入新内容，常与 <code>content</code> 配合使用</em><br><em><code>element::after</code></em><br><em>定义：在元素的内容后面插入新内容，常与 <code>content</code> 配合使用</em><br><em><code>element::selection</code></em></p>
+<p><em>定义：用于设置浏览器中选中文本后的背景色与前景色</em></p>
+<h5 id="伪元素与元素的区别："><a href="#伪元素与元素的区别：" class="headerlink" title="伪元素与元素的区别："></a><em>伪元素与元素的区别</em>：</h5><p><em>无法通过js获取DOM</em></p>
+<p><em>无法通过浏览器开发工具直接查看</em></p>
+<p><em>伪元素默认是 <code>inline</code> </em></p>
+<h5 id="使用伪元素注意事项："><a href="#使用伪元素注意事项：" class="headerlink" title="使用伪元素注意事项："></a><em>使用伪元素注意事项：</em></h5><p><em>1、使用伪元素 <code>before</code> 和 <code>after</code> 必须设置 <code>content</code></em></p>
+<p><em>2、使用伪元素 <code>before</code> 和 <code>after</code> 显示背景图，一定要使用 <code>display</code> 设置为块元素</em></p>
+<p><em>3、使用伪元素 <code>before</code> 和 <code>after</code> 设置为 <code>display：</code> <code>link-block</code>，需要再次设置 <code>vertical-align:middle</code></em></p>
+<h4 id="CSS3边框与圆角"><a href="#CSS3边框与圆角" class="headerlink" title="CSS3边框与圆角"></a><em>CSS3边框与圆角</em></h4><h6 id="1-CSS3圆角border-radius"><a href="#1-CSS3圆角border-radius" class="headerlink" title="1.CSS3圆角border-radius"></a><em>1.CSS3圆角border-radius</em></h6><p><em>定义：可以为元素添加圆角边框（块元素，行内块元素，行元素）</em></p>
+<p><em>属性：</em></p>
+<p><em><code>border-top-left-radius</code>：左上角</em></p>
+<p><em><code>border-top-right-radius</code>：右上角</em></p>
+<p><em><code>border-bottom-right-radius</code> 右下角</em></p>
+<p><em><code>border-bottom-left-radius</code> 左下角</em></p>
+<p><em>属性值 ：</em><br><em>四个值：左上角 、右上角、 右下角、 左下角</em></p>
+<p><em>三个值：左上角、右上角和左下角、右下角</em></p>
+<p><em>两个值：左上角和右下角、右上角和左下角</em></p>
+<p><em>一个值：4个角都生效</em></p>
+<p><em><code>border-radius</code> 中的属性值由两个参数值构成: value1 / value2，值之间用/分隔，value1代表圆角的水平半径，value2代表圆角的垂直半径</em></p>
+<p><em>圆形与随圆：</em></p>
+<p><em>一旦使用百分比，参照的是元素本身的高度与宽度当拿50%时，宽等于高为圆形 宽不等于高为椭圆形</em></p>
+<h6 id="2-盒模型box-shedow"><a href="#2-盒模型box-shedow" class="headerlink" title="2.盒模型box-shedow"></a><em>2.盒模型box-shedow</em></h6><p>定义：可以控制一个或多个下拉阴影的框</p>
+<p><em>语法：box-shadow: 水平方向的偏移量、垂直方向的偏移量、模糊程度、扩展程度、颜色、是否具有内阴影</em></p>
+<p><em>属性值的介绍：</em></p>
+<p><em>偏移量</em></p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">把元素左上角（<span class="number">0</span>，<span class="number">0</span>）作为基准点，找水</span><br><span class="line">平方向和垂直方向的偏移量</span><br><span class="line">水平： 正值 --- 右 ，负值 --- 左</span><br><span class="line">垂直： 正值 --- 下 ，负值 --- 上</span><br></pre></td></tr></table></figure>
+<p><em>模糊程度：</em></p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">边界模糊，但是边界线未动</span><br><span class="line">由边界线向外模糊多少像素</span><br></pre></td></tr></table></figure>
+<p><em>扩展程度：</em></p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">盒子阴影，上下左右都向外扩展多少像素</span><br></pre></td></tr></table></figure>
+<p><em>是否具有内阴影</em></p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">inset(默认没有，也就是默认是外阴影)</span><br><span class="line">加上inset,盒子的阴影为内阴影</span><br><span class="line"></span><br><span class="line">扩展程度可为负值，但是模糊程度不可以</span><br></pre></td></tr></table></figure>
+<h4 id="CSS3背景与渐变"><a href="#CSS3背景与渐变" class="headerlink" title="CSS3背景与渐变"></a><em>CSS3背景与渐变</em></h4><ul>
+<li><em><code>background-image:</code></em></li>
+</ul>
+<p><em>语法：</em></p>
+<p><em><code>background-image:url(&#39;1.jpg),url(&#39;2.jpg&#39;)</code></em></p>
+<p><em>使用逗号把图片分开</em></p>
+<p><em>注意：元素引入多个背景图片，前面图片会覆盖后面的图片</em></p>
+<ul>
+<li><em><code>background-clip:</code></em></li>
+</ul>
+<p><em>定义：指定背景的绘制区域（裁剪）</em></p>
+<p><em>语法：</em></p>
+<p><em><code>background-cilp: border-box / padding-box / content-box</code></em></p>
+<p>属性介绍：</p>
+
     </article>
     <!-- 前后页  -->
     <ul class="post-pager">
         
             <li class="next">
-                <a href= "/2018/01/30/EJS模版/" title= EJS模版 >
+                <a href= "/2018/03/30/为什么使用React/" title= 为什么使用React >
                     <span>Next Post</span>
-                    <span>EJS模版</span>
+                    <span>为什么使用React</span>
                 </a>
             </li>
         
         
             <li class="previous">
-                <a href= "/2018/01/15/HTML标准模式，和怪异模式/" title= HTML标准模式，和怪异模式 >
+                <a href= "/2018/03/29/盒模型，boxsizing/" title= 盒模型，boxsizing >
                     <span>Previous Post</span>
-                    <span>HTML标准模式，和怪异模式</span>
+                    <span>盒模型，boxsizing</span>
                 </a>
             </li>
         
@@ -348,7 +420,7 @@
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Grunt安装及使用介绍"><span class="toc-number">1.</span> <span class="toc-text">Grunt安装及使用介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#总结："><span class="toc-number">1.1.</span> <span class="toc-text">总结：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-其实grunt配置很简单，Gruntfile文件是js格式的，比较贴近前端的知识"><span class="toc-number">1.1.0.0.1.</span> <span class="toc-text">1.其实grunt配置很简单，Gruntfile文件是js格式的，比较贴近前端的知识</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-Grunt还有很多插件等着我们去使用"><span class="toc-number">1.1.0.0.2.</span> <span class="toc-text">2.Grunt还有很多插件等着我们去使用</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-每个人的具体需求不一样，可以按自己的习惯合理配置，组合成最适合自己项目的自动化工作流。"><span class="toc-number">1.1.0.0.3.</span> <span class="toc-text">3.每个人的具体需求不一样，可以按自己的习惯合理配置，组合成最适合自己项目的自动化工作流。</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS3新特性大致分为一下六类"><span class="toc-number">1.</span> <span class="toc-text">CSS3新特性大致分为一下六类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#CSS3选择器"><span class="toc-number">1.1.</span> <span class="toc-text">CSS3选择器</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1、基本选择器"><span class="toc-number">1.1.0.1.</span> <span class="toc-text">1、基本选择器</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2、属性选择器"><span class="toc-number">1.1.0.2.</span> <span class="toc-text">2、属性选择器</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3、伪类选择器"><span class="toc-number">1.1.0.3.</span> <span class="toc-text">3、伪类选择器</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#伪元素与元素的区别："><span class="toc-number">1.1.1.</span> <span class="toc-text">伪元素与元素的区别：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#使用伪元素注意事项："><span class="toc-number">1.1.2.</span> <span class="toc-text">使用伪元素注意事项：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CSS3边框与圆角"><span class="toc-number">1.2.</span> <span class="toc-text">CSS3边框与圆角</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-CSS3圆角border-radius"><span class="toc-number">1.2.0.1.</span> <span class="toc-text">1.CSS3圆角border-radius</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-盒模型box-shedow"><span class="toc-number">1.2.0.2.</span> <span class="toc-text">2.盒模型box-shedow</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CSS3背景与渐变"><span class="toc-number">1.3.</span> <span class="toc-text">CSS3背景与渐变</span></a></li></ol></li></ol>
     </div>
     
     <div class="back-top">&#xe639;</div>
