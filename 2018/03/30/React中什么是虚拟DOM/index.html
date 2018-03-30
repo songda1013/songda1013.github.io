@@ -195,13 +195,13 @@
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <p><em>我们来说一下什么是 <code>Virtual DOM</code>，之前对这个问题，了解的不是特别的深刻，前几天在网上查找资料，加上自己的理解，来说一下这个虚拟<code>DOM</code>。</em></p>
+        <p><em>我们来说一下什么是 <code>Virtual DOM</code>，之前对这个问题，了解的不是特别的深刻，前几天在网上查找资料，加上自己的理解，来说一下这个虚拟 DOM。</em></p>
 <p><em>React 应用是通过重复渲染来实现的用户的交互，你可能会想，这样的重复渲染会不会效率太低了，在 jQuery 的实现方式中，我们可在控制台清楚的看见，每次只有需要变化的那一个 DOM 元素被修改，可是，在 React 实现方式中，每次 <code>render</code> 被调用的时候，都要把整个组件都渲染一遍，这样看起来是不是有点浪费呢。</em></p>
-<p><em>事实上不是这样的，React 利用 <code>Virtual DOM</code>，让每次渲染都渲染最少的 <code>DOM</code> 元素</em></p>
-<p><em>要了解 <code>Virtual DOM</code>，首先就要了解<code>DOM</code>，<code>DOM</code> 是结构化文本的抽象表达方式，特定与web环境中，这个结构化文本就是HTML，<code>HTML</code> 中的每一个元素都对应着 <code>DOM</code> 的每个节点，这样因为HTML中的逐级包含关系，DOM节点自然就构成了一个树形结构，称为 <code>DOM</code> 树</em></p>
-<p><em>浏览器为了渲染 <code>HTML</code> 格式的网页，会将HTML文本解析构建 <code>DOM</code> 树，然后根据DOM树，来渲染用户看到的界面，当要改变界面的内容的时候，就会改变 <code>DOM</code> 树上的节点</em></p>
-<p><em>Web 前端关于性能优化有一个原则，尽量减少 <code>DOM</code> 操作，虽然 DOM 操作知识一些简单的 JavaScript 代码，但是 <code>DOM</code> 操作会引起浏览器对页面进行重新布局，重新绘制，这就是比 JavaScript 语句执行慢很多的过程</em></p>
-<p><em>既然 DOM 树是对HTML的抽象，那 <code>Virtual DOM</code> 就是对 DOM 树的抽象。<code>Virtual DOM</code> 不会触及浏览器的部分，只存在 JavaScript 树形结构中，每次自上而下的渲染React组件时，会对比这次的 <code>Virtual DOM</code> 和上一次渲染的 <code>Virtual DOM</code>，对比就会发现差别，然后就修改DOM树中有变化的地方就行了</em></p>
+<p><em>事实上不是这样的，React 利用 <code>Virtual DOM</code>，让每次渲染都渲染最少的 DOM 元素</em></p>
+<p><em>要了解 <code>Virtual DOM</code>，首先就要了解 DOM，DOM 是结构化文本的抽象表达方式，特定与web环境中，这个结构化文本就是HTML，<code>HTML</code> 中的每一个元素都对应着 DOM 的每个节点，这样因为HTML中的逐级包含关系，DOM节点自然就构成了一个树形结构，称为 DOM 树</em></p>
+<p><em>浏览器为了渲染 <code>HTML</code> 格式的网页，会将HTML文本解析构建 DOM 树，然后根据DOM树，来渲染用户看到的界面，当要改变界面的内容的时候，就会改变  DOM 树上的节点</em></p>
+<p><em>Web 前端关于性能优化有一个原则，尽量减少 DOM 操作，虽然 DOM 操作知识一些简单的 JavaScript 代码，但是 DOM 操作会引起浏览器对页面进行重新布局，重新绘制，这就是比 JavaScript 语句执行慢很多的过程</em></p>
+<h4 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h4><p><em>既然 DOM 树是对HTML的抽象，那 <code>Virtual DOM</code> 就是对 DOM 树的抽象。<code>Virtual DOM</code> 不会触及浏览器的部分，只存在 JavaScript 树形结构中，每次自上而下的渲染React组件时，会对比这次的 <code>Virtual DOM</code> 和上一次渲染的 <code>Virtual DOM</code>，对比就会发现差别，然后就修改 DOM 树中有变化的地方就行了</em></p>
 
     </article>
     <!-- 前后页  -->
@@ -294,7 +294,7 @@
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#总结："><span class="toc-number">1.</span> <span class="toc-text">总结：</span></a></li></ol>
     </div>
     
     <div class="back-top">&#xe639;</div>
@@ -308,6 +308,14 @@
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-archive">
     <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -596,6 +604,29 @@
         </li>
     
     
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/01/12/hello-world/" >Hello World</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
+    
+    
         <li class="archive-post-item">
             <span class="archive-post-date">03/29</span><a class="archive-post-title" href= "/2018/03/29/CSS3新特性的概述/" >CSS3新特性的概述</a>
         </li>
@@ -669,29 +700,6 @@
         <li class="archive-post-item">
             <span class="archive-post-date">01/30</span><a class="archive-post-title" href= "/2018/01/30/EJS模版/" >EJS模版</a>
         </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/01/12/hello-world/" >Hello World</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> 2018 </div>
-    <ul class="year-list">
     
     
         <li class="archive-post-item">
