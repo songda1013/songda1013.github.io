@@ -158,6 +158,31 @@
     
     
         <article class="index-post">
+            <a class="abstract-title" href = "/2018/03/30/React中什么是虚拟DOM/" >
+                
+                    <span>React中什么是Virtual DOM?</span>
+            </a>
+            <a class="content-show-full" href = "/2018/03/30/React中什么是虚拟DOM/" >
+                <div class="abstract-content">
+                    我们来说一下什么是 Virtual DOM，之前对这个问题，了解的不是特别的深刻，前几天在网上查找资料，加上自己的理解，来说一下这个虚拟DOM。
+React 应用是通过重复渲染来实现的用户的交互，你可能会想，这样的重复渲染会不会效率太低了，在 jQuery 的实现方式中，我们可在控制台清楚的看见，每次只有需要变化的那一个 DOM 元素被修改，可是，在 React 实现方式中，每次 render 被调用的时候，都要把整个组件都渲染一遍，这样看起来是不是有点浪费呢。
+事实上不是这样的，React 利用 Virtual DOM，让每次渲染都渲染最少的 DOM 元素
+要了解 Virtual DO...
+                </div>
+            </a>
+            <div class="abstract-post-meta">
+                <!-- tags  -->
+                
+                <!-- date  -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/03/30</span>
+                </div>
+            </div>
+        </article>
+    
+    
+    
+        <article class="index-post">
             <a class="abstract-title" href = "/2018/03/30/为什么使用React/" >
                 
                     <span>为什么使用React</span>
@@ -457,44 +482,10 @@ $ npm i -g yarn
             </div>
         </article>
     
-    
-    
-        <article class="index-post">
-            <a class="abstract-title" href = "/2018/02/05/javascript代码规范/" >
-                
-                    <span>javascript代码规范</span>
-            </a>
-            <a class="content-show-full" href = "/2018/02/05/javascript代码规范/" >
-                <div class="abstract-content">
-                    
-运算符、操作符左右两边加空格
-
-语句结尾加分号( );
-
-函数定义-&gt; function空格，sum空格()，参数列表空格{}
-1234// 正确写法function sum () &#123;// 代码  &#125;
-  箭头函数
-12345678// 正确写法let sum = (a，b) =&gt; &#123;  return a + b ;&#125;;// 单参数写法let square = number =&gt; &#123;  return number * number;&#125;;
-
-TabSize定义为2个空格
-
-统一字符串使用双引号&quot;&qu...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/02/05</span>
-                </div>
-            </div>
-        </article>
-    
     <!-- paginator  -->
     
     <nav class="page-nav">
-        <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">#NEXT</a>
+        <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/2/">#NEXT</a>
     </nav>
     
 </main>
@@ -796,7 +787,30 @@ TabSize定义为2个空格
     
     
     
-    <div class="total-archive"> Total : 20 </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-archive"> Total : 21 </div>
     
     <div class="post-archive">
     
@@ -805,6 +819,11 @@ TabSize定义为2个空格
     
     <div class="archive-year"> 2018 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/30</span><a class="archive-post-title" href= "/2018/03/30/React中什么是虚拟DOM/" >React中什么是Virtual DOM?</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -882,6 +901,11 @@ TabSize定义为2个空格
         </li>
     
     
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/30</span><a class="archive-post-title" href= "/2018/01/30/EJS模版/" >EJS模版</a>
+        </li>
+    
+    
     
     
     
@@ -903,11 +927,6 @@ TabSize定义为2个空格
     
     <div class="archive-year"> 2018 </div>
     <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">01/30</span><a class="archive-post-title" href= "/2018/01/30/EJS模版/" >EJS模版</a>
-        </li>
     
     
         <li class="archive-post-item">

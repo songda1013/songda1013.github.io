@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        减肥ING · A-D技术博客
+        React中什么是Virtual DOM? · A-D技术博客
         
     </title>
     <link rel="icon" href= /assets/44.jpg>
@@ -72,7 +72,7 @@
                 <a href="/" >程序亦非猿</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">减肥ING</a>
+                <a href="#" class="post-name">React中什么是Virtual DOM?</a>
             </div>
     </div>
     
@@ -86,14 +86,14 @@
     
     <!-- 404页  -->
             
-    <div class="site-intro-img" style="background-image: url(/assets/jianfei.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(http://oumn0o088.bkt.clouddn.com/post-bg.jpg)"></div>
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            减肥ING
+            React中什么是Virtual DOM?
             <!-- 404 -->
             
         </h1>
@@ -109,16 +109,10 @@
         
             <!-- 文章页标签  -->
             
-                <div class= post-intro-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = 减肥>减肥</a>
-    
-</div>
-            
             <script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "2", "bdMiniList": false, "bdPic": "", "bdStyle": "1", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = "/static/api/js/share.js"];</script>
             <div class="post-intro-meta">
                 <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                <span class="post-intro-time">2018/03/05</span>
+                <span class="post-intro-time">2018/03/30</span>
                 <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                     <span class="iconfont-archer">&#xe604;</span>
                     <span id="busuanzi_value_page_pv"></span>
@@ -201,59 +195,23 @@
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h4 id="2018-3-5"><a href="#2018-3-5" class="headerlink" title="2018-3-5"></a>2018-3-5</h4><p>今天是第一天减肥祝我早日成功🎉</p>
-<blockquote>
-<p>8:30分：牛肉三明治</p>
-<p>9:53分：一杯凉白开水</p>
-<p>11:30分：吃了一块口香糖</p>
-<p>12:10分：蔬菜粗粮细作</p>
-<p>16:30分：一杯开水</p>
-<p>18:20分：一个苹果🍎</p>
-</blockquote>
-<h4 id="2018-3-6"><a href="#2018-3-6" class="headerlink" title="2018-3-6"></a>2018-3-6</h4><p>今天是减肥的第二天，昨天忍着饥饿睡着了，才知道减肥不容易啊，总之加油吧！　</p>
-<blockquote>
-<p>8:40分：麦片搭配酸奶🥛</p>
-<p>10:00分：一杯水</p>
-<p>12:15分：两个素馅包子，一碗小米粥 </p>
-<p>14:30分：一杯水</p>
-<p>17:20分：还是一杯水</p>
-<p>18:10分：切后的什锦水果(🍓🍉🍎🍌🍊)放在一个小盒里</p>
-</blockquote>
-<h4 id="2018-3-7"><a href="#2018-3-7" class="headerlink" title="2018-3-7"></a>2018-3-7</h4><p>今天是减肥的第三天，来吧，加油</p>
-<blockquote>
-<p>7:30分：一个煎鸡蛋🍳，和麦片酸奶，一杯水</p>
-<p>9:30分：一杯水</p>
-<p>11:10分：一杯水</p>
-<p>12:10分：素馅混沌，一个饼</p>
-<p>13:10分：一杯水</p>
-<p>15:00分：一杯水</p>
-<p>17:30分：一杯水</p>
-<p>18:10分：一根黄瓜🥒</p>
-</blockquote>
-<h4 id="2018-3-8"><a href="#2018-3-8" class="headerlink" title="2018-3-8"></a>2018-3-8</h4><p>今天是减肥的第四天，来吧，加油</p>
-<blockquote>
-<p>9:00分：一杯水</p>
-<p>10:10分：一杯水</p>
-<p>12:10分：一个馒头，和清炒土豆丝🥔</p>
-<p>14:20分：一杯水</p>
-</blockquote>
+        <p><em>我们来说一下什么是 <code>Virtual DOM</code>，之前对这个问题，了解的不是特别的深刻，前几天在网上查找资料，加上自己的理解，来说一下这个虚拟<code>DOM</code>。</em></p>
+<p><em>React 应用是通过重复渲染来实现的用户的交互，你可能会想，这样的重复渲染会不会效率太低了，在 jQuery 的实现方式中，我们可在控制台清楚的看见，每次只有需要变化的那一个 DOM 元素被修改，可是，在 React 实现方式中，每次 <code>render</code> 被调用的时候，都要把整个组件都渲染一遍，这样看起来是不是有点浪费呢。</em></p>
+<p><em>事实上不是这样的，React 利用 <code>Virtual DOM</code>，让每次渲染都渲染最少的 <code>DOM</code> 元素</em></p>
+<p><em>要了解 <code>Virtual DOM</code>，首先就要了解<code>DOM</code>，<code>DOM</code> 是结构化文本的抽象表达方式，特定与web环境中，这个结构化文本就是HTML，<code>HTML</code> 中的每一个元素都对应着 <code>DOM</code> 的每个节点，这样因为HTML中的逐级包含关系，DOM节点自然就构成了一个树形结构，称为 <code>DOM</code> 树</em></p>
+<p><em>浏览器为了渲染 <code>HTML</code> 格式的网页，会将HTML文本解析构建 <code>DOM</code> 树，然后根据DOM树，来渲染用户看到的界面，当要改变界面的内容的时候，就会改变 <code>DOM</code> 树上的节点</em></p>
+<p><em>Web 前端关于性能优化有一个原则，尽量减少 <code>DOM</code> 操作，虽然 DOM 操作知识一些简单的 JavaScript 代码，但是 <code>DOM</code> 操作会引起浏览器对页面进行重新布局，重新绘制，这就是比 JavaScript 语句执行慢很多的过程</em></p>
+<p><em>既然 DOM 树是对HTML的抽象，那 <code>Virtual DOM</code> 就是对 DOM 树的抽象。<code>Virtual DOM</code> 不会触及浏览器的部分，只存在 JavaScript 树形结构中，每次自上而下的渲染React组件时，会对比这次的 <code>Virtual DOM</code> 和上一次渲染的 <code>Virtual DOM</code>，对比就会发现差别，然后就修改DOM树中有变化的地方就行了</em></p>
 
     </article>
     <!-- 前后页  -->
     <ul class="post-pager">
         
-            <li class="next">
-                <a href= "/2018/03/18/HTML废弃的标签/" title= HTML废弃的标签 >
-                    <span>Next Post</span>
-                    <span>HTML废弃的标签</span>
-                </a>
-            </li>
-        
         
             <li class="previous">
-                <a href= "/2018/02/12/JavaScritp变量-匈牙利命名法/" title= JavaScritp变量--匈牙利命名法 >
+                <a href= "/2018/03/30/为什么使用React/" title= 为什么使用React >
                     <span>Previous Post</span>
-                    <span>JavaScritp变量--匈牙利命名法</span>
+                    <span>为什么使用React</span>
                 </a>
             </li>
         
@@ -336,7 +294,7 @@
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#2018-3-5"><span class="toc-number">1.</span> <span class="toc-text">2018-3-5</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2018-3-6"><span class="toc-number">2.</span> <span class="toc-text">2018-3-6</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2018-3-7"><span class="toc-number">3.</span> <span class="toc-text">2018-3-7</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2018-3-8"><span class="toc-number">4.</span> <span class="toc-text">2018-3-8</span></a></li></ol>
+        
     </div>
     
     <div class="back-top">&#xe639;</div>
