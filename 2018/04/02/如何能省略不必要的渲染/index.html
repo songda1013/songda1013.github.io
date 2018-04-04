@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        为什么使用React · A-D技术博客
+        React中如何能省略不必要的渲染! · A-D技术博客
         
     </title>
     <link rel="icon" href= /assets/44.jpg>
@@ -72,7 +72,7 @@
                 <a href="/" >程序亦非猿</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">为什么使用React</a>
+                <a href="#" class="post-name">React中如何能省略不必要的渲染!</a>
             </div>
     </div>
     
@@ -86,14 +86,14 @@
     
     <!-- 404页  -->
             
-    <div class="site-intro-img" style="background-image: url(/assets/hzw3.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(http://oumn0o088.bkt.clouddn.com/post-bg.jpg)"></div>
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            为什么使用React
+            React中如何能省略不必要的渲染!
             <!-- 404 -->
             
         </h1>
@@ -112,7 +112,7 @@
             <script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "2", "bdMiniList": false, "bdPic": "", "bdStyle": "1", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = "/static/api/js/share.js"];</script>
             <div class="post-intro-meta">
                 <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                <span class="post-intro-time">2018/03/30</span>
+                <span class="post-intro-time">2018/04/02</span>
                 <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                     <span class="iconfont-archer">&#xe604;</span>
                     <span id="busuanzi_value_page_pv"></span>
@@ -195,34 +195,21 @@
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h4 id="为什么使用React呢"><a href="#为什么使用React呢" class="headerlink" title="为什么使用React呢"></a><em>为什么使用React呢</em></h4><ul>
-<li><em>React社区完善，Facebook 支撑，并且拥有强大的全家桶</em></li>
-</ul>
-<ul>
-<li><em>这里是 React 的中文社区<a href="http://react-china.org/" target="_blank" rel="noopener">http://react-china.org/</a></em></li>
-</ul>
-<ul>
-<li><em>React 只是处理的 View 层，并且使用单项的数据流的方式，让数据决定视图如何展示，利于组件化，复用，提高了可维护性，可扩展性</em></li>
-<li><em>JSX语法，颠覆了传统的 web 前端思想</em></li>
-<li><em>各种浏览器插件易于调试，相对于 Vue 来说，API 足够少，没有升级版本所带来的痛点（参考 Vue 1.0 升级 2.0）</em></li>
-</ul>
+        <p><em>我们除了 render 函数，shouldComponentUpdate 可能是 React 组件生命周期最重要的一个函数了，说 render函数重要，是因为 render 函数决定了该渲染什么，而 shouldComponentUpdate 而是决定了，一个组件什么时候不需要渲染。</em></p>
+<p><em>render 和 shouldComponentUpdate 函数，也是 React 生命周期函数中只有这两个有返回值的函数，render函数的返回结果是构造 DOM 对象的，而 shouldComponentUpdate 函数返回的是一个布尔值，告诉 React 库这个组件在这次更新中是否要继续。</em></p>
+<p><em>在更新过程中 React 库首先要调用 shouldComponentUpdate 函数，如果这个函数返回 true，那就会继续更新过程，接下来调用 render 函数，如果返回 false，那就立刻停止更新过程，也就不会引起后续的渲染了</em></p>
+<p><em>说 shouIdComponentUpdate 重要，就是说只要使用恰当，会大大提升 React 组件的性能，如果没有必要渲染的话就不用渲染，这样会更大提升React组件的性能</em></p>
+<p><em>render 是一个纯函数，这个纯函数的逻辑输入就是 props 和 state 值，如果我们要定义shouIdComponentUpdate 那就根据这两个参数，外加 this.props 和 this.state 来判断出是返回 true 还是返回 false，默认的是返回 true</em></p>
 
     </article>
     <!-- 前后页  -->
     <ul class="post-pager">
         
-            <li class="next">
-                <a href= "/2018/03/30/React中什么是虚拟DOM/" title= React中什么是Virtual DOM? >
-                    <span>Next Post</span>
-                    <span>React中什么是Virtual DOM?</span>
-                </a>
-            </li>
-        
         
             <li class="previous">
-                <a href= "/2018/03/29/CSS3新特性的概述/" title= CSS3新特性的概述 >
+                <a href= "/2018/03/30/React中什么是虚拟DOM/" title= React中什么是Virtual DOM? >
                     <span>Previous Post</span>
-                    <span>CSS3新特性的概述</span>
+                    <span>React中什么是Virtual DOM?</span>
                 </a>
             </li>
         
@@ -305,7 +292,7 @@
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#为什么使用React呢"><span class="toc-number">1.</span> <span class="toc-text">为什么使用React呢</span></a></li></ol>
+        
     </div>
     
     <div class="back-top">&#xe639;</div>
