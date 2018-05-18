@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        移动端适配 · A-D技术博客
+        Vue-cli脚手架搭建 · A-D技术博客
         
     </title>
     <link rel="icon" href= /assets/44.jpg>
@@ -72,7 +72,7 @@
                 <a href="/" >程序亦非猿</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">移动端适配</a>
+                <a href="#" class="post-name">Vue-cli脚手架搭建</a>
             </div>
     </div>
     
@@ -93,7 +93,7 @@
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            移动端适配
+            Vue-cli脚手架搭建
             <!-- 404 -->
             
         </h1>
@@ -112,7 +112,7 @@
             <script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "2", "bdMiniList": false, "bdPic": "", "bdStyle": "1", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = "/static/api/js/share.js"];</script>
             <div class="post-intro-meta">
                 <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                <span class="post-intro-time">2018/05/14</span>
+                <span class="post-intro-time">2018/05/18</span>
                 <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                     <span class="iconfont-archer">&#xe604;</span>
                     <span id="busuanzi_value_page_pv"></span>
@@ -195,26 +195,45 @@
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <p>最近公司写了一个移动端的项目，然后我简单说一下移动端适配的方案，其实移动端适配的方案有很多种，主要是rem，vh，vw，这些每个都有每个的好处，我用的就是 <code>rem</code> 来设置的移动自适应的配置，首先需要 <code>viewport</code> 设置一下，在不同的手机上要自适应屏幕，我是改的是 <code>font-size</code> 的字体大小，用js来改变的，下面是js文件的内容</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  (<span class="function"><span class="keyword">function</span> (<span class="params">doc, win</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> docEl = doc.documentElement,</span><br><span class="line">        resizeEvt = <span class="string">'orientationchange'</span> <span class="keyword">in</span> <span class="built_in">window</span> ? <span class="string">'orientationchange'</span> : <span class="string">'resize'</span>,</span><br><span class="line">        recalc = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> clientWidth = docEl.clientWidth;</span><br><span class="line">            <span class="keyword">if</span> (!clientWidth) <span class="keyword">return</span>;</span><br><span class="line">            <span class="keyword">if</span>(clientWidth&gt;=<span class="number">750</span>)&#123;</span><br><span class="line">                docEl.style.fontSize = <span class="string">'100px'</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                docEl.style.fontSize = <span class="number">100</span> * (clientWidth / <span class="number">750</span>) + <span class="string">'px'</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!doc.addEventListener) <span class="keyword">return</span>;</span><br><span class="line">    win.addEventListener(resizeEvt, recalc, <span class="literal">false</span>);</span><br><span class="line">    doc.addEventListener(<span class="string">'DOMContentLoaded'</span>, recalc, <span class="literal">false</span>);</span><br><span class="line">&#125;)(<span class="built_in">document</span>, <span class="built_in">window</span>);</span><br></pre></td></tr></table></figure>
-<p>这是用来设置字体大小的，把这个文件引入你要写的项目中，就可以自适应屏幕了，而且不用刷新，然后用 <code>rem</code> 单位来设置，<code>width</code>，<code>height</code>，<code>margin</code>，<code>padding</code>，<code>position</code>只要是涉及到这些都用 <code>rem</code> 来做单位，除了设置 <code>border</code> 可以用1px之外，这些用的都是 <code>rem</code>，正常情况下这些就够了，如果不够的话，可以用媒体查询来配合 <code>rem</code> 来使用，这些足够来自适应屏幕了，好了这次的分享结束，朋友们，我们下回见</p>
+        <h4 id="安装："><a href="#安装：" class="headerlink" title="安装："></a>安装：</h4><p>1、只限于 Linux 版本，首先我们先全局安装一下</p>
+<blockquote>
+<p>$ npm i -g vue-cli</p>
+</blockquote>
+<p>2、全局安装完之后，我们执行</p>
+<blockquote>
+<p>$ vue list</p>
+<p>这是查看 vue 给我们提供的脚手架的版本，有很多，我用的就是 webpack</p>
+</blockquote>
+<p>3、选择我们用要使用的版本</p>
+<blockquote>
+<p>$ vue init webpack test-exercise</p>
+<p>这是安装我们要使用的版本 webpack 后面跟的是我们的项目名称</p>
+</blockquote>
+<p>4、进入项目中，然后把看我们 package.json 文件里面有很多依赖，这些依赖有开发环境的，还有生产环境的依赖，是项目中需要的，所以我们需要执行以下命令</p>
+<blockquote>
+<p>$ npm i</p>
+<p>命令执行完之后会生成一个 node_modules 文件这个文件就是我们项目中所用到的所有插件的文件</p>
+</blockquote>
+<p>5、然后我们该把项目运行一下，执行以下命令</p>
+<blockquote>
+<p>$ npm run dev</p>
+<p>这个命令是在 package.json 文件 “scripts” 配置的，”scripts”是一个对象，里面配置的就是我们要执行的命令，因为命令太长，所以给缩写了，然后运行，你也可以自己改这些命令</p>
+</blockquote>
+<p>6、我们也可以打包看一下，打包之后的文件，打包之后会生成一个 dist 文件，这个文件就是用 webpack 打包之后生成的文件，线上用的就是这个文件，这些都不用你去自己去配置，因为 vue-cli 脚手架已经帮我们配置好了，你直接在里面改就可以了，执行以下命令</p>
+<blockquote>
+<p>$ npm run build</p>
+</blockquote>
+<p>7、这个时候我们的项目就跑起来了</p>
 
     </article>
     <!-- 前后页  -->
     <ul class="post-pager">
         
-            <li class="next">
-                <a href= "/2018/05/18/Vue-cli脚手架搭建/" title= Vue-cli脚手架搭建 >
-                    <span>Next Post</span>
-                    <span>Vue-cli脚手架搭建</span>
-                </a>
-            </li>
-        
         
             <li class="previous">
-                <a href= "/2018/04/02/如何能省略不必要的渲染/" title= React中如何能省略不必要的渲染! >
+                <a href= "/2018/05/14/移动端适配/" title= 移动端适配 >
                     <span>Previous Post</span>
-                    <span>React中如何能省略不必要的渲染!</span>
+                    <span>移动端适配</span>
                 </a>
             </li>
         
@@ -297,7 +316,7 @@
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#安装："><span class="toc-number">1.</span> <span class="toc-text">安装：</span></a></li></ol>
     </div>
     
     <div class="back-top">&#xe639;</div>
