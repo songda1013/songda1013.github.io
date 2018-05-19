@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        React中什么是Virtual DOM? · A-D技术博客
+        基于vue-cli脚手架使用vue-router路由 · A-D技术博客
         
     </title>
     <link rel="icon" href= /assets/44.jpg>
@@ -72,7 +72,7 @@
                 <a href="/" >程序亦非猿</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">React中什么是Virtual DOM?</a>
+                <a href="#" class="post-name">基于vue-cli脚手架使用vue-router路由</a>
             </div>
     </div>
     
@@ -86,14 +86,14 @@
     
     <!-- 404页  -->
             
-    <div class="site-intro-img" style="background-image: url(/assets/hzw4.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(http://oumn0o088.bkt.clouddn.com/post-bg.jpg)"></div>
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            React中什么是Virtual DOM?
+            基于vue-cli脚手架使用vue-router路由
             <!-- 404 -->
             
         </h1>
@@ -112,7 +112,7 @@
             <script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "2", "bdMiniList": false, "bdPic": "", "bdStyle": "1", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = "/static/api/js/share.js"];</script>
             <div class="post-intro-meta">
                 <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                <span class="post-intro-time">2018/03/30</span>
+                <span class="post-intro-time">2018/05/19</span>
                 <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                     <span class="iconfont-archer">&#xe604;</span>
                     <span id="busuanzi_value_page_pv"></span>
@@ -195,30 +195,24 @@
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <p><em>我们来说一下什么是 <code>Virtual DOM</code>，之前对这个问题，了解的不是特别的深刻，前几天在网上查找资料，加上自己的理解，来说一下这个虚拟 DOM。</em></p>
-<p><em>React 应用是通过重复渲染来实现的用户的交互，你可能会想，这样的重复渲染会不会效率太低了，在 jQuery 的实现方式中，我们可在控制台清楚的看见，每次只有需要变化的那一个 DOM 元素被修改，可是，在 React 实现方式中，每次 <code>render</code> 被调用的时候，都要把整个组件都渲染一遍，这样看起来是不是有点浪费呢。</em></p>
-<p><em>事实上不是这样的，React 利用 <code>Virtual DOM</code>，让每次渲染都渲染最少的 DOM 元素</em></p>
-<p><em>要了解 <code>Virtual DOM</code>，首先就要了解 DOM，DOM 是结构化文本的抽象表达方式，特定与web环境中，这个结构化文本就是HTML，<code>HTML</code> 中的每一个元素都对应着 DOM 的每个节点，这样因为HTML中的逐级包含关系，DOM节点自然就构成了一个树形结构，称为 DOM 树</em></p>
-<p><em>浏览器为了渲染 <code>HTML</code> 格式的网页，会将HTML文本解析构建 DOM 树，然后根据DOM树，来渲染用户看到的界面，当要改变界面的内容的时候，就会改变  DOM 树上的节点</em></p>
-<p><em>Web 前端关于性能优化有一个原则，尽量减少 DOM 操作，虽然 DOM 操作知识一些简单的 JavaScript 代码，但是 DOM 操作会引起浏览器对页面进行重新布局，重新绘制，这就是比 JavaScript 语句执行慢很多的过程</em></p>
-<h4 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h4><p><em>既然 DOM 树是对HTML的抽象，那 <code>Virtual DOM</code> 就是对 DOM 树的抽象。<code>Virtual DOM</code> 不会触及浏览器的部分，只存在 JavaScript 树形结构中，每次自上而下的渲染React组件时，会对比这次的 <code>Virtual DOM</code> 和上一次渲染的 <code>Virtual DOM</code>，对比就会发现差别，然后就修改 DOM 树中有变化的地方就行了</em></p>
+        <p>上一个讲了 vue-cli 的安装方式，我们就趁热打铁，来学习一下，vue-router 的使用方法，首先我们需要安装一下路由需要安装到生产环境下的，执行以下命令</p>
+<blockquote>
+<p>$ npm i vue-router</p>
+</blockquote>
+<p>我们安装完路由之后就要去使用它，再次声明这个是基于 vue-cli 来配置的所以我们应该先去 src目录下有一个叫main.js 文件去进行配置</p>
+<p><img src="/assets/vue-router1.png" alt="Alt text"></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">'./App'</span>; <span class="comment">// 最大的组件</span></span><br><span class="line"><span class="keyword">import</span> VueRouter <span class="keyword">from</span> <span class="string">'vue-router'</span> <span class="comment">// 先引入要用的vue-router</span></span><br><span class="line"><span class="keyword">import</span> Commodity <span class="keyword">from</span> <span class="string">'./components/commodity/commodity.vue'</span> <span class="comment">// 引入你跳转的那个组件页面我这一共是三个</span></span><br><span class="line"><span class="keyword">import</span> Comment <span class="keyword">from</span> <span class="string">'./components/comment/comment.vue'</span></span><br><span class="line"><span class="keyword">import</span> Merchant <span class="keyword">from</span> <span class="string">'./components/merchant/merchant.vue'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// new Vue(&#123;</span></span><br><span class="line">    <span class="comment">// el:'body' 这个就可以删掉了，因为我们已经用Vue.extend方法绑定了</span></span><br><span class="line"><span class="comment">// &#125;)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> app = Vue.extend(App) <span class="comment">// 先绑定App这个组件</span></span><br><span class="line"></span><br><span class="line">router.map(&#123;</span><br><span class="line">    <span class="string">'/Commodity'</span>: &#123;</span><br><span class="line">        component: Commodity</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">'/Comment'</span>: &#123;</span><br><span class="line">        component: Comment</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">'/Merchant'</span>: &#123;</span><br><span class="line">        component: Merchant</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">router.start(app, #app) // 这句话是开始使用的意识，绑定app，如果报错了的话，可以去你项目个目录的index.html 文件，加上 &lt;div id="app"&gt;&lt;/div&gt; 就好了</span><br><span class="line">             </span><br><span class="line"><span class="comment">// 我们也可以指定你想要跳转的路由页面用这个方法</span></span><br><span class="line">router.go(<span class="string">'/Component'</span>) <span class="comment">// 这样就可以指定路由页面了</span></span><br></pre></td></tr></table></figure>
+<p>我们基本的路由页面就搭建好了，赶紧试试吧</p>
 
     </article>
     <!-- 前后页  -->
     <ul class="post-pager">
         
-            <li class="next">
-                <a href= "/2018/04/02/如何能省略不必要的渲染/" title= React中如何能省略不必要的渲染! >
-                    <span>Next Post</span>
-                    <span>React中如何能省略不必要的渲染!</span>
-                </a>
-            </li>
-        
         
             <li class="previous">
-                <a href= "/2018/03/30/为什么使用React/" title= 为什么使用React >
+                <a href= "/2018/05/18/Vue-cli脚手架搭建/" title= Vue-cli脚手架搭建 >
                     <span>Previous Post</span>
-                    <span>为什么使用React</span>
+                    <span>Vue-cli脚手架搭建</span>
                 </a>
             </li>
         
@@ -301,7 +295,7 @@
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#总结："><span class="toc-number">1.</span> <span class="toc-text">总结：</span></a></li></ol>
+        
     </div>
     
     <div class="back-top">&#xe639;</div>
