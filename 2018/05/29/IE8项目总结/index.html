@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        A-D技术博客
+        IE8项目总结 · A-D技术博客
         
     </title>
     <link rel="icon" href= /assets/44.jpg>
@@ -58,6 +58,8 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
@@ -65,27 +67,65 @@
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
     
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >程序亦非猿</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">IE8项目总结</a>
+            </div>
+    </div>
+    
     <a class="home-link" href=/>程序亦非猿</a>
 </header>
     <div class="wrapper">
         <div class="site-intro">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(http://oumn0o088.bkt.clouddn.com/post-bg.jpg)"></div>
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
+            IE8项目总结
+            <!-- 404 -->
+            
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <!-- 文章页标签  -->
+            
+            <script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "2", "bdMiniList": false, "bdPic": "", "bdStyle": "1", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = "/static/api/js/share.js"];</script>
+            <div class="post-intro-meta">
+                <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                <span class="post-intro-time">2018/05/29</span>
+                <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                    <span class="iconfont-archer">&#xe604;</span>
+                    <span id="busuanzi_value_page_pv"></span>
+                </span>
+                <span class="shareWrapper">
+                    <span class="iconfont-archer shareIcon">
+                        &#xe601;
+                    </span>
+                    <span class="bdsharebuttonbox">
+                        <a href="#" class="bds_more shareText" data-cmd="more">Share</a>
+                    </span>
+                </span>
+            </div>
         
     </div>
 </div>
@@ -153,313 +193,62 @@
             }
         </script>
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-        <article class="index-post">
-            <a class="abstract-title" href = "/2018/05/29/IE8项目总结/" >
-                
-                    <span>IE8项目总结</span>
-            </a>
-            <a class="content-show-full" href = "/2018/05/29/IE8项目总结/" >
-                <div class="abstract-content">
-                    公司最近接了一个兼容 IE 的项目，之前没有做过兼容 IE 的项目感觉也就和之前的差不多，但是做起来之后才之后那是差一条街啊，首先总结一下在 IE 下什么都不好用了
-meta设置1&lt;meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"&gt;
-Jquery
-如果项目要用 Jquery 的话就必须是 2.0 一下版本的才好用，因为 IE8 以下只兼容 2.0 一下的版本
+            <main class="main post-page">
+    <article class="article-entry">
+        <p>公司最近接了一个兼容 <code>IE</code> 的项目，之前没有做过兼容 <code>IE</code> 的项目感觉也就和之前的差不多，但是做起来之后才之后那是差一条街啊，首先总结一下在 <code>IE</code> 下什么都不好用了</p>
+<h4 id="meta设置"><a href="#meta设置" class="headerlink" title="meta设置"></a>meta设置</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=edge,chrome=1"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="Jquery"><a href="#Jquery" class="headerlink" title="Jquery"></a>Jquery</h4><blockquote>
+<p>如果项目要用 Jquery 的话就必须是 2.0 一下版本的才好用，因为 <code>IE8</code> 以下只兼容 2.0 一下的版本</p>
+</blockquote>
+<h4 id="border-radius"><a href="#border-radius" class="headerlink" title="border-radius"></a>border-radius</h4><p>在 <code>IE</code> 浏览器下 border-radius 圆角是不兼容的，解决办法，实际上是指的是一个名为 pie 的 htc 文件，即pie.htc，使用 CSS 的 behavior 行为，可以调用此文件，然后让 <code>IE</code> 也能实现一些常见的 CSS3 效果，如圆角(border-radius)，盒阴影 (box-shadow)，背景渐变 (gradient)，多图片背景 (multiple background images)，但是这个 htc 文件文件必须在你项目 html 同级目录下，如果不在同一级目录下，引用的话就会没有效果，下面是引用的样式</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">box</span> &#123;</span><br><span class="line"> <span class="attribute">width</span>: <span class="number">14px</span>;</span><br><span class="line"> <span class="attribute">height</span>: <span class="number">14px</span>;</span><br><span class="line"> <span class="attribute">border-radius</span>: <span class="number">8px</span>;</span><br><span class="line"> <span class="attribute">background</span>: <span class="number">#ffffff</span>;</span><br><span class="line"> <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#fff</span>;</span><br><span class="line"> <span class="attribute">cursor</span>: pointer;</span><br><span class="line"> <span class="attribute">behavior</span>:<span class="built_in">url</span>(../WEBINF/pie.htc);   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>下载地址: <a href="https://github.com/lojjic/PIE/downloads" target="_blank" rel="noopener">https://github.com/lojjic/PIE/downloads</a></p>
+<h4 id="音频视频"><a href="#音频视频" class="headerlink" title="音频视频"></a>音频视频</h4><p>因为 html5 所有的标签不兼容 IE8 所以想要播放视频和音频的话也只能用插件了，所以为大家推荐了一个播放视频音频的插件，很好用，但是需要一些配置，也是挺麻烦的，但是比起其他插件的话，这个已经很好了，具体的用法，大家去看中文的文档吧</p>
+<p>下载地址: <a href="http://www.jplayer.cn/developer-guide.html" target="_blank" rel="noopener">http://www.jplayer.cn/developer-guide.html</a></p>
 
-border-radius在 IE 浏览器下 border-radius 圆角是不兼容的，解决办法，实际上是指的是一个名为 pie 的 htc 文...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/05/29</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="abstract-title" href = "/2018/05/19/基于vue-cli脚手架使用vue-router路由/" >
-                
+    </article>
+    <!-- 前后页  -->
+    <ul class="post-pager">
+        
+        
+            <li class="previous">
+                <a href= "/2018/05/19/基于vue-cli脚手架使用vue-router路由/" title= 基于vue-cli脚手架使用vue-router路由 >
+                    <span>Previous Post</span>
                     <span>基于vue-cli脚手架使用vue-router路由</span>
-            </a>
-            <a class="content-show-full" href = "/2018/05/19/基于vue-cli脚手架使用vue-router路由/" >
-                <div class="abstract-content">
-                    上一个讲了 vue-cli 的安装方式，我们就趁热打铁，来学习一下，vue-router 的使用方法，首先我们需要安装一下路由需要安装到生产环境下的，执行以下命令
+                </a>
+            </li>
+        
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
 
-$ npm i vue-router
+<div id="lv-container" data-id="city" data-uid= MTAyMC8zMzIxNC85Nzcx>
+    <script type="text/javascript">
+        (function (d, s) {
+            var j, e = d.getElementsByTagName(s)[0];
+            if (typeof LivereTower === 'function') { return; }
+            j = d.createElement(s);
+            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+            j.async = true;
 
-我们安装完路由之后就要去使用它，再次声明这个是基于 vue-cli 来配置的所以我们应该先去 src目录下有一个叫main.js 文件去进行配置
+            e.parentNode.insertBefore(j, e);
+        })(document, 'script');
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
 
-12345678910111213141516171819202122232425262728import App from './App'; // 最大的组件import VueRouter from 'vue-router' // 先引...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/05/19</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="abstract-title" href = "/2018/05/18/Vue-cli脚手架搭建/" >
-                
-                    <span>Vue-cli脚手架搭建</span>
-            </a>
-            <a class="content-show-full" href = "/2018/05/18/Vue-cli脚手架搭建/" >
-                <div class="abstract-content">
-                    安装：1、只限于 Linux 版本，首先我们先全局安装一下
-
-$ npm i -g vue-cli
-
-2、全局安装完之后，我们执行
-
-$ vue list
-这是查看 vue 给我们提供的脚手架的版本，有很多，我用的就是 webpack
-
-3、选择我们用要使用的版本
-
-$ vue init webpack test-exercise
-这是安装我们要使用的版本 webpack 后面跟的是我们的项目名称
-
-4、进入项目中，然后把看我们 package.json 文件里面有很多依赖，这些依赖有开发环境的，还有生产环境的依赖，是项目中需要的，所以我们需要执行以下命令
-
-$ npm i
-命令执行完之...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/05/18</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="abstract-title" href = "/2018/05/14/移动端适配/" >
-                
-                    <span>移动端适配</span>
-            </a>
-            <a class="content-show-full" href = "/2018/05/14/移动端适配/" >
-                <div class="abstract-content">
-                    最近公司写了一个移动端的项目，然后我简单说一下移动端适配的方案，其实移动端适配的方案有很多种，主要是rem，vh，vw，这些每个都有每个的好处，我用的就是 rem 来设置的移动自适应的配置，首先需要 viewport 设置一下，在不同的手机上要自适应屏幕，我是改的是 font-size 的字体大小，用js来改变的，下面是js文件的内容
-123456789101112131415161718  (function (doc, win) &#123;    var docEl = doc.documentElement,        resizeEvt = 'orientationchan...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/05/14</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="abstract-title" href = "/2018/04/02/如何能省略不必要的渲染/" >
-                
-                    <span>React中如何能省略不必要的渲染!</span>
-            </a>
-            <a class="content-show-full" href = "/2018/04/02/如何能省略不必要的渲染/" >
-                <div class="abstract-content">
-                    我们除了 render 函数，shouldComponentUpdate 可能是 React 组件生命周期最重要的一个函数了，说 render函数重要，是因为 render 函数决定了该渲染什么，而 shouldComponentUpdate 而是决定了，一个组件什么时候不需要渲染。
-render 和 shouldComponentUpdate 函数，也是 React 生命周期函数中只有这两个有返回值的函数，render函数的返回结果是构造 DOM 对象的，而 shouldComponentUpdate 函数返回的是一个布尔值，告诉 React 库这个组件在这次更新中是否要继续。
-在更新...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/04/02</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="abstract-title" href = "/2018/03/30/React中什么是虚拟DOM/" >
-                
-                    <span>React中什么是Virtual DOM?</span>
-            </a>
-            <a class="content-show-full" href = "/2018/03/30/React中什么是虚拟DOM/" >
-                <div class="abstract-content">
-                    我们来说一下什么是 Virtual DOM，之前对这个问题，了解的不是特别的深刻，前几天在网上查找资料，加上自己的理解，来说一下这个虚拟 DOM。
-React 应用是通过重复渲染来实现的用户的交互，你可能会想，这样的重复渲染会不会效率太低了，在 jQuery 的实现方式中，我们可在控制台清楚的看见，每次只有需要变化的那一个 DOM 元素被修改，可是，在 React 实现方式中，每次 render 被调用的时候，都要把整个组件都渲染一遍，这样看起来是不是有点浪费呢。
-事实上不是这样的，React 利用 Virtual DOM，让每次渲染都渲染最少的 DOM 元素
-要了解 Virtual D...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/03/30</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="abstract-title" href = "/2018/03/30/为什么使用React/" >
-                
-                    <span>为什么使用React</span>
-            </a>
-            <a class="content-show-full" href = "/2018/03/30/为什么使用React/" >
-                <div class="abstract-content">
-                    为什么使用React呢
-React社区完善，Facebook 支撑，并且拥有强大的全家桶
+<!-- City版安装代码已完成 -->
 
 
-这里是 React 的中文社区http://react-china.org/
+    
+    
+    <!--PC版-->
+
+    <!--PC版-->
 
 
-React 只是处理的 View 层，并且使用单项的数据流的方式，让数据决定视图如何展示，利于组件化，复用，提高了可维护性，可扩展性
-JSX语法，颠覆了传统的 web 前端思想
-各种浏览器插件易于调试，相对于 Vue 来说，API 足够少，没有升级版本所带来的痛点（参考 Vue 1.0 升级 2.0）
-
-
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/03/30</span>
-                </div>
-            </div>
-        </article>
     
-    
-    
-        <article class="index-post">
-            <a class="abstract-title" href = "/2018/03/29/CSS3新特性的概述/" >
-                
-                    <span>CSS3新特性的概述</span>
-            </a>
-            <a class="content-show-full" href = "/2018/03/29/CSS3新特性的概述/" >
-                <div class="abstract-content">
-                    CSS3新特性大致分为一下六类
-CSS3选择器
-CSS3边框与圆角
-CSS3背景与渐变
-CSS3过渡
-CSS3变换
-CSS3动画
-
-下面说一下以上六类都有哪些内容
-CSS3选择器1、基本选择器基本选择器又分为
-子选择器
-相邻兄弟选择器
-通用兄弟选择器
-群组选择器
-2、属性选择器1、element[attribute]
-带有attribute属性的元素设置样式
-2、element[attrbute=’value’]
-带有attribute=’value’的元素设置样式
-3、element[attribute~=’value’]
-带有attribute属性值中，包含单词value的元素设置样...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/03/29</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="abstract-title" href = "/2018/03/29/盒模型，boxsizing/" >
-                
-                    <span>盒模型，boxsizing</span>
-            </a>
-            <a class="content-show-full" href = "/2018/03/29/盒模型，boxsizing/" >
-                <div class="abstract-content">
-                    盒模型：标准盒模型是前端布局的概念，把页面中的每一个元素都看做是一个盒子。
-盒子的基本属性？
-1、宽高
-2、边框
-盒子和盒子之间有哪些关系？
-1、邻居
-2、盒子里面，还可以装盒子，是嵌套关系
-盒模型的组成：内容 + 内边距 + 边框+外边距
-box-sizing：怪异盒模型box-sizing 属性用于更改计算元素宽度和高度的默认的 CSS 盒模型，可以使用此属性来模拟不正确支持 CSS 盒子模型规范的浏览器的行为。
-12345678/* 关键字 值 */box-sizing: content-box;box-sizing: border-box;/* 全局 值 */box-sizing...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/03/29</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="abstract-title" href = "/2018/03/26/css、js放置位置和原因/" >
-                
-                    <span>css、js放置位置和原因 </span>
-            </a>
-            <a class="content-show-full" href = "/2018/03/26/css、js放置位置和原因/" >
-                <div class="abstract-content">
-                    一天，小明正在网上查找资料，项目中遇到的问题需要通过查阅资料来解决，他看到一个标题很有意思，觉得这应该是他要找的答案，于是他就点了进去，结果进入网站后几秒钟的时间，网页还是一片空白，过了好久才加载完成。
-为什么会出现这种情况？说到这我们必须了解一下网站加载的整个过程了
-
-首先浏览器在服务器接收HTML代码，然后开始解析HTML
-构建DOM树，（从HTML自顶向下进行构建），并且在同时构建渲染树
-遇到js文件加载执行，将阻塞DOM树的构建，遇到css文件，将阻塞渲染树的构建
-script标签的defer属性：构建DOM树的过程和js文件的加载异步，（并行）进行，但是js执行需要DOM树构建...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/03/26</span>
-                </div>
-            </div>
-        </article>
-    
-    <!-- paginator  -->
-    
-    <nav class="page-nav">
-        <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/2/">#NEXT</a>
-    </nav>
-    
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -503,6 +292,13 @@ script标签的defer属性：构建DOM树的过程和js文件的加载异步，�
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper">
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#meta设置"><span class="toc-number">1.</span> <span class="toc-text">meta设置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Jquery"><span class="toc-number">2.</span> <span class="toc-text">Jquery</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#border-radius"><span class="toc-number">3.</span> <span class="toc-text">border-radius</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#音频视频"><span class="toc-number">4.</span> <span class="toc-text">音频视频</span></a></li></ol>
+    </div>
     
     <div class="back-top">&#xe639;</div>
     <div class="sidebar">

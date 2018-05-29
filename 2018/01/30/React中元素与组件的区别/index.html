@@ -197,7 +197,7 @@
     <article class="article-entry">
         <p>在初学 React 的时候，分不清 React 组件和 React 元素，着实踩了一些坑。搞清楚 React 中什么是组件，什么是元素，既可以理清楚概念，也可以让你避免一些不必要的错误。</p>
 <h3 id="React-元素"><a href="#React-元素" class="headerlink" title="React 元素"></a>React 元素</h3><p>React 元素（React element），它是 React 中最小基本单位，我们可以使用 JSX 语法轻松地创建一个 React 元素:</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> element = &lt;div className='element'&gt;I'm element&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> element = <span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">'element'</span>&gt;</span>I'm element<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
 <p>React 元素不是真实的 DOM 元素，它仅仅是 js 的普通对象（plain objects），所以也没办法直接调用 DOM 原生的 API。上面的 JSX 转译后的对象大概是这样的：</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    _context: Object,</span><br><span class="line">    _owner: null,</span><br><span class="line">    key: null,</span><br><span class="line">    props: &#123;</span><br><span class="line">    className: 'element'，</span><br><span class="line">    children: 'I‘m element'</span><br><span class="line">  &#125;,</span><br><span class="line">    ref: null,</span><br><span class="line">    type: "div"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>只有在这个元素渲染被完成后，才能通过选择器的方式获取它对应的 DOM 元素。不过，按照 React 有限状态机的设计思想，应该使用状态和属性来表述组件，要尽量避免 DOM 操作，即便要进行 DOM 操作，也应该使用 React 提供的接口<code>ref</code>和<code>getDOMNode()</code>。一般使用 React 提供的接口就足以应付需要 DOM 操作的场景了，因此像 jQuery 强大的选择器在 React 中几乎没有用武之地了。</p>
@@ -663,7 +663,28 @@
     
     
     
-    <div class="total-archive"> Total : 25 </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-archive"> Total : 26 </div>
     
     <div class="post-archive">
     
@@ -672,6 +693,11 @@
     
     <div class="archive-year"> 2018 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/29</span><a class="archive-post-title" href= "/2018/05/29/IE8项目总结/" >IE8项目总结</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -769,29 +795,6 @@
         </li>
     
     
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/01/12/hello-world/" >Hello World</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> 2018 </div>
-    <ul class="year-list">
-    
-    
         <li class="archive-post-item">
             <span class="archive-post-date">01/30</span><a class="archive-post-title" href= "/2018/01/30/React中元素与组件的区别/" >React中元素与组件的区别,和组件有几种类型</a>
         </li>
@@ -814,6 +817,20 @@
     
         <li class="archive-post-item">
             <span class="archive-post-date">01/13</span><a class="archive-post-title" href= "/2018/01/13/HTML5新特性，语义化/" >HTML5新特性，语义化</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/01/12/hello-world/" >Hello World</a>
         </li>
     
     </div>
