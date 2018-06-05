@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        A-D技术博客
+        CSS实现隐藏页面的5种方式 · A-D技术博客
         
     </title>
     <link rel="icon" href= /assets/44.jpg>
@@ -58,14 +58,23 @@
 </head>
 
     
-        <body class="home-body">
+        <body class="post-body">
     
     
-<header class="header index-header">
+<header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >程序亦非猿</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">CSS实现隐藏页面的5种方式</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>程序亦非猿</a>
 </header>
@@ -75,17 +84,17 @@
     <!-- 主页  -->
     
     
-    <!-- 文章页  -->
+    <!-- 404页  -->
             
-    <div class="site-intro-img" style="background-image: url(http://yifeiyuan.me/img/opluo.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(http://oumn0o088.bkt.clouddn.com/post-bg.jpg)"></div>
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            程序亦非猿
-            <!-- 文章页  -->
+            CSS实现隐藏页面的5种方式
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
@@ -93,12 +102,30 @@
             <!-- 主页副标题  -->
             
             
-                it's better to burn out than to fade away
-            
-            <!-- 文章页  -->
+            <!-- 404 -->
             
         </p>
         <!-- 文章页meta -->
+        
+            <!-- 文章页标签  -->
+            
+            <script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "2", "bdMiniList": false, "bdPic": "", "bdStyle": "1", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = "/static/api/js/share.js"];</script>
+            <div class="post-intro-meta">
+                <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                <span class="post-intro-time">2018/06/05</span>
+                <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                    <span class="iconfont-archer">&#xe604;</span>
+                    <span id="busuanzi_value_page_pv"></span>
+                </span>
+                <span class="shareWrapper">
+                    <span class="iconfont-archer shareIcon">
+                        &#xe601;
+                    </span>
+                    <span class="bdsharebuttonbox">
+                        <a href="#" class="bds_more shareText" data-cmd="more">Share</a>
+                    </span>
+                </span>
+            </div>
         
     </div>
 </div>
@@ -166,249 +193,117 @@
             }
         </script>
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-        <article class="index-post">
-            <a class="abstract-title" href = "/2018/01/30/React中state和props分别是什么？/" >
-                
-                    <span>React中state和props分别是什么？</span>
-            </a>
-            <a class="content-show-full" href = "/2018/01/30/React中state和props分别是什么？/" >
-                <div class="abstract-content">
-                    整理一下React中关于state和props的知识点。
-在任何应用中，数据都是必不可少的。我们需要直接的改变页面上一块的区域来使得视图的刷新，或者间接地改变其他地方的数据。React的数据是自顶向下单向流动的，即从父组件到子组件中，组件的数据存储在props和state中，这两个属性有啥子区别呢？
-propsReact的核心思想就是组件化思想，页面会被切分成一些独立的、可复用的组件。
-组件从概念上看就是一个函数，可以接受一个参数作为输入值，这个参数就是props，所以可以把props理解为从外部传入组件内部的数据。由于React是单向数据流，所以props基本上也就是从服父级组件向子组...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/01/30</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="abstract-title" href = "/2018/01/30/React中元素与组件的区别/" >
-                
-                    <span>React中元素与组件的区别,和组件有几种类型</span>
-            </a>
-            <a class="content-show-full" href = "/2018/01/30/React中元素与组件的区别/" >
-                <div class="abstract-content">
-                    在初学 React 的时候，分不清 React 组件和 React 元素，着实踩了一些坑。搞清楚 React 中什么是组件，什么是元素，既可以理清楚概念，也可以让你避免一些不必要的错误。
-React 元素React 元素（React element），它是 React 中最小基本单位，我们可以使用 JSX 语法轻松地创建一个 React 元素:
-1const element = &lt;div className='element'&gt;I'm element&lt;/div&gt;
-React 元素不是真实的 DOM 元素，它仅仅是 js 的普通对象（plain objects），所...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/01/30</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="abstract-title" href = "/2018/01/30/EJS模版/" >
-                
-                    <span>EJS模版</span>
-            </a>
-            <a class="content-show-full" href = "/2018/01/30/EJS模版/" >
-                <div class="abstract-content">
-                    一、EJS模版概念E”是“有效的，EJS是一个简单高效的模版语言，通过数据和模版，可以让您使用普通的JavaScript生成HTML标记
+            <main class="main post-page">
+    <article class="article-entry">
+        <p>用 Css 隐藏页面也很多方法，你可以讲 <code>opacity</code> 设置为 <code>0</code>、将 <code>visibility</code> 设为 <code>hidden</code>、将 <code>dispaly</code> 设为 <code>none</code> 或者将 <code>position</code> 设为 <code>absolute</code> 然后将位置移动到不可见的区域</p>
+<p>你有没有想过为什么我们有这么多技术来隐藏这些元素，而看起来他们实现的效果都是一样的，其实每一种方法和其他的方法之间都有一些细微的不同，这些不同决定了在一些特定的场合下使用哪一种方法，这篇教程将覆盖到那些你需要记住的细小不同点，让你根据不同的情况下，选择使用哪种方法隐藏元素</p>
+<h3 id="Opacity"><a href="#Opacity" class="headerlink" title="Opacity"></a>Opacity</h3><p><code>opacity</code> 属性的意识就是设置让一个元素的透明度，它不是为了改变元素的边界框（bounding box) 而设计的，这意味着将 <code>opacity</code> 设置为 <code>0</code> 只能从视觉上隐藏，而元素本身依然占据着它的位置并对网页的布局起作用，它也将相应用户交互</p>
+<blockquote>
+<p>.hide {</p>
+<p>opacity:  0;</p>
+<p>}</p>
+</blockquote>
+<p>如果你打算使用 <code>opacity</code> 属性在读屏软件中隐藏，很不幸，你并不能如你所愿。元素和它的所有内容会被读屏软件阅读，就像网页上的其他元素那样。换句话说，元素的行为就和它们不透明时一致</p>
+<p>我还要提醒一句，<code>opacity</code> 属性可以用来实现一些效果很棒的动画。任何 <code>opacity</code> 属性值小于 <code>1</code> 的元素也会创建一个新的堆叠上下文（stacking context)。</p>
+<p>看下面的列子：</p>
+<p>看 <a href="http://codepen.io/SitePoint" target="_blank" rel="noopener">@SitePoint</a> 提供的例子<a href="http://codepen.io/SitePoint/pen/bedZrR/" target="_blank" rel="noopener">“用 opacity 隐藏元素”</a></p>
+<p>当你鼠标移到被隐藏的第 <code>2</code> 个区块上，元素状态平滑地从完全透明变成不透明，区块也将 <code>cursor</code> 属性设置为了 <code>pointer</code> ，这说明用户可以与它交互</p>
+<h3 id="Visibility"><a href="#Visibility" class="headerlink" title="Visibility"></a>Visibility</h3><p>第二个要说的属性是 <code>Visibility</code>。将它的值设为 <code>hidden</code> 将隐藏我们的元素。如同 <code>opacity</code> 属性，被隐藏的元素依然会对我们的网页布局起作用。与 <code>opacity</code> 唯一不同的是它不会响应用户的任何交互。此外，元素在读屏软件中也会被隐藏。</p>
+<p>这个属性也能实现动画效果，只要它的初始的结束状态不一样。这确保了 <code>Visibility</code> 状态切换之间的过渡动画可以是时间平滑的，（事实上可以用这一点来用 <code>hidden</code> 实现元素的<a href="http://www.zhangxinxu.com/wordpress/2013/05/transition-visibility-show-hide/" target="_blank" rel="noopener">延迟显示和隐藏</a>——译者注）。</p>
+<blockquote>
+<p>.hide {</p>
+<p>​    visibility: hidden;</p>
+<p>}</p>
+</blockquote>
+<p>下面的例子演示了 <code>visibility</code> 与 <code>opacity</code> 有怎么样的不同：</p>
+<p>看 <a href="http://codepen.io/SitePoint" target="_blank" rel="noopener">@SitePoint</a> 提供的例子<a href="http://codepen.io/SitePoint/pen/pbJYpV/" target="_blank" rel="noopener">“用 visibility 隐藏元素”</a></p>
+<p>注意，如果一个元素的 <code>visibility</code> 被设置为 <code>hidden</code>，同时想要显示它的子孙元素，只要将那个元素的 <code>visibility</code> 显示设置为 <code>visible</code> 即可（就如例子里面的 .o-hide p——译者注）。尝试只 <code>hover</code> 在隐藏元素上，不要 <code>hover</code> 在 p 标签里的数字上，你会发现你的鼠标光标没有变成手指头的样子，此时，你点击鼠标，你的 <code>click</code> 时间也不会触发。</p>
+<p>而在 <code>&lt;div&gt;</code> 标签里面的 <code>&lt;p&gt;</code> 标签则依然可以捕获所有的鼠标事件。一旦你的鼠标移动到文字上，<code>&lt;div&gt;</code> 本身变得可见并且事件注册也会随之生效</p>
+<h3 id="Display"><a href="#Display" class="headerlink" title="Display"></a>Display</h3><p><code>display</code> 属性依照词义真正隐藏元素。将 <code>display</code> 属性设为 <code>none</code> 确保元素不可见并且连盒模型都生成不了，使用这个属性，被隐藏的元素不占任何空间，不仅如此，一旦 <code>display</code> 设为 <code>none</code>，任何对该元素直接打用户交互操作都不能生效。此外，读屏软件也不会读到元素的内容。这种方式产生的效果就像元素完全不存在。</p>
+<p>任何这个元素的子孙元素也会被同时隐藏。为这个属性添加过度效果是没有任何效果的，它的任何不同状态值之间的切换总是立即生效</p>
+<p>不过注意通过 DOM 依然可以访问到这个元素。因此你可以通过 DOM 来操作它，就像操作其他元素。</p>
+<blockquote>
+<p>.hide{</p>
+<p>display: none；</p>
+<p>}</p>
+</blockquote>
+<p>看下面的列子：</p>
+<p><a href="http://codepen.io/SitePoint" target="_blank" rel="noopener">@SitePoint</a> 提供的例子<a href="http://codepen.io/SitePoint/pen/zBGbjb/" target="_blank" rel="noopener">“用 display 隐藏元素”</a></p>
+<p>你将看到第二个元素内有一个<code>&lt;p&gt;</code> 元素，它有自己的 <code>display</code> 属性被设置成 <code>black</code>，但是它依然不可见。这是 <code>visibility:hidden</code> 和 <code>display:none</code> 的另一个不同之处。在前一个例子里，将任何子孙元素 <code>Visibility</code> 显示设置成 <code>visible</code> 可以让它变得可见，但是 <code>display</code> 不吃这一套，不管自身 <code>display</code> 值是什么，只要祖先 <code>display:none</code> ，它们就都不可见</p>
+<p>现在，将鼠标移到第一个块元素上面几次，然后点击它。这个操作将让第二个块元素显现出来，它其中的一个数字将是一个大于 <code>0</code> 的数。这是因为，元素即使设置成对用户隐藏，还是可以通过 <code>JavaScript</code> 来操作的</p>
+<h3 id="Position"><a href="#Position" class="headerlink" title="Position"></a>Position</h3><p>假设有一个元素它想要与你交互，但是你又不想让它影响你的网页布局，没有合适的属性可以处理这种情况，（opacity 和 visibility 影响布局， display 不影响布局但又无法直接交互——译者注）。在这种情况下，你只能考虑将元素移出可是区域。这个办法既不会影响布局，也能让元素保持可以操作，下面是采用这种办法的 CSS</p>
+<blockquote>
+<p>.hide{</p>
+<p>position:  absolute;</p>
+<p>top:  -9999px;</p>
+<p>left: -9999px;</p>
+<p>}</p>
+</blockquote>
+<p>下面列子阐明了怎样通过绝对定位的方式来隐藏元素，并让他和前面的效果一样：</p>
+<p>看 <a href="http://codepen.io/SitePoint" target="_blank" rel="noopener">@SitePoint</a> 提供的例子<a href="http://codepen.io/SitePoint/pen/QEboZm/" target="_blank" rel="noopener">“用 position 属性隐藏元素”</a></p>
+<p>这种方法是通过元素的 <code>top</code> 值 <code>left</code> 值设置成绝大负数，来该变元素的位置，使它不可见，采用这个技术的一个好处就是，（或者潜在的缺点）是用它隐藏的元素的内容可以被读屏软件读取。这完全可以理解，是因为你只是将元素移到可视区域外面让用户无法看到它。</p>
+<p>你得避免使用这种方法去隐藏任何可以获取焦点的元素，因为如果这么做，当用户获取焦点的时候，会导致一个不可预料的焦点切换，这个方法在创建复选框和单选框按钮时，经常被使用。（用 DOM 模拟复选框和单选按钮，但用这个方法隐藏真正的 checkbox 和 radio 元素来“接收”焦点切换——译者注）</p>
+<h3 id="Clip-path"><a href="#Clip-path" class="headerlink" title="Clip-path"></a>Clip-path</h3><p>隐藏元素的另一种方法是通过裁剪它们来实现，在以前，这可以通过 <code>clip</code> 属性来实现，但是这个属性被废弃了，换成一个更好的属性叫 <code>clip-path</code> 。Nitish Kumar 最近在 SitePoint 发表了<a href="https://www.sitepoint.com/introducing-css-clip-path-property/" target="_blank" rel="noopener">“介绍 <code>clicp-path</code> 属性”</a>这篇文章，通过阅读它可以了解这个属性的更多高级用法。</p>
+<p>记住 <code>clip-path</code> 属性还没有在 IE 和 Edge 下被完全支持，如果你要在你的 <code>clip-path</code> 中使用外部的 SVG 文件，浏览器支持还会更低。使用 clip-path 方式如下</p>
+<blockquote>
+<p>.hide{</p>
+<p>clip-path: polygon(0px 0px,0px 0px,0px 0px,0px 0px);</p>
+<p>}</p>
+</blockquote>
+<p>下面是一个实际使用的列子：</p>
+<p>看 <a href="http://codepen.io/SitePoint" target="_blank" rel="noopener">@SitePoint</a> 提供的例子<a href="http://codepen.io/SitePoint/pen/YWXgdW/" target="_blank" rel="noopener">“用 clip-path 属性隐藏元素”</a></p>
+<p>如果你把鼠标悬停在第一个元素上，它依然可以影响第二个元素，尽管第二个元素已经通过 <code>clip-path</code> 隐藏了。如果你点击它，它会移除用来隐藏的 class，让我们的元素从那个位置显现出来。被隐藏元素中的文字仍然能够通过读屏软件读取，许多 WordPress 站点使用 <code>clip-path</code> 或者之前的 <code>clip</code>来实现专门为读屏软件提供的文字。</p>
+<p>虽然我们的元素自身不再显示，它也依然占据本该占据的矩形大小，它周围的元素的行为就如同它可见时一样。记住用户交互例如鼠标悬停或者点击在剪裁区域之外也不可能生效。在我们的例子里，剪裁区大小为零，这意味着用户将不能与隐藏的元素直接交互。此外，这个属性能够使用各种过渡动画来实现不同的效果。</p>
+<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><p>在这篇教程里，我们看了 5 种不同的通过 CSS 隐藏元素的方法。每一种方法都与其他几种有一点区别。知道你想要实现什么有助于你决定采用哪一个属性，随着时间推移，你就能根据实际需求本能地选择最佳方式了。</p>
+<blockquote>
+<p>原文：<a href="http://www.zcfy.cc/article/457" target="_blank" rel="noopener">http://www.zcfy.cc/article/457</a></p>
+</blockquote>
+
+    </article>
+    <!-- 前后页  -->
+    <ul class="post-pager">
+        
+        
+            <li class="previous">
+                <a href= "/2018/05/29/IE8项目总结/" title= IE8项目总结 >
+                    <span>Previous Post</span>
+                    <span>IE8项目总结</span>
+                </a>
+            </li>
+        
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<div id="lv-container" data-id="city" data-uid= MTAyMC8zMzIxNC85Nzcx>
+    <script type="text/javascript">
+        (function (d, s) {
+            var j, e = d.getElementsByTagName(s)[0];
+            if (typeof LivereTower === 'function') { return; }
+            j = d.createElement(s);
+            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+            j.async = true;
+
+            e.parentNode.insertBefore(j, e);
+        })(document, 'script');
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+
+<!-- City版安装代码已完成 -->
 
 
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/01/30</span>
-                </div>
-            </div>
-        </article>
     
     
-    
-        <article class="index-post">
-            <a class="abstract-title" href = "/2018/01/26/grunt的安装与介绍/" >
-                
-                    <span>grunt的安装与介绍</span>
-            </a>
-            <a class="content-show-full" href = "/2018/01/26/grunt的安装与介绍/" >
-                <div class="abstract-content">
-                    Grunt安装及使用介绍Grunt都能做什么，自动化，减少像压缩，编译，单元测试，代码效验，打包，管理，优化，多余的东西干掉，这些重复且无业务关联的工作，我们做的越少，就可以留出更多的精力，来专注与我们的业务代码，那为什么我们选择grunt呢，是因为grunt的生态实在是在强大了，只要你能想到的任务，基本上都可以找到grunt的相关的自动化插件，并且grunt的生态一直在持续增长，我们不能给grunt全世界，但是grunt的全世界都给了我们
-首先我们先创建一个文件夹名字叫grunt-test
-官方站点：http://gruntjs.com/
-然后进入到这个文件夹，在这个文件夹中执行
+    <!--PC版-->
 
-n...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/01/26</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="abstract-title" href = "/2018/01/15/HTML标准模式，和怪异模式/" >
-                
-                    <span>HTML标准模式，和怪异模式</span>
-            </a>
-            <a class="content-show-full" href = "/2018/01/15/HTML标准模式，和怪异模式/" >
-                <div class="abstract-content">
-                    一、什么是标准模式和怪异模式在实现html和css标准化之前，各个浏览器对html和css的解析各有不同，甚至是同一个浏览器的不同版本渲染方式也不同（比如IE6和IE7）。在W3C制定标准之后，浏览器既要按照标准去实现HTML和CSS的支持，又要保证能够兼容以前的非标准的旧网页，于是就有了现在所说的标准模式（严格模式）和兼容模式（怪异模式）。
-二、浏览器如何确定渲染模式呢在编写HTML文档时，一般都会在文档的开头，html标签之前声明文档类型：DOCTYPE，当浏览器在解析html文档时，若遇到正确的文档声明，则启用标准模式，按照标准来解析和渲染文档。而对于旧的html文档，或没有DOC...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/01/15</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="abstract-title" href = "/2018/01/13/HTML5新特性，语义化/" >
-                
-                    <span>HTML5新特性，语义化</span>
-            </a>
-            <a class="content-show-full" href = "/2018/01/13/HTML5新特性，语义化/" >
-                <div class="abstract-content">
-                    一、为什么HTML5要引入新语义标签在HTML5之前采用HTML+CSS文档结构写法，但是这样的布局方式不仅使我们的文档结构不够清晰，而且不利于搜索引擎爬虫对我们页面的爬取。为了解决上述缺点，HTML5新增了很多新的语义化标签。
-二、引入语义化标签的优点引入语义化标签的好处主要有下列三点：
+    <!--PC版-->
 
-比&lt;div&gt;标签有更加丰富的含义，方便开发与维护
-搜索引擎能更方便的识别页面的每个部分
-方便其他设备解析（如移动设备、盲人阅读器等）
 
-三、标签详解所谓语义化标签就是一种我们仅通过标签名就能判断出该标签内容的语义的标签。下面将介绍&lt;article&gt; &lt;section&g...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/01/13</span>
-                </div>
-            </div>
-        </article>
     
-    
-    
-        <article class="index-post">
-            <a class="abstract-title" href = "/2018/01/12/hello-world/" >
-                
-                    <span>Hello World</span>
-            </a>
-            <a class="content-show-full" href = "/2018/01/12/hello-world/" >
-                <div class="abstract-content">
-                    Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick StartCreate a new post1$ hexo new "My New Post"
-More info: Writing
-Run server1$ hexo server
-More...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/01/12</span>
-                </div>
-            </div>
-        </article>
-    
-    <!-- paginator  -->
-    
-    <nav class="page-nav">
-        <a class="extend prev" rel="prev" href="/page/2/">#PREV</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
-    </nav>
-    
+    <!-- 评论 -->
 </main>
             <!-- profile -->
-            
-            <div class="profile">
-    <img class="profile-avatar" src= /avatar/timg.jpeg >
-    <div class="profile-name">阿达</div>
-    
-    <div class="profile-signature">
-        witness me
-    </div>
-    
-    
-    <div class="profile-social">
-        
-    
-        
-            
-                <a href="mailto:973480801@qq.com" class="iconfont-archer email" title=email ></a>
-            
-        
-    
-        
-            
-                <a href="https://github.com/songda1013" class="iconfont-archer github" target="_blank" title="github"></a>
-            
-        
-    
-        
-    
-        
-    
-
-    </div>
-    
-    
-        <div class="friends">
-            <div>FRIENDS</div>
-            
-                <span>
-                    <a href= //www.baidu.com target="_black">friendA</a>
-                </span>
-            
-                <span>
-                    <a href= //www.google.com target="_black">friendB</a>
-                </span>
-            
-        </div>
-    
-    
-        <div class="about-me">
-            <div>
-                <a href = "/about" >ABOUT ME</a>
-            </div>
-        </div>
-    
-</div>
             
         </div>
         <footer class="footer footer-unloaded">
@@ -450,6 +345,13 @@ More...
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper">
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Opacity"><span class="toc-number">1.</span> <span class="toc-text">Opacity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Visibility"><span class="toc-number">2.</span> <span class="toc-text">Visibility</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Display"><span class="toc-number">3.</span> <span class="toc-text">Display</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Position"><span class="toc-number">4.</span> <span class="toc-text">Position</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Clip-path"><span class="toc-number">5.</span> <span class="toc-text">Clip-path</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结："><span class="toc-number">6.</span> <span class="toc-text">总结：</span></a></li></ol>
+    </div>
     
     <div class="back-top">&#xe639;</div>
     <div class="sidebar">
