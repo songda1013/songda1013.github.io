@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        react-webpack简单配置 · A-D技术博客
+        16中方法实现水平居中垂直居中 · A-D技术博客
         
     </title>
     <link rel="icon" href= /assets/44.jpg>
@@ -72,7 +72,7 @@
                 <a href="/" >程序亦非猿</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">react-webpack简单配置</a>
+                <a href="#" class="post-name">16中方法实现水平居中垂直居中</a>
             </div>
     </div>
     
@@ -93,7 +93,7 @@
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            react-webpack简单配置
+            16中方法实现水平居中垂直居中
             <!-- 404 -->
             
         </h1>
@@ -112,7 +112,7 @@
             <script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "2", "bdMiniList": false, "bdPic": "", "bdStyle": "1", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = "/static/api/js/share.js"];</script>
             <div class="post-intro-meta">
                 <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                <span class="post-intro-time">2018/02/07</span>
+                <span class="post-intro-time">2018/06/05</span>
                 <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                     <span class="iconfont-archer">&#xe604;</span>
                     <span id="busuanzi_value_page_pv"></span>
@@ -195,97 +195,102 @@
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <p>首先我们先简单的构建一下项目的目录名字就叫webpack 文件夹，然后我们进到这个文件夹，然后在这里面我们要构建一个从零开始的一个项目结构的目录首先我们现在这个文件夹下面执行一个命令，就是<code>yarn</code>,这个东西和<code>npm</code>差不多，听说你下载的速度比<code>npm</code>快，但是我也没怎么发现，这个东西是facebook推出的，那我来执行这段命令</p>
-<blockquote>
-<p>$ npm i -g yarn</p>
-</blockquote>
-<p>然后安装完之后会有一段提示，说不让你这么安装，说当前的环境有问题，因为是通过<code>npm</code>装的它，如果<code>node</code>出了问题，这个东西就不能用了，但是这个东西没什么问题，我也去查了，证明了这件事，然后我们初始化我们的文件夹，之前是<code>npm init -y</code>,这个也跟它差不多</p>
-<blockquote>
-<p>$ yarn init -y</p>
-</blockquote>
-<p>这时我们的目录会多一个叫package.json的文件</p>
-<p>然后我们在根目录创建一个src文件夹，在这个文件夹里创建一个index.js，这个文件是我们的入口文件，然后我们回到根目录来安装我们的webpack</p>
-<blockquote>
-<p>$ yarn add webpack —dev</p>
-</blockquote>
-<p>—dev这个是开发的依赖</p>
-<p>然后我们在全局装一下webpack</p>
-<blockquote>
-<p>$ npm i -g  webpack</p>
-</blockquote>
-<p>然后我们在根目录创建一个webpack的配置文件叫webpack.config.js,这里面是webpack的主要配置文件,现在我们的目录结构是这样的</p>
-<p><img src="/assets/img2.png" alt="Alt text"></p>
-<p>然后我们开始配置webpack.config.js</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// webpack.config.js   第一步</span></span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>) <span class="comment">// 引入path</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">// 入口文件</span></span><br><span class="line">  entry:<span class="string">'./src/index.js'</span>,</span><br><span class="line">  <span class="comment">// 出口  里面有两个东西 一个是path路径  一个是filename </span></span><br><span class="line">  output:&#123;</span><br><span class="line">    path:path.join(__dirname,<span class="string">'dist'</span>),</span><br><span class="line">    filename:<span class="string">'build.js'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在终端执行</p>
-<blockquote>
-<p>$  webpack</p>
-</blockquote>
-<p>这时我们根目录会生成一个dist文件，里面有一个build.js，这里面是webpack帮你生成的一些内容，这是webpack本身的一些函数，里面的每一行大家都应该知道是什么意思，在这里就不去讲了，现在我们编译的过程已经搞定了，然后我们进入src里面的index.js，这里面我们写一下我们React.js的代码</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> ReactDOM <span class="keyword">from</span> <span class="string">'react-dom'</span>;</span><br><span class="line">render(<span class="xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>React Hello<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span>,<span class="built_in">document</span>.getElementById(<span class="string">'root'</span>))</span><br></pre></td></tr></table></figure>
-<p>然后执行webpack</p>
-<blockquote>
-<p>webpack</p>
-</blockquote>
-<p>会有报错</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ERROR <span class="keyword">in</span> ./src/index.js</span><br><span class="line">Module parse failed: Unexpected token (<span class="number">3</span>:<span class="number">7</span>)</span><br><span class="line">You may need an appropriate loader to handle <span class="keyword">this</span> file type.</span><br><span class="line">| <span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line">| <span class="keyword">import</span> ReactDOM <span class="keyword">from</span> <span class="string">'react-dom'</span>;</span><br><span class="line">| render(<span class="xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>React Hello<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span>,<span class="built_in">document</span>.getElementById(<span class="string">'root'</span>))</span><br></pre></td></tr></table></figure>
-<p>这时候我们还没有react,和react-dom,它不认识jsx语法然后安装</p>
-<blockquote>
-<p>$  yarn add react react-dom</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> ReactDOM <span class="keyword">from</span> <span class="string">'react-dom'</span>;</span><br><span class="line">render() <span class="comment">//里面先不放</span></span><br></pre></td></tr></table></figure>
-<p>在执行webpack</p>
-<p>先在还不识别jsx语法</p>
-<p>我们少了一些东西就是babel</p>
-<blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;$ yarn add @babel/preset-react @babel/preset-env @babel/core babel-loader@8.0.0-beta.0 	 --dev</span><br><span class="line">&gt;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>创建<code>.babelrc</code> 文件，加入如下代码:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"presets"</span>: [<span class="string">"@babel/preset-env"</span>, <span class="string">"@babel/preset-react"</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这里是babel的配置这是一个转译的过程，让浏览器能认识</p>
-<p>然后我们新建一个index.html文件看看效果</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">  &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br><span class="line">  &lt;meta http-equiv=<span class="string">"X-UA-Compatible"</span> content=<span class="string">"ie=edge"</span>&gt;</span><br><span class="line">  &lt;title&gt;Document&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;div id=<span class="string">"root"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  &lt;script src=<span class="string">"./dist/build.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&lt;<span class="regexp">/body&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>html&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="/assets/img3.png" alt="Alt text"></p>
-<p>这个我们的文字就出来了，但是我们是手动引入的<code>&lt;script src=&quot;./dist/build.js&quot;&gt;&lt;/script&gt;</code>这个文件，我们需要让它自动引入，那我们就得在webpack.config.js里面再配置些东西</p>
-<p>先下载一个插件,这个插件是自动导入生成的文件</p>
-<blockquote>
-<p>$  yarn add html-webpack-plugin –dev</p>
-</blockquote>
-<p>现在看看我们的配置文件是什么样子</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>) <span class="comment">// 引入path</span></span><br><span class="line"><span class="keyword">const</span> HTMLWebpackPlugin = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>);</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">// 入口文件</span></span><br><span class="line">  entry:<span class="string">'./src/index.js'</span>,</span><br><span class="line">  <span class="comment">// 出口  里面有两个东西 一个是path路径  一个是filename </span></span><br><span class="line">  output:&#123;</span><br><span class="line">    path:path.join(__dirname,<span class="string">'dist'</span>),</span><br><span class="line">    filename:<span class="string">'build.js'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="built_in">module</span>:&#123; </span><br><span class="line">    <span class="comment">// loaders 这是一个数组类型，数组中包含对象，你可以放很多对象，分别来处理各种任务</span></span><br><span class="line">    loaders:[</span><br><span class="line">      &#123;</span><br><span class="line">        test:<span class="regexp">/\.js$/</span>, <span class="comment">// 用来匹配所有的js文件，这里面写的是一个正则</span></span><br><span class="line">        loader:<span class="string">'babel-loader'</span>,</span><br><span class="line">        exclude:<span class="regexp">/node_modules/</span> <span class="comment">// 排除 就是除了node_modules 之外</span></span><br><span class="line">      &#125;</span><br><span class="line">    ]    </span><br><span class="line">  &#125;,</span><br><span class="line">  plugins:[  <span class="comment">// 这个插件是直接把生成的文件直接引用进去，自动引入js 是一个数组类型</span></span><br><span class="line">      <span class="comment">// 默认情况下是有参数的</span></span><br><span class="line">     <span class="keyword">new</span>  HTMLWebpackPlugin(&#123;</span><br><span class="line">        <span class="comment">// 模版</span></span><br><span class="line">        template:<span class="string">'./index.html'</span>,</span><br><span class="line">        filename:<span class="string">'index.html'</span>,</span><br><span class="line">        title:<span class="string">'首页'</span>,</span><br><span class="line">        inject:<span class="string">'body'</span></span><br><span class="line">     &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>配置完之后我们把之前引入的<code>&lt;script src=&quot;./dist/build.js&quot;&gt;&lt;/script&gt;</code>删除调，在执行命令</p>
-<blockquote>
-<p>$ Webpack</p>
-</blockquote>
-<p>这时我们的dist文件里就有个index.html文件了</p>
-<p>最后一步就是相当于我们启动一个服务，首先先执行一下命令，这个命令能让我们更方便的执行</p>
-<blockquote>
-<p>$ yarn add webpack-dev-server —dev</p>
-</blockquote>
-<p>然后在我们的package.json,下加一段话</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"webpack_text"</span>,</span><br><span class="line">  <span class="string">"version"</span>: <span class="string">"1.0.0"</span>,</span><br><span class="line">  <span class="string">"main"</span>: <span class="string">"index.js"</span>,</span><br><span class="line">  <span class="string">"license"</span>: <span class="string">"MIT"</span>,</span><br><span class="line">  <span class="string">"scripts"</span>: &#123;<span class="comment">// 加的就是这段话</span></span><br><span class="line">    <span class="string">"start"</span>: <span class="string">"webpack-dev-server"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"devDependencies"</span>: &#123;</span><br><span class="line">    <span class="string">"@babel/core"</span>: <span class="string">"^7.0.0-beta.39"</span>,</span><br><span class="line">    <span class="string">"@babel/preset-env"</span>: <span class="string">"^7.0.0-beta.39"</span>,</span><br><span class="line">    <span class="string">"@babel/preset-react"</span>: <span class="string">"^7.0.0-beta.39"</span>,</span><br><span class="line">    <span class="string">"babel-loader"</span>: <span class="string">"8.0.0-beta.0"</span>,</span><br><span class="line">    <span class="string">"html-webpack-plugin"</span>: <span class="string">"^2.30.1"</span>,</span><br><span class="line">    <span class="string">"webpack"</span>: <span class="string">"^3.10.0"</span>,</span><br><span class="line">    <span class="string">"webpack-dev-server"</span>: <span class="string">"^2.11.1"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"dependencies"</span>: &#123;</span><br><span class="line">    <span class="string">"react"</span>: <span class="string">"^16.2.0"</span>,</span><br><span class="line">    <span class="string">"react-dom"</span>: <span class="string">"^16.2.0"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>然后我们运行命令</p>
-<blockquote>
-<p>$ yarn start</p>
-</blockquote>
-<p>执行完之后，它会告诉我们，我们的项目现在已经运行在<a href="http://localhost:8080/，然后我们就直接输入地址http://localhost:8080/，就行了，自动的你对文件进行修改它就会发生变化，实时更新，是不是很好" target="_blank" rel="noopener">http://localhost:8080/，然后我们就直接输入地址http://localhost:8080/，就行了，自动的你对文件进行修改它就会发生变化，实时更新，是不是很好</a></p>
+        <h3 id="水平居中"><a href="#水平居中" class="headerlink" title="水平居中"></a>水平居中</h3><p>1、若是行内元素，给父元素设置 <code>text-align:center;</code> 既可以实现行内水平居中</p>
+<p>2、若是块级元素，该元素设置 <code>margin：0 auto；</code> 即可</p>
+<p>3、若是子元素包含，<code>float:left</code> 属性，为了让子元素水平居中，则可以让父元素宽度设置成 <code>fit-content</code> ，并配合 <code>margin</code> ，作如下设置：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: -moz-fit-content;</span><br><span class="line">    <span class="attribute">width</span>: -webkit-fit-content;</span><br><span class="line">    <span class="attribute">width</span>:fit-content;</span><br><span class="line">    <span class="attribute">margin</span>:<span class="number">0</span> auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>fit-content</code> 是 CSS3 中给 <code>width</code> 属性新加的一个属性值,它配合 <code>margin</code> 可以轻松实现水平居中, 目前只支持<code>Chrome</code> 和 <code>Firefox</code> 浏览器 </p>
+<p>4、使用 <code>flex</code> 2012 版本布局，可以轻松的实现水平居中，子元素设置如下</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.demo</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">    <span class="attribute">justify-content</span>: content;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>5、使用flex 2009年版本, 父元素 <code>display: box;</code> <code>box-pack: center;</code> 如下设置:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: -webkit-box;</span><br><span class="line">    <span class="attribute">-webkit-box-orient</span>: horizontal;</span><br><span class="line">    <span class="attribute">-webkit-box-pack</span>: center;</span><br><span class="line">    <span class="attribute">display</span>: -moz-box;</span><br><span class="line">    <span class="attribute">-moz-box-orient</span>: horizontal;</span><br><span class="line">    <span class="attribute">-moz-box-pack</span>: center;</span><br><span class="line">    <span class="attribute">display</span>: -o-box;</span><br><span class="line">    <span class="attribute">-o-box-orient</span>: horizontal;</span><br><span class="line">    <span class="attribute">-o-box-pack</span>: center;</span><br><span class="line">    <span class="attribute">display</span>: -ms-box;</span><br><span class="line">    <span class="attribute">-ms-box-orient</span>: horizontal;</span><br><span class="line">    <span class="attribute">-ms-box-pack</span>: center;</span><br><span class="line">    <span class="attribute">display</span>: box;</span><br><span class="line">    <span class="attribute">box-orient</span>: horizontal;</span><br><span class="line">    <span class="attribute">box-pack</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>6、使用 CSS3 中新增的 <code>transform</code> 属性，子元素设置如下：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.demo</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>:absolute;</span><br><span class="line">    <span class="attribute">left</span>:<span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">transform</span>:<span class="built_in">translate</span>(-50%,0);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>7、使用绝对定位方式，以及负值的 <code>margin-left</code> ，子元素设置如下</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.demo</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>:absolute;</span><br><span class="line">    <span class="attribute">width</span>:固定;</span><br><span class="line">    <span class="attribute">left</span>:<span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">margin-left</span>:-<span class="number">0.5</span>宽度;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>8、使用绝对定位方式, 以及 <code>left:0;</code> <code>right:0;</code> <code>margin:0 auto;</code> 子元素设置如下:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.demo</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>:absolute;</span><br><span class="line">    <span class="attribute">width</span>:固定;</span><br><span class="line">    <span class="attribute">left</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">right</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">margin</span>:<span class="number">0</span> auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="垂直居中"><a href="#垂直居中" class="headerlink" title="垂直居中"></a>垂直居中</h3><ul>
+<li><p>单行文本：</p>
+<p>1、若是元素为单行文本，则可设置 line-height 等于父级的高度</p>
+</li>
+<li><p>行块内元素：</p>
+<p>1、若是行内块元素，基本思想是使用 <code>display: inline-block</code>，<code>vertical-align: middle</code> 和一个伪元素让内容处于容器中央</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span><span class="selector-pseudo">::after</span>, <span class="selector-class">.demo</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>:inline-block;</span><br><span class="line">    <span class="attribute">vertical-align</span>:middle;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.parent</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>:<span class="string">''</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">100%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这是一种很流行的方法, 也适应IE7.</p>
+</li>
+<li><p>元素高度不定</p>
+<p>1、可用 <strong>vertical-align</strong> 属性, 而 <code>vertical-align</code> 只有在父层为 <code>td</code> 或者 <code>th</code> 时， 才会生效，对于其他块级元素，例如 <code>div</code>、<code>p</code> 等, 默认情况是不支持的. 为了使用 <code>vertical-align</code>， 我们需要设置父元素 <code>display:table</code>，子元素 <code>display:table-cell;</code> <code>vertical-align:middle;</code></p>
+<h5 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h5><p>元素高度可以动态改变, 不需再 CSS 中定义, 如果父元素没有足够空间时, 该元素内容也不会被截断.</p>
+<h5 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h5><p>IE6~7, 甚至IE8 beta中无效</p>
+<p>2、可用 <strong>Flex 2012版</strong>, 这是 CSS 布局未来的趋势， Flexbox 是 CSS3 新增属性, 设计初衷是为了解决像垂直居中这样的常见布局问题. 相关的文章如《<a href="http://louiszhai.github.io/2017/01/13/flex/" target="_blank" rel="noopener">弹性盒模型Flex指南</a>》</p>
+<p>父元素做如下设置即可保证子元素垂直居中:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">align-items</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="优点：-1"><a href="#优点：-1" class="headerlink" title="优点："></a>优点：</h5><ul>
+<li>内容块的宽高任意, 优雅的溢出</li>
+<li>可用于更复杂高级的布局技术中</li>
+</ul>
+<h5 id="缺点：-1"><a href="#缺点：-1" class="headerlink" title="缺点："></a>缺点：</h5><ul>
+<li>IE8/IE9 不支持</li>
+<li>需要浏览器厂商前缀</li>
+<li>渲染上可能会有一些问题</li>
+</ul>
+<p>3、使用 flex 2009版</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span> &#123;</span><br><span class="line">      <span class="attribute">display</span>: box;</span><br><span class="line">      <span class="attribute">box-orient</span>: vertical;</span><br><span class="line">      <span class="attribute">box-pack</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="优点：-2"><a href="#优点：-2" class="headerlink" title="优点："></a>优点：</h5><p>实现简单, 扩展性强</p>
+<h5 id="缺点：-2"><a href="#缺点：-2" class="headerlink" title="缺点："></a>缺点：</h5><p>兼容性差, 不支持 IE</p>
+<p>4、可用 <strong>transform</strong> , 设置父元素相对定位 <code>(position:relative)</code>，子元素如下 <code>css</code> 样式</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.demo</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>:absolute;</span><br><span class="line">    <span class="attribute">top</span>:<span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">-webkit-transform</span>: <span class="built_in">translate</span>(-50%,-50%);  </span><br><span class="line">    <span class="attribute">-ms-transform</span>: <span class="built_in">translate</span>(-50%,-50%);</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translate</span>(-50%,-50%);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="优点：-3"><a href="#优点：-3" class="headerlink" title="优点："></a>优点：</h5><p>代码量少</p>
+<h5 id="缺点：-3"><a href="#缺点：-3" class="headerlink" title="缺点："></a>缺点：</h5><p>IE8 不支持, 属性需要追加浏览器厂商前缀, 可能干扰其他 <code>transform</code> 效果, 某些情形下会出现文本或元素边界渲染模糊的现象 </p>
+</li>
+<li><p>元素高度固定</p>
+<p>1、设置父元素相对定位 <code>(position:relative)</code>， 子元素如下 <code>css</code> 样式:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.demo</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>:absolute;</span><br><span class="line">    <span class="attribute">top</span>:<span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">height</span>:固定;</span><br><span class="line">    <span class="attribute">margin-top</span>:-<span class="number">0.5</span>高度;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="优点：-4"><a href="#优点：-4" class="headerlink" title="优点："></a>优点：</h5><p>适用于所有浏览器.</p>
+<h5 id="缺点：-4"><a href="#缺点：-4" class="headerlink" title="缺点："></a>缺点：</h5><p>父元素空间不够时, 子元素可能不可见(当浏览器窗口缩小时,滚动条不出现时).如果子元素设置了overflow:auto, 则高度不够时, 会出现滚动条</p>
+<p>2、设置父元素相对定位 <code>(position:relative)</code>， 子元素如下 css 样式:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.demo &#123;</span><br><span class="line">    position:absolute;</span><br><span class="line">    height:固定;</span><br><span class="line">    top:0;</span><br><span class="line">    bottom:0;</span><br><span class="line">    margin:auto 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="优点：-5"><a href="#优点：-5" class="headerlink" title="优点："></a>优点：</h5><p>简单</p>
+<h5 id="缺点：-5"><a href="#缺点：-5" class="headerlink" title="缺点："></a>缺点：</h5><p>没有足够的空间时，子元素会被截断，不会有滚动条</p>
+<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><p>水平居中较为简单, 共提供了 8 种方法，一般情况下 <code>text-align:center</code>，<code>marin:0 auto;</code> 足矣</p>
+<ul>
+<li>① <code>text-align:center;</code></li>
+<li>② <code>margin:0 auto;</code></li>
+<li>③ <code>width:fit-content;</code></li>
+<li>④ <code>flex</code></li>
+<li>⑤ <code>盒模型</code></li>
+<li>⑥ <code>transform</code></li>
+<li>⑦ ⑧ <code>两种不同的绝对定位方法</code></li>
+</ul>
+<p>垂直居中, 共提供了8种方法</p>
+<ul>
+<li>① 单行文本，<code>line-height</code></li>
+<li>② 行内块级元素, 使用 <code>display: inline-block，</code> <code>vertical-align: middle;</code>加上伪元素辅助实现</li>
+<li>③ <code>vertical-align</code></li>
+<li>④ <code>flex</code></li>
+<li>⑤ <code>盒模型</code></li>
+<li>⑥ <code>transform</code></li>
+<li><p>⑦ ⑧ <code>两种不同的绝对定位方法</code></p>
+<p>我们发现，<code>flex</code>， 盒模型， <code>transform</code>， 绝对定位， 这几种方法同时适用于水平居中和垂直居中</p>
+</li>
+</ul>
+<p>希望对大家有所帮助</p>
+<p>本文作者：A-D</p>
+<p>本文链接: </p>
+<p>参考文章：<a href="http://louiszhai.github.io/2016/03/12/css-center/" target="_blank" rel="noopener">http://louiszhai.github.io/2016/03/12/css-center/</a></p>
+</li>
+</ul>
 
     </article>
     <!-- 前后页  -->
     <ul class="post-pager">
         
-            <li class="next">
-                <a href= "/2018/02/12/HTML5-canvas介绍及应用/" title= HTML5 canvas介绍及应用 >
-                    <span>Next Post</span>
-                    <span>HTML5 canvas介绍及应用</span>
-                </a>
-            </li>
-        
         
             <li class="previous">
-                <a href= "/2018/02/05/javascript代码规范/" title= javascript代码规范 >
+                <a href= "/2018/06/05/CSS实现隐藏页面的5种方式/" title= CSS实现隐藏页面的5种方式 >
                     <span>Previous Post</span>
-                    <span>javascript代码规范</span>
+                    <span>CSS实现隐藏页面的5种方式</span>
                 </a>
             </li>
         
@@ -368,7 +373,7 @@
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#水平居中"><span class="toc-number">1.</span> <span class="toc-text">水平居中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#垂直居中"><span class="toc-number">2.</span> <span class="toc-text">垂直居中</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#优点："><span class="toc-number">2.0.1.</span> <span class="toc-text">优点：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#缺点："><span class="toc-number">2.0.2.</span> <span class="toc-text">缺点：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#优点：-1"><span class="toc-number">2.0.3.</span> <span class="toc-text">优点：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#缺点：-1"><span class="toc-number">2.0.4.</span> <span class="toc-text">缺点：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#优点：-2"><span class="toc-number">2.0.5.</span> <span class="toc-text">优点：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#缺点：-2"><span class="toc-number">2.0.6.</span> <span class="toc-text">缺点：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#优点：-3"><span class="toc-number">2.0.7.</span> <span class="toc-text">优点：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#缺点：-3"><span class="toc-number">2.0.8.</span> <span class="toc-text">缺点：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#优点：-4"><span class="toc-number">2.0.9.</span> <span class="toc-text">优点：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#缺点：-4"><span class="toc-number">2.0.10.</span> <span class="toc-text">缺点：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#优点：-5"><span class="toc-number">2.0.11.</span> <span class="toc-text">优点：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#缺点：-5"><span class="toc-number">2.0.12.</span> <span class="toc-text">缺点：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结："><span class="toc-number">3.</span> <span class="toc-text">总结：</span></a></li></ol>
     </div>
     
     <div class="back-top">&#xe639;</div>
