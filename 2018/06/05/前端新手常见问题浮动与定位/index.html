@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
+    <title>
+        
+        前端新手常见问题浮动与定位 · A-D技术博客
+        
+    </title>
+    <link rel="icon" href= /assets/44.jpg>
+    <!-- TODO: 在font-face加载完毕后改变字体  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js"></script>
+    <!-- 提前加载place holder  -->
+    <style type="text/css">
+        @font-face {
+            font-family: 'Oswald-Regular';
+            src: url(/font/Oswald-Regular.ttf);
+        }
+    </style>
+    <style type="text/css">
+        .site-intro {
+            position: relative;
+            width: 100%;
+            height: 70vh;
+            overflow: hidden;
+            box-shadow: -0.1rem 0 0.5rem 0 rgba(0, 0, 0, 0.5);
+        }
+        .site-intro-placeholder {
+            position: absolute;
+            z-index: -2;
+            top: 0;
+            left: 0px;
+            width: calc(100% + 300px);
+            height: 100%;
+            background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+            background-position: center center;
+            transform: translate3d(-226px, 0, 0);
+            animation: gradient-move 2.5s ease-out 0s 1;
+        }
+        @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+</style>
+    <link rel="stylesheet" href = /css/style.css?v=20171227 />
+    <script src="//cdn.staticfile.org/jquery/3.2.1/jquery.min.js" defer></script>
+    
+    <script src="/scripts/main.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+</head>
+
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >程序亦非猿</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">前端新手常见问题浮动与定位</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href=/>程序亦非猿</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-img" style="background-image: url(http://oumn0o088.bkt.clouddn.com/post-bg.jpg)"></div>
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            前端新手常见问题浮动与定位
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <!-- 文章页标签  -->
+            
+            <script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "2", "bdMiniList": false, "bdPic": "", "bdStyle": "1", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = "/static/api/js/share.js"];</script>
+            <div class="post-intro-meta">
+                <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                <span class="post-intro-time">2018/06/05</span>
+                <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                    <span class="iconfont-archer">&#xe604;</span>
+                    <span id="busuanzi_value_page_pv"></span>
+                </span>
+                <span class="shareWrapper">
+                    <span class="iconfont-archer shareIcon">
+                        &#xe601;
+                    </span>
+                    <span class="bdsharebuttonbox">
+                        <a href="#" class="bds_more shareText" data-cmd="more">Share</a>
+                    </span>
+                </span>
+            </div>
+        
+    </div>
+</div>
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <script>
+            var browser = {
+                    versions: function () {
+                        var u = window.navigator.userAgent;
+                        return {
+                            userAgent: u,
+                            trident: u.indexOf('Trident') > -1, //IE内核
+                            presto: u.indexOf('Presto') > -1, //opera内核
+                            webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+                            gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+                            mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+                            ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+                            android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+                            iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+                            iPad: u.indexOf('iPad') > -1, //是否为iPad
+                            webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+                            weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+                            uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+                        };
+                    }()
+                }
+
+            function fontLoaded(){
+                console.log('font loaded');
+                if (document.getElementsByClassName('site-intro-meta')) {
+                    document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+                    document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+                    var postIntroTags = document.getElementsByClassName('post-intro-tags')[0],
+                        postIntroMeat = document.getElementsByClassName('post-intro-meta')[0];
+                        if (postIntroTags) {
+                            postIntroTags.classList.add('post-fade-in');
+                        }
+                        if (postIntroMeat) {
+                            postIntroMeat.classList.add('post-fade-in');
+                        }
+                    }
+                }
+                
+            console.log("userAgent:" + browser.versions.userAgent);
+            // UC不支持跨域，所以直接显示
+            if (browser.versions.uc) {
+                console.log("UCBrowser");
+                fontLoaded();
+            } else {
+                WebFont.load({
+                    custom: {
+                        families: ['Oswald-Regular']
+                    },
+                    loading: function () {  //所有字体开始加载
+                        // console.log('loading');
+                    },
+                    active: function () {  //所有字体已渲染
+                        fontLoaded();
+                    },
+                    inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+                        console.log('inactive: timeout');
+                        fontLoaded();
+                    },
+                    timeout: 7000 // Set the timeout to two seconds
+                });
+            }
+        </script>
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <h4 id="浮动元素有什么特征？对父容器、其他浮动元素、普通元素、文字分别有什么影响"><a href="#浮动元素有什么特征？对父容器、其他浮动元素、普通元素、文字分别有什么影响" class="headerlink" title="浮动元素有什么特征？对父容器、其他浮动元素、普通元素、文字分别有什么影响?"></a>浮动元素有什么特征？对父容器、其他浮动元素、普通元素、文字分别有什么影响?</h4><h5 id="特征："><a href="#特征：" class="headerlink" title="特征："></a>特征：</h5><ul>
+<li>浮动元素会正常脱离文档流，按照其外边距指定的位置相对于它的上一个块级元素（或父元素）显示</li>
+<li>浮动元素后面的块级元素的内容会向此浮动元素的外边距靠齐，但是边框和背景却忽略</li>
+<li>浮动元素会向上一个任意非浮动元素靠齐</li>
+<li>浮动元素后面的内联元素会向此浮动元素的外边距靠齐</li>
+</ul>
+<h5 id="float造成的影响："><a href="#float造成的影响：" class="headerlink" title="float造成的影响："></a>float造成的影响：</h5><ul>
+<li>对其父元素的影响<ul>
+<li>对于父元素来说，元素浮动之后，它会脱离当前正常的文档流，所以它也无法撑开其父元素，造成父元素的塌陷</li>
+</ul>
+</li>
+<li>对其兄弟元素（非浮动）的影响<ul>
+<li>如果兄弟元素为块级元素，该元素会忽视浮动元素而占据它的位置，并且元素会处在浮动元素的下层，但它的内部文字和其他行内元素都会环绕浮动元素，如果兄弟元素为内联元素，则元素会环绕浮动元素排列。</li>
+</ul>
+</li>
+<li>对其它兄弟元素（浮动）的影响<ul>
+<li>同一个方向的浮动元素：<ul>
+<li>当一个元素在浮动在浮动过程中碰到同一个方向的浮动元素时，它会紧跟在它们的后面</li>
+</ul>
+</li>
+<li>反方向浮动元素：<ul>
+<li>互不影响，位于同一条水平线上，当空间不够时会被挤下来</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>对子元素的影响<ul>
+<li>当一个元素浮动时，在没有请浮动的情况下，它无法撑开其父级元素，但它可以让自己的浮动子元素，撑开其自身，并且在没有定义具体宽度的情况下，使自身宽度从 100% 变为自适应（浮动元素 display：block）其高度和宽度均为浮动元素高度和非浮动元素高度之间的最大值。</li>
+</ul>
+</li>
+</ul>
+<h4 id="清除浮动指什么-如何清除浮动-两种以上方法"><a href="#清除浮动指什么-如何清除浮动-两种以上方法" class="headerlink" title="清除浮动指什么? 如何清除浮动? 两种以上方法"></a>清除浮动指什么? 如何清除浮动? 两种以上方法</h4><h5 id="浮动："><a href="#浮动：" class="headerlink" title="浮动："></a>浮动：</h5><p>浮动框不属于文档中的普通流，当一个元素浮动之后，不会影响到 块级框的布局而只会影响内联框（通常是文本）的排列，文档中的普通流就会表现得和浮动框不存在一样，当浮动框高度超出包含框的时候，也就会出现包含框不会 自动伸高来闭合浮动元素（“高度塌陷”现象）。正是因为浮动的这种特性，导致本属于普通流中的元素浮动之后，包含框内部由于不存在其他普通流元素了，也就表现出高度为0（高度塌陷）。在实际布局中，往往这并不是我们所希望的，所以需要闭合浮动元素，使其包含框表现出正常的高度</p>
+<h5 id="清除浮动的方法："><a href="#清除浮动的方法：" class="headerlink" title="清除浮动的方法："></a>清除浮动的方法：</h5><ul>
+<li><p>添加空 div，对他进行处理</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"clear: both;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">缺点：增加了一个无意义的标签。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>BFC 清除浮动（BFC详细请看下面）：在父容器中生成BFC</p>
+<ul>
+<li>触发BFC<br> float 除了none以外的值<br> overflow 除了visible 以外的值（hidden，auto，scroll ）<br> display (table-cell，table-caption，inline-block, flex, inline-flex)<br> position值为（absolute，fixed）<br> 局限性：使用BFC使用float的时候会使父容器长度缩短，而且还有个重要缺陷——父容器float解决了其塌陷问题，那么父容器的父容器怎么办？overflow属性会影响滚动条和绝对定位的元素；position会改变元素的定位方式，这是我们不希望的，display这几种方式依然没有解决低版本IE问题。。。</li>
+</ul>
+</li>
+<li><p>通用的清理浮动方案</p>
+<ul>
+<li><p>方法1</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clearfix</span>&#123;</span><br><span class="line">*zoom:1;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">:after</span>&#123;</span><br><span class="line"><span class="attribute">content</span>:<span class="string">""</span>;</span><br><span class="line"><span class="attribute">display</span>:block;</span><br><span class="line"><span class="attribute">clear</span>:left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>方法2</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clearfix</span>&#123;</span><br><span class="line">*zoom:1;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">:after</span>&#123;</span><br><span class="line"><span class="attribute">content</span>:<span class="string">""</span>;</span><br><span class="line"><span class="attribute">display</span>:table;</span><br><span class="line"><span class="attribute">clear</span>:both;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>虽然我们得出了一种浏览器兼容的靠谱解决方案，但这并不代表我们一定得用这种方式，很多时候我们的父容器本身需要position：absolute等形成了BFC的时候我们可以直接利用这些属性了，大家要掌握原理，活学活用。总而言之清理浮动两种方式：</p>
+</li>
+<li><p>1、利用 clear属性，清除浮动</p>
+</li>
+<li><p>2、使父容器形成BFC</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="有几种定位方式，分别是如何实现定位的，参考点是什么，使用场景是什么？"><a href="#有几种定位方式，分别是如何实现定位的，参考点是什么，使用场景是什么？" class="headerlink" title="有几种定位方式，分别是如何实现定位的，参考点是什么，使用场景是什么？"></a>有几种定位方式，分别是如何实现定位的，参考点是什么，使用场景是什么？</h4><ul>
+<li><p>static：</p>
+<ul>
+<li>默认值，没有定位，元素出现在正常的流中（忽略 top, bottom, left, right 或者 z-index声明）。当你没有为一个元素(例如div)指定定位方式时，默认为static，也就是按照文档的流式(flow)定位，将元素放到一个合适的地方。所以在不同的分辨率下，采用流式定位能很好的自适合，取得相对较好的布局效</li>
+</ul>
+</li>
+<li><p>relative:</p>
+<ul>
+<li>生成相对定位的元素，相对于其正常位置进行定位。元素的位置通过 “left”, “top”, “right” 以及 “bottom” 属性进行规定。在static的基础上，如果我想让一个元素在他本来的位置做一些调整(位移)，我们可以将该元素定位设置为relative，同时指定相对位移(利用top,bottom,left,right)。有一点需要注意的是，相对定位的元素仍然在文档流中，仍然占据着他本来占据的位置空间——虽然他现在已经不在本来的位置了。绝对定位会使元素从文档流中被删除，结果就是该元素原本占据的空间被其它元素所填充。</li>
+</ul>
+</li>
+<li><p>fixed:</p>
+<ul>
+<li><p>元素框的表现类似于将 position 设置为 absolute，不过其包含块是视窗本身。我们知道absolute定位的参照物是“上一个定位过的父元素(static不算)”，那么如果我想让一个元素定位的参照物总是整个文档(viewport)，怎么办呢？答案是使用fixed定位，fixed定位的参照物总是当前的文档。利用fixed定位，我们很容易让一个div定位在浏览器文档的左上，右上等方位。比如你想添加一个信息提示的div，并将该div固定在右上方，你可以使用以下css</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.element</span> &#123;</span><br><span class="line">	position：fixed；</span><br><span class="line">	<span class="selector-tag">top</span>：2%；</span><br><span class="line">	<span class="selector-tag">right</span>：2%；</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>absolute</p>
+<ul>
+<li>生成绝对定位的元素，相对于 static 定位以外的第一个父元素进行定位。如果你想在一个文档(Document)中将一个元素放至指定位置，你可以使用absolute来定位，将该元素的position设置为absolute，同时使用top,bottom,left,right来定位。</li>
+<li>元素的位置通过 “left”, “top”, “right” 以及 “bottom” 属性进行规定</li>
+</ul>
+</li>
+</ul>
+<h4 id="z-index-有什么作用-如何使用"><a href="#z-index-有什么作用-如何使用" class="headerlink" title="z-index 有什么作用? 如何使用?"></a>z-index 有什么作用? 如何使用?</h4><p>当网页上出现多个由绝对定位（POSITION:absolute）或固定定位（POSITION:fixed）所产生的浮动层时，必然就会产生一个问题，就是当这些层的位置产生重合时，谁在谁的上面呢？或者说谁看得见、谁看不见呢？这时候就可以通过设置z-index的值来解决，这个值较大的就在上面，较小的在下面。z-index的意思就是在z轴的顺序，如果说网页是由x轴和y轴所决定的一个平面，那么z轴就是垂直于屏幕的一条虚拟坐标轴，浮动层就在这个坐标轴上，那么它们的顺序号就决定了谁上谁下了。</p>
+<h4 id="position-relative-和负-margin-都可以使元素位置发生偏移-二者有什么区别？"><a href="#position-relative-和负-margin-都可以使元素位置发生偏移-二者有什么区别？" class="headerlink" title="position:relative 和负 margin 都可以使元素位置发生偏移?二者有什么区别？"></a>position:relative 和负 margin 都可以使元素位置发生偏移?二者有什么区别？</h4><ul>
+<li>position:relative是相对定位可以使元素发生偏移，但是在文档流中，它仍然占据着原来的位置，所以其他元素的位置不会发生变化</li>
+<li>负margin：通过负margin进行偏移的元素，它会放弃偏移前占据的空间，这样它后面文档流中的其它元素就会“流”过来填充这部分空间，所以其他元素的位置发生了变化。</li>
+</ul>
+<h4 id="在什么场景下会出现外边距合并？如何合并？如何不让相邻元素外边距合并？给个父子外边距合并的范例"><a href="#在什么场景下会出现外边距合并？如何合并？如何不让相邻元素外边距合并？给个父子外边距合并的范例" class="headerlink" title="在什么场景下会出现外边距合并？如何合并？如何不让相邻元素外边距合并？给个父子外边距合并的范例"></a>在什么场景下会出现外边距合并？如何合并？如何不让相邻元素外边距合并？给个父子外边距合并的范例</h4><h5 id="外边距合并指的是，当两个垂直外边距相遇时，它们将形成一个外边距。合并后的外边距的高度等于两个发生合并的外边距的高度中的较大者。"><a href="#外边距合并指的是，当两个垂直外边距相遇时，它们将形成一个外边距。合并后的外边距的高度等于两个发生合并的外边距的高度中的较大者。" class="headerlink" title="外边距合并指的是，当两个垂直外边距相遇时，它们将形成一个外边距。合并后的外边距的高度等于两个发生合并的外边距的高度中的较大者。"></a>外边距合并指的是，当两个垂直外边距相遇时，它们将形成一个外边距。合并后的外边距的高度等于两个发生合并的外边距的高度中的较大者。</h5><ul>
+<li>当一个元素出现在另一个元素上面时，第一个元素的下外边距与第二个元素的上外边距会发生合并。</li>
+<li>当一个元素包含在另一个元素中时（假设没有内边距或边框把外边距分隔开），它们的上和/或下外边距也会发生合并。</li>
+<li>假设有一个空元素，它有外边距，但是没有边框或填充。在这种情况下，上外边距与下外边距就碰到了一起，它们会发生合并：如果这个外边距遇到另一个元素的外边距，它还会发生合并。</li>
+</ul>
+<h4 id="父子元素之间的外边据合并"><a href="#父子元素之间的外边据合并" class="headerlink" title="父子元素之间的外边据合并"></a>父子元素之间的外边据合并</h4><ul>
+<li>消除边距合并的方式一：给父元素加边框</li>
+<li>消除边距合并的方式二：给父元素加padding</li>
+</ul>
+<h4 id="BFC-是什么？如何生成-BFC？BFC-有什么作用？举例说明"><a href="#BFC-是什么？如何生成-BFC？BFC-有什么作用？举例说明" class="headerlink" title="BFC 是什么？如何生成 BFC？BFC 有什么作用？举例说明"></a>BFC 是什么？如何生成 BFC？BFC 有什么作用？举例说明</h4><ul>
+<li>BFC 定义：<ul>
+<li>BFC(Block formatting context)直译为”块级格式化上下文”。它是一个独立的渲染区域，只有Block-level box参与， 它规定了内部的Block-level Box如何布局，并且与这个区域外部毫不相干。</li>
+</ul>
+</li>
+<li>Box<ul>
+<li>Box 是 Css 布局的对象和基本单位，直观点来说，就是一个页面有很多 Box 组成的。元素的类型和 display 属性，决定了这个 Box的类型，不同类型的 Box，会参与不同的 Formatting Context （一个决定如何渲染文档的容器），因此 Box 内的元素会以不同的方式渲染，让我们看看有哪些盒子：<ul>
+<li>1、block-level box:display 属性为 block, list-item, table 的元素，会生成 block-level box。并且参与 block fomatting context；</li>
+<li>2、inline-level box:display 属性为 inline, inline-block, inline-table 的元素，会生成 inline-level box。并且参与 inline formatting context</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Formatting Context<ul>
+<li>Formatting context 是 W3C CSS2.1 规范中的一个概念。它是页面中的一块渲染区域，并且有一套渲染规则，它决定了其子元素将如何定位，以及和其他元素的关系和相互作用。最常见的 Formatting context 有 Block fomatting context (简称BFC)和 Inline formatting context (简称IFC)。</li>
+</ul>
+</li>
+</ul>
+<h4 id="BFC-布局规则："><a href="#BFC-布局规则：" class="headerlink" title="BFC 布局规则："></a>BFC 布局规则：</h4><ul>
+<li>内部 Box 会在垂直方向，一个接一个的放位置</li>
+<li>Box 的垂直方向的距离有 margin 决定。属于同一个 BFC 的两个相邻 Box 的 margin 会发生重叠</li>
+<li>每个元素的 margin box 的左边，与包含块 border box 的左边相接触，（对于从左向右的格式化，否则相反）。即使存在浮动也是如此</li>
+<li>BFC 的区域不会与 float box 重叠</li>
+<li>BFC 就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素，反之也是如此</li>
+<li>计算 BFC 的高度时，浮动元素也参与计算</li>
+</ul>
+<h4 id="哪些元素会生成-BFC"><a href="#哪些元素会生成-BFC" class="headerlink" title="哪些元素会生成 BFC"></a>哪些元素会生成 BFC</h4><ul>
+<li>根元素</li>
+<li>float 属性不为 none</li>
+<li>position 为 absolute 或 fixed</li>
+<li>display 为 inline-block，table-cell，table-caption，flex，inline-flex</li>
+<li>overflow 不为 visible</li>
+</ul>
+<h4 id="BFC的作用："><a href="#BFC的作用：" class="headerlink" title="BFC的作用："></a>BFC的作用：</h4><ul>
+<li><p>自适应两栏布局</p>
+<p><img src="/assets/lian.jpg" alt="Alt text"></p>
+<ul>
+<li>每个元素的 margin box 的左边，与包含 border box的左边（对于从左向右的格式化，否则相反）。即使存在浮动也是如此</li>
+<li>我们可以通过触发 main 生成 BFC，来实现自适应两栏布局</li>
+</ul>
+<p><img src="/assets/lian1.jpg" alt="Alt text"></p>
+</li>
+<li><p>清除内部浮动</p>
+<p><img src="/assets/lian3.jpg" alt="Alt text"></p>
+<ul>
+<li>计算BFC的高度时，浮动元素也参与计算，解决父容器塌陷问题。</li>
+</ul>
+<p><img src="/assets/lian4.jpg" alt="Alt text"></p>
+</li>
+<li><p>防止垂直 margin 重叠</p>
+<p><img src="/assets/lian5.jpg" alt="Alt text"></p>
+<ul>
+<li>我们可以在p外面包裹一层容器，并触发该容器生成一个BFC。那么两个P便不属于同一个BFC，就不会发生margin重叠了。</li>
+</ul>
+<p><img src="/assets/lian6.jpg" alt="Alt text"></p>
+</li>
+</ul>
+
+    </article>
+    <!-- 前后页  -->
+    <ul class="post-pager">
+        
+        
+            <li class="previous">
+                <a href= "/2018/06/05/谈谈dispaly-position-float/" title= 谈谈dispaly position float >
+                    <span>Previous Post</span>
+                    <span>谈谈dispaly position float</span>
+                </a>
+            </li>
+        
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<div id="lv-container" data-id="city" data-uid= MTAyMC8zMzIxNC85Nzcx>
+    <script type="text/javascript">
+        (function (d, s) {
+            var j, e = d.getElementsByTagName(s)[0];
+            if (typeof LivereTower === 'function') { return; }
+            j = d.createElement(s);
+            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+            j.async = true;
+
+            e.parentNode.insertBefore(j, e);
+        })(document, 'script');
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+
+<!-- City版安装代码已完成 -->
+
+
+    
+    
+    <!--PC版-->
+
+    <!--PC版-->
+
+
+    
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:973480801@qq.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="https://github.com/songda1013" class="iconfont-archer github" target="_blank" title="github"></a>
+            
+        
+    
+        
+    
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Personal<a href="https://hexo.io/" target="_blank">Technology</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">Blog <a href="https://songda1013.github.io/" target="_blank">A-AD</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+        <span id="busuanzi_container_site_pv">VISITOR VOLUME: <span id="busuanzi_value_site_pv"></span>
+        </span>
+    </div>
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper">
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#浮动元素有什么特征？对父容器、其他浮动元素、普通元素、文字分别有什么影响"><span class="toc-number">1.</span> <span class="toc-text">浮动元素有什么特征？对父容器、其他浮动元素、普通元素、文字分别有什么影响?</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#特征："><span class="toc-number">1.1.</span> <span class="toc-text">特征：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#float造成的影响："><span class="toc-number">1.2.</span> <span class="toc-text">float造成的影响：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#清除浮动指什么-如何清除浮动-两种以上方法"><span class="toc-number">2.</span> <span class="toc-text">清除浮动指什么? 如何清除浮动? 两种以上方法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#浮动："><span class="toc-number">2.1.</span> <span class="toc-text">浮动：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#清除浮动的方法："><span class="toc-number">2.2.</span> <span class="toc-text">清除浮动的方法：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#有几种定位方式，分别是如何实现定位的，参考点是什么，使用场景是什么？"><span class="toc-number">3.</span> <span class="toc-text">有几种定位方式，分别是如何实现定位的，参考点是什么，使用场景是什么？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#z-index-有什么作用-如何使用"><span class="toc-number">4.</span> <span class="toc-text">z-index 有什么作用? 如何使用?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#position-relative-和负-margin-都可以使元素位置发生偏移-二者有什么区别？"><span class="toc-number">5.</span> <span class="toc-text">position:relative 和负 margin 都可以使元素位置发生偏移?二者有什么区别？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#在什么场景下会出现外边距合并？如何合并？如何不让相邻元素外边距合并？给个父子外边距合并的范例"><span class="toc-number">6.</span> <span class="toc-text">在什么场景下会出现外边距合并？如何合并？如何不让相邻元素外边距合并？给个父子外边距合并的范例</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#外边距合并指的是，当两个垂直外边距相遇时，它们将形成一个外边距。合并后的外边距的高度等于两个发生合并的外边距的高度中的较大者。"><span class="toc-number">6.1.</span> <span class="toc-text">外边距合并指的是，当两个垂直外边距相遇时，它们将形成一个外边距。合并后的外边距的高度等于两个发生合并的外边距的高度中的较大者。</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#父子元素之间的外边据合并"><span class="toc-number">7.</span> <span class="toc-text">父子元素之间的外边据合并</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#BFC-是什么？如何生成-BFC？BFC-有什么作用？举例说明"><span class="toc-number">8.</span> <span class="toc-text">BFC 是什么？如何生成 BFC？BFC 有什么作用？举例说明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#BFC-布局规则："><span class="toc-number">9.</span> <span class="toc-text">BFC 布局规则：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#哪些元素会生成-BFC"><span class="toc-number">10.</span> <span class="toc-text">哪些元素会生成 BFC</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#BFC的作用："><span class="toc-number">11.</span> <span class="toc-text">BFC的作用：</span></a></li></ol>
+    </div>
+    
+    <div class="back-top">&#xe639;</div>
+    <div class="sidebar">
+    <div class="sidebar-header sidebar-header-show-archive">
+        <div class="sidebar-category">
+            <span class="sidebar-archive-link"><span class="iconfont-archer">&#xe67d;</span>Archive</span>
+            <span class="sidebar-tags-link"><span class="iconfont-archer">&#xe610;</span>Tag</span>
+        </div>
+    </div>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-archive">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-archive"> Total : 30 </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/05</span><a class="archive-post-title" href= "/2018/06/05/前端新手常见问题浮动与定位/" >前端新手常见问题浮动与定位</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/05</span><a class="archive-post-title" href= "/2018/06/05/谈谈dispaly-position-float/" >谈谈dispaly position float</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/05</span><a class="archive-post-title" href= "/2018/06/05/16中方法实现水平居中垂直居中/" >16中方法实现水平居中垂直居中</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/05</span><a class="archive-post-title" href= "/2018/06/05/CSS实现隐藏页面的5种方式/" >CSS实现隐藏页面的5种方式</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/29</span><a class="archive-post-title" href= "/2018/05/29/IE8项目总结/" >IE8项目总结</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/19</span><a class="archive-post-title" href= "/2018/05/19/基于vue-cli脚手架使用vue-router路由/" >基于vue-cli脚手架使用vue-router路由</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/18</span><a class="archive-post-title" href= "/2018/05/18/Vue-cli脚手架搭建/" >Vue-cli脚手架搭建</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/14</span><a class="archive-post-title" href= "/2018/05/14/移动端适配/" >移动端适配</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/02</span><a class="archive-post-title" href= "/2018/04/02/如何能省略不必要的渲染/" >React中如何能省略不必要的渲染!</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/30</span><a class="archive-post-title" href= "/2018/03/30/React中什么是虚拟DOM/" >React中什么是Virtual DOM?</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/30</span><a class="archive-post-title" href= "/2018/03/30/为什么使用React/" >为什么使用React</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/29</span><a class="archive-post-title" href= "/2018/03/29/CSS3新特性的概述/" >CSS3新特性的概述</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/29</span><a class="archive-post-title" href= "/2018/03/29/盒模型，boxsizing/" >盒模型，boxsizing</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/26</span><a class="archive-post-title" href= "/2018/03/26/css、js放置位置和原因/" >css、js放置位置和原因 </a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/18</span><a class="archive-post-title" href= "/2018/03/18/HTML废弃的标签/" >HTML废弃的标签</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/05</span><a class="archive-post-title" href= "/2018/03/05/减肥ING/" >减肥ING</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/12</span><a class="archive-post-title" href= "/2018/02/12/JavaScritp变量-匈牙利命名法/" >JavaScritp变量--匈牙利命名法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/12</span><a class="archive-post-title" href= "/2018/02/12/HTML5-canvas介绍及应用/" >HTML5 canvas介绍及应用</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/07</span><a class="archive-post-title" href= "/2018/02/07/react-webpack简单配置/" >react-webpack简单配置</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/05</span><a class="archive-post-title" href= "/2018/02/05/javascript代码规范/" >javascript代码规范</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/04</span><a class="archive-post-title" href= "/2018/02/04/meta标签/" >meta标签</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/04</span><a class="archive-post-title" href= "/2018/02/04/HTML5-data-自定义属性/" >HTML5 data-* 自定义属性</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/31</span><a class="archive-post-title" href= "/2018/01/31/html和xhtml和xml的区别/" >html和xhtml和xml的区别</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/30</span><a class="archive-post-title" href= "/2018/01/30/React中state和props分别是什么？/" >React中state和props分别是什么？</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/30</span><a class="archive-post-title" href= "/2018/01/30/React中元素与组件的区别/" >React中元素与组件的区别,和组件有几种类型</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/01/12/hello-world/" >Hello World</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/30</span><a class="archive-post-title" href= "/2018/01/30/EJS模版/" >EJS模版</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/26</span><a class="archive-post-title" href= "/2018/01/26/grunt的安装与介绍/" >grunt的安装与介绍</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/15</span><a class="archive-post-title" href= "/2018/01/15/HTML标准模式，和怪异模式/" >HTML标准模式，和怪异模式</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/13</span><a class="archive-post-title" href= "/2018/01/13/HTML5新特性，语义化/" >HTML5新特性，语义化</a>
+        </li>
+    
+    </div>
+  </div>
+        <div class="sidebar-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name"><a href= "#">减肥</a></span>
+    
+    </div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: false
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tag-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var jsInfo = {
+        root: '/'
+    }
+</script>
+    <!-- 不蒜子  -->
+    
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ统计  -->
+    
+    </div>
+    </body>
+</html>
+
+

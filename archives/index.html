@@ -158,6 +158,40 @@
     
     
         <article class="index-post">
+            <a class="abstract-title" href = "/2018/06/05/前端新手常见问题浮动与定位/" >
+                
+                    <span>前端新手常见问题浮动与定位</span>
+            </a>
+            <a class="content-show-full" href = "/2018/06/05/前端新手常见问题浮动与定位/" >
+                <div class="abstract-content">
+                    浮动元素有什么特征？对父容器、其他浮动元素、普通元素、文字分别有什么影响?特征：
+浮动元素会正常脱离文档流，按照其外边距指定的位置相对于它的上一个块级元素（或父元素）显示
+浮动元素后面的块级元素的内容会向此浮动元素的外边距靠齐，但是边框和背景却忽略
+浮动元素会向上一个任意非浮动元素靠齐
+浮动元素后面的内联元素会向此浮动元素的外边距靠齐
+
+float造成的影响：
+对其父元素的影响
+对于父元素来说，元素浮动之后，它会脱离当前正常的文档流，所以它也无法撑开其父元素，造成父元素的塌陷
+
+
+对其兄弟元素（非浮动）的影响
+如果兄弟元素为块级元素，该元素会忽视浮动元素而占据它的位置，并且元素会处在浮动...
+                </div>
+            </a>
+            <div class="abstract-post-meta">
+                <!-- tags  -->
+                
+                <!-- date  -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/06/05</span>
+                </div>
+            </div>
+        </article>
+    
+    
+    
+        <article class="index-post">
             <a class="abstract-title" href = "/2018/06/05/谈谈dispaly-position-float/" >
                 
                     <span>谈谈dispaly position float</span>
@@ -386,39 +420,6 @@ render 和 shouldComponentUpdate 函数，也是 React 生命周期函数中只�
 React 应用是通过重复渲染来实现的用户的交互，你可能会想，这样的重复渲染会不会效率太低了，在 jQuery 的实现方式中，我们可在控制台清楚的看见，每次只有需要变化的那一个 DOM 元素被修改，可是，在 React 实现方式中，每次 render 被调用的时候，都要把整个组件都渲染一遍，这样看起来是不是有点浪费呢。
 事实上不是这样的，React 利用 Virtual DOM，让每次渲染都渲染最少的 DOM 元素
 要了解 Virtual D...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/03/30</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="abstract-title" href = "/2018/03/30/为什么使用React/" >
-                
-                    <span>为什么使用React</span>
-            </a>
-            <a class="content-show-full" href = "/2018/03/30/为什么使用React/" >
-                <div class="abstract-content">
-                    为什么使用React呢
-React社区完善，Facebook 支撑，并且拥有强大的全家桶
-
-
-这里是 React 的中文社区http://react-china.org/
-
-
-React 只是处理的 View 层，并且使用单项的数据流的方式，让数据决定视图如何展示，利于组件化，复用，提高了可维护性，可扩展性
-JSX语法，颠覆了传统的 web 前端思想
-各种浏览器插件易于调试，相对于 Vue 来说，API 足够少，没有升级版本所带来的痛点（参考 Vue 1.0 升级 2.0）
-
-
                 </div>
             </a>
             <div class="abstract-post-meta">
@@ -928,16 +929,7 @@ JSX语法，颠覆了传统的 web 前端思想
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <div class="total-archive"> Total : 29 </div>
+    <div class="total-archive"> Total : 30 </div>
     
     <div class="post-archive">
     
@@ -946,6 +938,11 @@ JSX语法，颠覆了传统的 web 前端思想
     
     <div class="archive-year"> 2018 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/05</span><a class="archive-post-title" href= "/2018/06/05/前端新手常见问题浮动与定位/" >前端新手常见问题浮动与定位</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1008,29 +1005,6 @@ JSX语法，颠覆了传统的 web 前端思想
         </li>
     
     
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/01/12/hello-world/" >Hello World</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> 2018 </div>
-    <ul class="year-list">
-    
-    
         <li class="archive-post-item">
             <span class="archive-post-date">03/26</span><a class="archive-post-title" href= "/2018/03/26/css、js放置位置和原因/" >css、js放置位置和原因 </a>
         </li>
@@ -1089,6 +1063,29 @@ JSX语法，颠覆了传统的 web 前端思想
         <li class="archive-post-item">
             <span class="archive-post-date">01/30</span><a class="archive-post-title" href= "/2018/01/30/React中元素与组件的区别/" >React中元素与组件的区别,和组件有几种类型</a>
         </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/01/12/hello-world/" >Hello World</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
     
     
         <li class="archive-post-item">
