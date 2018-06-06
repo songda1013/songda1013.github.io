@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        link和@import的区别 · A-D技术博客
+        解释一下css3的flexbox，以及适用场景 · A-D技术博客
         
     </title>
     <link rel="icon" href= /assets/44.jpg>
@@ -72,7 +72,7 @@
                 <a href="/" >程序亦非猿</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">link和@import的区别</a>
+                <a href="#" class="post-name">解释一下css3的flexbox，以及适用场景</a>
             </div>
     </div>
     
@@ -86,14 +86,14 @@
     
     <!-- 404页  -->
             
-    <div class="site-intro-img" style="background-image: url(/assets/w10.jpeg)"></div>
+    <div class="site-intro-img" style="background-image: url(http://oumn0o088.bkt.clouddn.com/post-bg.jpg)"></div>
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            link和@import的区别
+            解释一下css3的flexbox，以及适用场景
             <!-- 404 -->
             
         </h1>
@@ -195,56 +195,23 @@
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <p>页面中使用 Css 的方式主要有三种，行内添加定义 style 属性值，页面头部内嵌调用和外面链接调用，其中外面饮用有两种，link 和 @import。</p>
-<h4 id="外部引用-Css-两种方式-link-和-import-的方式分别是："><a href="#外部引用-Css-两种方式-link-和-import-的方式分别是：" class="headerlink" title="外部引用 Css 两种方式 link 和 @import 的方式分别是："></a>外部引用 Css 两种方式 link 和 @import 的方式分别是：</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">XML/HTML代码</span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">rev</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"CSS文件"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> <span class="attr">media</span>=<span class="string">"all"</span> /&gt;</span>   </span><br><span class="line">XML/HTML代码</span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span> <span class="attr">media</span>=<span class="string">"screen"</span>&gt;</span><span class="undefined">   </span></span><br><span class="line"><span class="css">@<span class="keyword">import</span> url(<span class="string">"CSS文件"</span>);   </span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h4 id="两者都是外部引用-Css-的方式，但是存在一定的区别"><a href="#两者都是外部引用-Css-的方式，但是存在一定的区别" class="headerlink" title="两者都是外部引用 Css 的方式，但是存在一定的区别"></a>两者都是外部引用 Css 的方式，但是存在一定的区别</h4><blockquote>
-<ul>
-<li>区别 1<ul>
-<li>link 是 XHTML 标签，除了加载 Css 外，还可以定义 Rss 等其它业务</li>
-<li>@import 属于 Css 范畴，只能加载 Css。</li>
+        <p>Flex 作为 Css3 中的新特性，一直被大家所熟知，应用的地方确实很少，那就让我们来了解一下吧</p>
+<h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><ul>
+<li>设置了 Flex 布局后，子元素 float，clear，还有 verticle-align 属性都不起作用</li>
+<li>设置了 display：flex；属性的元素，称为 flex 容器，它们里面的所有子元素都称为容器成员，flex 容器有两根坐标轴，水平的叫做主轴，垂直的叫做交叉轴</li>
+<li>flex 是 display 的一个属性值。与之相当的还有一个是 inline-flex。</li>
 </ul>
-</li>
-<li>区别 2<ul>
-<li>link 引入 Css 时，在页面载入时同时加载，@import 需要网页完全载入以后加载</li>
-</ul>
-</li>
-<li>区别 3<ul>
-<li>link 是 XHTML标签，无兼容问题，@import 是在 Css2.1 提出的，低版本的浏览器不支持</li>
-</ul>
-</li>
-<li>区别 4<ul>
-<li>link 支持使用 javascript 控制 DOM 去改变样式，而 @import 不支持</li>
-</ul>
-</li>
-</ul>
-</blockquote>
-<h4 id="补充："><a href="#补充：" class="headerlink" title="补充："></a>补充：</h4><blockquote>
-<p>@import 写法一般有以下几种：</p>
-<ul>
-<li>@import ‘style.css’ //Windows IE4/ NS4, Mac OS X IE5, Macintosh IE4/IE5/NS4不识别</li>
-<li>@import “style.css” //Windows IE4/ NS4, Macintosh IE4/NS4不识别</li>
-<li>@import url(style.css) //Windows NS4, Macintosh NS4不识别</li>
-<li>@import url(‘style.css’) //Windows NS4, Mac OS X IE5, Macintosh IE4/IE5/NS4不识别</li>
-<li>@import url(“style.css”) //Windows NS4, Macintosh NS4不识别<br>由上分析知道，@import url(style.css) 和@import url(“style.css”)是最优的选择，兼容的浏览器最多。从字节优化的角度来看@import url(style.css)最值得推荐。</li>
-</ul>
-</blockquote>
+<h4 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h4><p>父级：</p>
 
     </article>
     <!-- 前后页  -->
     <ul class="post-pager">
         
-            <li class="next">
-                <a href= "/2018/06/06/解释一下css3的flexbox，以及适用场景/" title= 解释一下css3的flexbox，以及适用场景 >
-                    <span>Next Post</span>
-                    <span>解释一下css3的flexbox，以及适用场景</span>
-                </a>
-            </li>
-        
         
             <li class="previous">
-                <a href= "/2018/06/05/前端新手常见问题浮动与定位/" title= 前端新手常见问题浮动与定位 >
+                <a href= "/2018/06/06/link和-import的区别/" title= link和@import的区别 >
                     <span>Previous Post</span>
-                    <span>前端新手常见问题浮动与定位</span>
+                    <span>link和@import的区别</span>
                 </a>
             </li>
         
@@ -327,7 +294,7 @@
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#外部引用-Css-两种方式-link-和-import-的方式分别是："><span class="toc-number">1.</span> <span class="toc-text">外部引用 Css 两种方式 link 和 @import 的方式分别是：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#两者都是外部引用-Css-的方式，但是存在一定的区别"><span class="toc-number">2.</span> <span class="toc-text">两者都是外部引用 Css 的方式，但是存在一定的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#补充："><span class="toc-number">3.</span> <span class="toc-text">补充：</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#说明"><span class="toc-number">1.</span> <span class="toc-text">说明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#属性"><span class="toc-number">2.</span> <span class="toc-text">属性</span></a></li></ol>
     </div>
     
     <div class="back-top">&#xe639;</div>
