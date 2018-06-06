@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        移动端适配 · A-D技术博客
+        A-D技术博客
         
     </title>
     <link rel="icon" href= /assets/44.jpg>
@@ -58,23 +58,14 @@
 </head>
 
     
-        <body class="post-body">
+        <body class="home-body">
     
     
-<header class="header">
+<header class="header index-header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
-    
-    <div class="banner">
-            <div class="blog-title">
-                <a href="/" >程序亦非猿</a>
-            </div>
-            <div class="post-title">
-                <a href="#" class="post-name">移动端适配</a>
-            </div>
-    </div>
     
     <a class="home-link" href=/>程序亦非猿</a>
 </header>
@@ -84,17 +75,17 @@
     <!-- 主页  -->
     
     
-    <!-- 404页  -->
+    <!-- 文章页  -->
             
-    <div class="site-intro-img" style="background-image: url(/assets/w6.jpeg)"></div>
+    <div class="site-intro-img" style="background-image: url(http://yifeiyuan.me/img/opluo.jpg)"></div>
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            移动端适配
-            <!-- 404 -->
+            程序亦非猿
+            <!-- 文章页  -->
             
         </h1>
         <!-- 副标题 -->
@@ -102,30 +93,12 @@
             <!-- 主页副标题  -->
             
             
-            <!-- 404 -->
+                it's better to burn out than to fade away
+            
+            <!-- 文章页  -->
             
         </p>
         <!-- 文章页meta -->
-        
-            <!-- 文章页标签  -->
-            
-            <script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "2", "bdMiniList": false, "bdPic": "", "bdStyle": "1", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = "/static/api/js/share.js"];</script>
-            <div class="post-intro-meta">
-                <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                <span class="post-intro-time">2018/05/14</span>
-                <span id="busuanzi_container_page_pv" class="busuanzi-pv">
-                    <span class="iconfont-archer">&#xe604;</span>
-                    <span id="busuanzi_value_page_pv"></span>
-                </span>
-                <span class="shareWrapper">
-                    <span class="iconfont-archer shareIcon">
-                        &#xe601;
-                    </span>
-                    <span class="bdsharebuttonbox">
-                        <a href="#" class="bds_more shareText" data-cmd="more">Share</a>
-                    </span>
-                </span>
-            </div>
         
     </div>
 </div>
@@ -193,64 +166,96 @@
             }
         </script>
         <div class="container container-unloaded">
-            <main class="main post-page">
-    <article class="article-entry">
-        <p>最近公司写了一个移动端的项目，然后我简单说一下移动端适配的方案，其实移动端适配的方案有很多种，主要是rem，vh，vw，这些每个都有每个的好处，我用的就是 <code>rem</code> 来设置的移动自适应的配置，首先需要 <code>viewport</code> 设置一下，在不同的手机上要自适应屏幕，我是改的是 <code>font-size</code> 的字体大小，用js来改变的，下面是js文件的内容</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  (<span class="function"><span class="keyword">function</span> (<span class="params">doc, win</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> docEl = doc.documentElement,</span><br><span class="line">        resizeEvt = <span class="string">'orientationchange'</span> <span class="keyword">in</span> <span class="built_in">window</span> ? <span class="string">'orientationchange'</span> : <span class="string">'resize'</span>,</span><br><span class="line">        recalc = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> clientWidth = docEl.clientWidth;</span><br><span class="line">            <span class="keyword">if</span> (!clientWidth) <span class="keyword">return</span>;</span><br><span class="line">            <span class="keyword">if</span>(clientWidth&gt;=<span class="number">750</span>)&#123;</span><br><span class="line">                docEl.style.fontSize = <span class="string">'100px'</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                docEl.style.fontSize = <span class="number">100</span> * (clientWidth / <span class="number">750</span>) + <span class="string">'px'</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!doc.addEventListener) <span class="keyword">return</span>;</span><br><span class="line">    win.addEventListener(resizeEvt, recalc, <span class="literal">false</span>);</span><br><span class="line">    doc.addEventListener(<span class="string">'DOMContentLoaded'</span>, recalc, <span class="literal">false</span>);</span><br><span class="line">&#125;)(<span class="built_in">document</span>, <span class="built_in">window</span>);</span><br></pre></td></tr></table></figure>
-<p>这是用来设置字体大小的，把这个文件引入你要写的项目中，就可以自适应屏幕了，而且不用刷新，然后用 <code>rem</code> 单位来设置，<code>width</code>，<code>height</code>，<code>margin</code>，<code>padding</code>，<code>position</code>只要是涉及到这些都用 <code>rem</code> 来做单位，除了设置 <code>border</code> 可以用1px之外，这些用的都是 <code>rem</code>，正常情况下这些就够了，如果不够的话，可以用媒体查询来配合 <code>rem</code> 来使用，这些足够来自适应屏幕了，好了这次的分享结束，朋友们，我们下回见</p>
-
-    </article>
-    <!-- 前后页  -->
-    <ul class="post-pager">
-        
-            <li class="next">
-                <a href= "/2018/05/18/Vue-cli脚手架搭建/" title= Vue-cli脚手架搭建 >
-                    <span>Next Post</span>
-                    <span>Vue-cli脚手架搭建</span>
-                </a>
-            </li>
-        
-        
-            <li class="previous">
-                <a href= "/2018/04/02/如何能省略不必要的渲染/" title= React中如何能省略不必要的渲染! >
-                    <span>Previous Post</span>
-                    <span>React中如何能省略不必要的渲染!</span>
-                </a>
-            </li>
-        
-    </ul>
-    <!-- 评论插件 -->
-    <!-- 来必力City版安装代码 -->
-
-<div id="lv-container" data-id="city" data-uid= MTAyMC8zMzIxNC85Nzcx>
-    <script type="text/javascript">
-        (function (d, s) {
-            var j, e = d.getElementsByTagName(s)[0];
-            if (typeof LivereTower === 'function') { return; }
-            j = d.createElement(s);
-            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-            j.async = true;
-
-            e.parentNode.insertBefore(j, e);
-        })(document, 'script');
-    </script>
-    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
-</div>
-
-<!-- City版安装代码已完成 -->
-
-
+            <main class="main index-page">
     
     
-    <!--PC版-->
-
-    <!--PC版-->
-
-
     
-    <!-- 评论 -->
+        <article class="index-post">
+            <a class="abstract-title" href = "/2018/01/12/hello-world/" >
+                
+                    <span>Hello World</span>
+            </a>
+            <a class="content-show-full" href = "/2018/01/12/hello-world/" >
+                <div class="abstract-content">
+                    Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
+Quick StartCreate a new post1$ hexo new "My New Post"
+More info: Writing
+Run server1$ hexo server
+More...
+                </div>
+            </a>
+            <div class="abstract-post-meta">
+                <!-- tags  -->
+                
+                <!-- date  -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/01/12</span>
+                </div>
+            </div>
+        </article>
+    
+    <!-- paginator  -->
+    
+    <nav class="page-nav">
+        <a class="extend prev" rel="prev" href="/page/3/">#PREV</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+    </nav>
+    
 </main>
             <!-- profile -->
+            
+            <div class="profile">
+    <img class="profile-avatar" src= /avatar/timg.jpeg >
+    <div class="profile-name">阿达</div>
+    
+    <div class="profile-signature">
+        witness me
+    </div>
+    
+    
+    <div class="profile-social">
+        
+    
+        
+            
+                <a href="mailto:973480801@qq.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="https://github.com/songda1013" class="iconfont-archer github" target="_blank" title="github"></a>
+            
+        
+    
+        
+    
+        
+    
+
+    </div>
+    
+    
+        <div class="friends">
+            <div>FRIENDS</div>
+            
+                <span>
+                    <a href= //www.baidu.com target="_black">friendA</a>
+                </span>
+            
+                <span>
+                    <a href= //www.google.com target="_black">friendB</a>
+                </span>
+            
+        </div>
+    
+    <!-- 
+        <div class="about-me">
+            <div>
+                <a href = "/about" >ABOUT ME</a>
+            </div>
+        </div>
+     -->
+</div>
             
         </div>
         <footer class="footer footer-unloaded">
@@ -292,13 +297,6 @@
 </footer>
     </div>
     <!-- toc -->
-    
-    <div class="toc-wrapper">
-        <div class="toc-catalog">
-            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
-        </div>
-        
-    </div>
     
     <div class="back-top">&#xe639;</div>
     <div class="sidebar">

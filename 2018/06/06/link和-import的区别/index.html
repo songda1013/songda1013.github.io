@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        移动端适配 · A-D技术博客
+        link和@import的区别 · A-D技术博客
         
     </title>
     <link rel="icon" href= /assets/44.jpg>
@@ -72,7 +72,7 @@
                 <a href="/" >程序亦非猿</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">移动端适配</a>
+                <a href="#" class="post-name">link和@import的区别</a>
             </div>
     </div>
     
@@ -86,14 +86,14 @@
     
     <!-- 404页  -->
             
-    <div class="site-intro-img" style="background-image: url(/assets/w6.jpeg)"></div>
+    <div class="site-intro-img" style="background-image: url(/assets/w10.jpeg)"></div>
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            移动端适配
+            link和@import的区别
             <!-- 404 -->
             
         </h1>
@@ -112,7 +112,7 @@
             <script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "2", "bdMiniList": false, "bdPic": "", "bdStyle": "1", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = "/static/api/js/share.js"];</script>
             <div class="post-intro-meta">
                 <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                <span class="post-intro-time">2018/05/14</span>
+                <span class="post-intro-time">2018/06/06</span>
                 <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                     <span class="iconfont-archer">&#xe604;</span>
                     <span id="busuanzi_value_page_pv"></span>
@@ -195,26 +195,49 @@
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <p>最近公司写了一个移动端的项目，然后我简单说一下移动端适配的方案，其实移动端适配的方案有很多种，主要是rem，vh，vw，这些每个都有每个的好处，我用的就是 <code>rem</code> 来设置的移动自适应的配置，首先需要 <code>viewport</code> 设置一下，在不同的手机上要自适应屏幕，我是改的是 <code>font-size</code> 的字体大小，用js来改变的，下面是js文件的内容</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  (<span class="function"><span class="keyword">function</span> (<span class="params">doc, win</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> docEl = doc.documentElement,</span><br><span class="line">        resizeEvt = <span class="string">'orientationchange'</span> <span class="keyword">in</span> <span class="built_in">window</span> ? <span class="string">'orientationchange'</span> : <span class="string">'resize'</span>,</span><br><span class="line">        recalc = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> clientWidth = docEl.clientWidth;</span><br><span class="line">            <span class="keyword">if</span> (!clientWidth) <span class="keyword">return</span>;</span><br><span class="line">            <span class="keyword">if</span>(clientWidth&gt;=<span class="number">750</span>)&#123;</span><br><span class="line">                docEl.style.fontSize = <span class="string">'100px'</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                docEl.style.fontSize = <span class="number">100</span> * (clientWidth / <span class="number">750</span>) + <span class="string">'px'</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!doc.addEventListener) <span class="keyword">return</span>;</span><br><span class="line">    win.addEventListener(resizeEvt, recalc, <span class="literal">false</span>);</span><br><span class="line">    doc.addEventListener(<span class="string">'DOMContentLoaded'</span>, recalc, <span class="literal">false</span>);</span><br><span class="line">&#125;)(<span class="built_in">document</span>, <span class="built_in">window</span>);</span><br></pre></td></tr></table></figure>
-<p>这是用来设置字体大小的，把这个文件引入你要写的项目中，就可以自适应屏幕了，而且不用刷新，然后用 <code>rem</code> 单位来设置，<code>width</code>，<code>height</code>，<code>margin</code>，<code>padding</code>，<code>position</code>只要是涉及到这些都用 <code>rem</code> 来做单位，除了设置 <code>border</code> 可以用1px之外，这些用的都是 <code>rem</code>，正常情况下这些就够了，如果不够的话，可以用媒体查询来配合 <code>rem</code> 来使用，这些足够来自适应屏幕了，好了这次的分享结束，朋友们，我们下回见</p>
+        <p>页面中使用 Css 的方式主要有三种，行内添加定义 style 属性值，页面头部内嵌调用和外面链接调用，其中外面饮用有两种，link 和 @import。</p>
+<h4 id="外部引用-Css-两种方式-link-和-import-的方式分别是："><a href="#外部引用-Css-两种方式-link-和-import-的方式分别是：" class="headerlink" title="外部引用 Css 两种方式 link 和 @import 的方式分别是："></a>外部引用 Css 两种方式 link 和 @import 的方式分别是：</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">XML/HTML代码</span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">rev</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"CSS文件"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> <span class="attr">media</span>=<span class="string">"all"</span> /&gt;</span>   </span><br><span class="line">XML/HTML代码</span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span> <span class="attr">media</span>=<span class="string">"screen"</span>&gt;</span><span class="undefined">   </span></span><br><span class="line"><span class="css">@<span class="keyword">import</span> url(<span class="string">"CSS文件"</span>);   </span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="两者都是外部引用-Css-的方式，但是存在一定的区别"><a href="#两者都是外部引用-Css-的方式，但是存在一定的区别" class="headerlink" title="两者都是外部引用 Css 的方式，但是存在一定的区别"></a>两者都是外部引用 Css 的方式，但是存在一定的区别</h4><blockquote>
+<ul>
+<li>区别 1<ul>
+<li>link 是 XHTML 标签，除了加载 Css 外，还可以定义 Rss 等其它业务</li>
+<li>@import 属于 Css 范畴，只能加载 Css。</li>
+</ul>
+</li>
+<li>区别 2<ul>
+<li>link 引入 Css 时，在页面载入时同时加载，@import 需要网页完全载入以后加载</li>
+</ul>
+</li>
+<li>区别 3<ul>
+<li>link 是 XHTML标签，无兼容问题，@import 是在 Css2.1 提出的，低版本的浏览器不支持</li>
+</ul>
+</li>
+<li>区别 4<ul>
+<li>link 支持使用 javascript 控制 DOM 去改变样式，而 @import 不支持</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h4 id="补充："><a href="#补充：" class="headerlink" title="补充："></a>补充：</h4><blockquote>
+<p>@import 写法一般有以下几种：</p>
+<ul>
+<li>@import ‘style.css’ //Windows IE4/ NS4, Mac OS X IE5, Macintosh IE4/IE5/NS4不识别</li>
+<li>@import “style.css” //Windows IE4/ NS4, Macintosh IE4/NS4不识别</li>
+<li>@import url(style.css) //Windows NS4, Macintosh NS4不识别</li>
+<li>@import url(‘style.css’) //Windows NS4, Mac OS X IE5, Macintosh IE4/IE5/NS4不识别</li>
+<li>@import url(“style.css”) //Windows NS4, Macintosh NS4不识别<br>由上分析知道，@import url(style.css) 和@import url(“style.css”)是最优的选择，兼容的浏览器最多。从字节优化的角度来看@import url(style.css)最值得推荐。</li>
+</ul>
+</blockquote>
 
     </article>
     <!-- 前后页  -->
     <ul class="post-pager">
         
-            <li class="next">
-                <a href= "/2018/05/18/Vue-cli脚手架搭建/" title= Vue-cli脚手架搭建 >
-                    <span>Next Post</span>
-                    <span>Vue-cli脚手架搭建</span>
-                </a>
-            </li>
-        
         
             <li class="previous">
-                <a href= "/2018/04/02/如何能省略不必要的渲染/" title= React中如何能省略不必要的渲染! >
+                <a href= "/2018/06/05/前端新手常见问题浮动与定位/" title= 前端新手常见问题浮动与定位 >
                     <span>Previous Post</span>
-                    <span>React中如何能省略不必要的渲染!</span>
+                    <span>前端新手常见问题浮动与定位</span>
                 </a>
             </li>
         
@@ -297,7 +320,7 @@
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#外部引用-Css-两种方式-link-和-import-的方式分别是："><span class="toc-number">1.</span> <span class="toc-text">外部引用 Css 两种方式 link 和 @import 的方式分别是：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#两者都是外部引用-Css-的方式，但是存在一定的区别"><span class="toc-number">2.</span> <span class="toc-text">两者都是外部引用 Css 的方式，但是存在一定的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#补充："><span class="toc-number">3.</span> <span class="toc-text">补充：</span></a></li></ol>
     </div>
     
     <div class="back-top">&#xe639;</div>
