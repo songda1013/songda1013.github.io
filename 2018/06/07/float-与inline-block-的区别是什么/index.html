@@ -206,8 +206,8 @@
 <p>使用 <code>float</code> 方式需要注意的是，要有一个元素来包裹 <code>float</code> 元素，同时避免接下来的元素紧紧的靠近它</p>
 <p>另外一个麻烦就是，当有一个多行水平列表，但是列表里的内容有不同高度时，就会排的很痛苦</p>
 <p>用 <code>display：inline-block</code> 的空白符引起的问题：</p>
-<p>因为元素之间行内 <code>inline</code> 修饰排列的，因此 HTML 中的空格符也会影响到这个修饰，也就是说，当我们把元素的大小顺序排列好，如果在 <li> 元素之间有空格符，这个符号将会产生 <code>4px</code> 的边距。</li></p>
-<h4 id="综述："><a href="#综述：" class="headerlink" title="综述："></a>综述：</h4><p>1、用 <code>display: inline-block；</code>来实现水平列表比用浮动方式更容易控制，需要注意的是前者会由空格符带来边距的影响</p>
+<p>因为元素之间行内 <code>inline</code> 修饰排列的，因此 HTML 中的空格符也会影响到这个修饰，也就是说，当我们把元素的大小顺序排列好，如果在 <code>&lt;li&gt;</code>  元素之间有空格符，这个符号将会产生 <code>4px</code> 的边距。</p>
+<h4 id="综述："><a href="#综述：" class="headerlink" title="综述："></a>综述：</h4><p>1、用 <code>display: inline-block；</code> 来实现水平列表比用浮动方式更容易控制，需要注意的是前者会由空格符带来边距的影响</p>
 <p>2、<code>inline-block</code> 默认是底部对齐，要让两个元素顶部对齐的话，需要加上一句 <code>veritcal-align:top</code></p>
 <p>3、<code>inline-block</code> 的宽度可以自行设置，而 <code>inline</code> 自行设置宽度是无效的。</p>
 <h4 id="浮动产生的作用"><a href="#浮动产生的作用" class="headerlink" title="浮动产生的作用"></a>浮动产生的作用</h4><p>1、<code>clear：both</code> 清除浮动 （ 添加额外元素）</p>
@@ -228,15 +228,15 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">display: block； //字面意识表示设置为块级元素</span><br><span class="line">display: inline; //字面意思表示设置为行内元素</span><br></pre></td></tr></table></figure>
 <p>三、inline-block</p>
 <p><code>inline-block</code> 的元素（如 <code>input</code>、<code>img</code> )既具有 <code>block</code> 元素可以设置宽高的特性，同时又具有 <code>inline</code> 元素默认不换行的特性。当然不仅仅是这些特性，比如 <code>inline-block</code> 元素也可以设置 <code>vertical-align</code>（因为这个垂直对齐属性只对设置了 <code>inline-block</code> 的元素有效） 属性。</p>
-<p>HTML 中的换行符、空格符、制表符等合并为空白符，字体大小不为 0 的情况下，空白符自然占据一定的宽度，使用inline-block 会产生元素间的空隙。（这句话下面会用例子解释）</p>
-<h4 id="Css-中的盒子模型宽度和高度如何理解"><a href="#Css-中的盒子模型宽度和高度如何理解" class="headerlink" title="Css 中的盒子模型宽度和高度如何理解"></a>Css 中的盒子模型宽度和高度如何理解</h4><p>盒模型的宽度和高度和我们平常所说的物体理解的宽度是不一样的，css 内定义的宽（ width ) 和高（ height ），指的是填充以里的范围</p>
-<p>因此一个<strong>元素实际宽度（盒子的宽度）=左边界+左边框+左填充+内容宽度+右填充+右边框+右边界</strong>。<br>元素的高度也是同理。</p>
+<p>HTML 中的换行符、空格符、制表符等合并为空白符，字体大小不为 0 的情况下，空白符自然占据一定的宽度，使用 <code>inline-block</code> 会产生元素间的空隙。（这句话下面会用例子解释）</p>
+<h4 id="Css-中的盒子模型宽度和高度如何理解"><a href="#Css-中的盒子模型宽度和高度如何理解" class="headerlink" title="Css 中的盒子模型宽度和高度如何理解"></a>Css 中的盒子模型宽度和高度如何理解</h4><p>盒模型的宽度和高度和我们平常所说的物体理解的宽度是不一样的，<code>css</code> 内定义的宽（ <code>width</code> ) 和高（ <code>height</code>），指的是填充以里的范围</p>
+<p>因此一个<strong>元素实际宽度（盒子的宽度）= 左边界 + 左边框 + 左填充 + 内容宽度 + 右填充 + 右边框 + 右边界</strong>。<br>元素的高度也是同理。</p>
 <p> 比如：</p>
 <p>css 代码：</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">20px</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid red;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">10px</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>html 代码：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        文本内容</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>元素的实际长度为：10px+1px+20px+200px+20px+1px+10px=262px。在chrome浏览器下可查看元素盒模型，如下图：</p>
+<p>元素的实际长度为：<code>10px + 1px + 20px + 200px + 20px + 1px + 10px = 262px。</code> 在 <code>chrome</code> 浏览器下可查看元素盒模型，如下图：</p>
 <p><img src="/assets/boxmoxing.jpg" alt="Alt text"></p>
 <h4 id="css-box-sizing-属性"><a href="#css-box-sizing-属性" class="headerlink" title="css box-sizing 属性"></a>css box-sizing 属性</h4><p>实例</p>
 <p>规定两个并排的带边框的框：</p>
@@ -813,46 +813,6 @@
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <div class="total-archive"> Total : 32 </div>
     
     <div class="post-archive">
@@ -882,29 +842,6 @@
         <li class="archive-post-item">
             <span class="archive-post-date">06/05</span><a class="archive-post-title" href= "/2018/06/05/谈谈dispaly-position-float/" >谈谈dispaly position float</a>
         </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/01/12/hello-world/" >Hello World</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> 2018 </div>
-    <ul class="year-list">
     
     
         <li class="archive-post-item">
@@ -965,6 +902,29 @@
         <li class="archive-post-item">
             <span class="archive-post-date">03/26</span><a class="archive-post-title" href= "/2018/03/26/css、js放置位置和原因/" >css、js放置位置和原因 </a>
         </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/01/12/hello-world/" >Hello World</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
     
     
         <li class="archive-post-item">
