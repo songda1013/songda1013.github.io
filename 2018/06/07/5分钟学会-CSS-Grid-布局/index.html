@@ -210,7 +210,7 @@
 <p>但是，这还没做任何事情，因为我们没有定义我们希望的，gird（网格） 是怎样的，它会简单的将 6 个 div 堆叠在一起</p>
 <p><img src="/assets/gird1.jpg" alt="Alt text"></p>
 <p>我已经添加了一些样式，但是这与 Css Gird 没有任何关系</p>
-<h4 id="Columns-列-和-row-行"><a href="#Columns-列-和-row-行" class="headerlink" title="Columns(列) 和 row(行)"></a>Columns(列) 和 row(行)</h4><p>为了使其成为二维的网络容器，我们需要定义烈和行，让我们创建 3列 和 2行。我们将使用 <code>gird-template-row</code></p>
+<h4 id="Columns-列-和-row-行"><a href="#Columns-列-和-row-行" class="headerlink" title="Columns(列) 和 row(行)"></a>Columns(列) 和 row(行)</h4><p>为了使其成为二维的网络容器，我们需要定义列和行，让我们创建 3列 和 2行。我们将使用 <code>gird-template-row</code></p>
 <p>和 <code>gird-template-column</code> 属性</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.wrapper</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: gird;</span><br><span class="line">    <span class="attribute">gird-template-columns</span>: <span class="number">100px</span> <span class="number">100px</span> <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">gird-template-rows</span>: <span class="number">50px</span> <span class="number">50px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>正如你所看到的，我们为 <code>gird-template-columns</code> 写入了 3 个值，这样我们就会得到 3 列，我们想要得到 2 行，因此我们为 <code>gird-template-row</code> 指定了 2 个值。</p>
@@ -815,6 +815,12 @@
     
     
     
+    
+    
+    
+    
+    
+    
     <div class="total-archive"> Total : 33 </div>
     
     <div class="post-archive">
@@ -871,6 +877,29 @@
         </li>
     
     
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/01/12/hello-world/" >Hello World</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
+    
+    
         <li class="archive-post-item">
             <span class="archive-post-date">05/18</span><a class="archive-post-title" href= "/2018/05/18/Vue-cli脚手架搭建/" >Vue-cli脚手架搭建</a>
         </li>
@@ -899,29 +928,6 @@
         <li class="archive-post-item">
             <span class="archive-post-date">03/29</span><a class="archive-post-title" href= "/2018/03/29/CSS3新特性的概述/" >CSS3新特性的概述</a>
         </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/01/12/hello-world/" >Hello World</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> 2018 </div>
-    <ul class="year-list">
     
     
         <li class="archive-post-item">
