@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
+    <title>
+        
+        Javascript 基础需要掌握的技术点 · A-D技术博客
+        
+    </title>
+    <link rel="icon" href= /assets/44.jpg>
+    <!-- TODO: 在font-face加载完毕后改变字体  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js"></script>
+    <!-- 提前加载place holder  -->
+    <style type="text/css">
+        @font-face {
+            font-family: 'Oswald-Regular';
+            src: url(/font/Oswald-Regular.ttf);
+        }
+    </style>
+    <style type="text/css">
+        .site-intro {
+            position: relative;
+            width: 100%;
+            height: 70vh;
+            overflow: hidden;
+            box-shadow: -0.1rem 0 0.5rem 0 rgba(0, 0, 0, 0.5);
+        }
+        .site-intro-placeholder {
+            position: absolute;
+            z-index: -2;
+            top: 0;
+            left: 0px;
+            width: calc(100% + 300px);
+            height: 100%;
+            background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+            background-position: center center;
+            transform: translate3d(-226px, 0, 0);
+            animation: gradient-move 2.5s ease-out 0s 1;
+        }
+        @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+</style>
+    <link rel="stylesheet" href = /css/style.css?v=20171227 />
+    <script src="//cdn.staticfile.org/jquery/3.2.1/jquery.min.js" defer></script>
+    
+    <script src="/scripts/main.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+</head>
+
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >程序亦非猿</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">Javascript 基础需要掌握的技术点</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href=/>程序亦非猿</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-img" style="background-image: url(http://oumn0o088.bkt.clouddn.com/post-bg.jpg)"></div>
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            Javascript 基础需要掌握的技术点
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <!-- 文章页标签  -->
+            
+            <script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "2", "bdMiniList": false, "bdPic": "", "bdStyle": "1", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = "/static/api/js/share.js"];</script>
+            <div class="post-intro-meta">
+                <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                <span class="post-intro-time">2018/06/21</span>
+                <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                    <span class="iconfont-archer">&#xe604;</span>
+                    <span id="busuanzi_value_page_pv"></span>
+                </span>
+                <span class="shareWrapper">
+                    <span class="iconfont-archer shareIcon">
+                        &#xe601;
+                    </span>
+                    <span class="bdsharebuttonbox">
+                        <a href="#" class="bds_more shareText" data-cmd="more">Share</a>
+                    </span>
+                </span>
+            </div>
+        
+    </div>
+</div>
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <script>
+            var browser = {
+                    versions: function () {
+                        var u = window.navigator.userAgent;
+                        return {
+                            userAgent: u,
+                            trident: u.indexOf('Trident') > -1, //IE内核
+                            presto: u.indexOf('Presto') > -1, //opera内核
+                            webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+                            gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+                            mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+                            ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+                            android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+                            iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+                            iPad: u.indexOf('iPad') > -1, //是否为iPad
+                            webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+                            weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+                            uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+                        };
+                    }()
+                }
+
+            function fontLoaded(){
+                console.log('font loaded');
+                if (document.getElementsByClassName('site-intro-meta')) {
+                    document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+                    document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+                    var postIntroTags = document.getElementsByClassName('post-intro-tags')[0],
+                        postIntroMeat = document.getElementsByClassName('post-intro-meta')[0];
+                        if (postIntroTags) {
+                            postIntroTags.classList.add('post-fade-in');
+                        }
+                        if (postIntroMeat) {
+                            postIntroMeat.classList.add('post-fade-in');
+                        }
+                    }
+                }
+                
+            console.log("userAgent:" + browser.versions.userAgent);
+            // UC不支持跨域，所以直接显示
+            if (browser.versions.uc) {
+                console.log("UCBrowser");
+                fontLoaded();
+            } else {
+                WebFont.load({
+                    custom: {
+                        families: ['Oswald-Regular']
+                    },
+                    loading: function () {  //所有字体开始加载
+                        // console.log('loading');
+                    },
+                    active: function () {  //所有字体已渲染
+                        fontLoaded();
+                    },
+                    inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+                        console.log('inactive: timeout');
+                        fontLoaded();
+                    },
+                    timeout: 7000 // Set the timeout to two seconds
+                });
+            }
+        </script>
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <h4 id="变量类型和计算"><a href="#变量类型和计算" class="headerlink" title="变量类型和计算"></a>变量类型和计算</h4><ul>
+<li><p>变量类型</p>
+<ul>
+<li><p>值类型和引用类型</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>  <span class="keyword">var</span> a = <span class="number">100</span>;</span><br><span class="line"><span class="number">2</span>  <span class="keyword">var</span> b = a;</span><br><span class="line"><span class="number">3</span>  a = <span class="number">200</span>;</span><br><span class="line"><span class="number">4</span>  <span class="built_in">console</span>.log(b)  <span class="comment">// 100</span></span><br></pre></td></tr></table></figure>
+<p>我们先定义一个 <code>a = 100;</code> 在定义一个 <code>b = a;</code> 然后在把 <code>a</code> 赋值为 <code>200；</code> 这时候在打印 <code>b</code>，<code>b</code> 的值是 100，每个变量的值都不会相互影响，这就是值类型的特点</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>  <span class="keyword">var</span> a = &#123;<span class="attr">age</span>:<span class="number">20</span>&#125;</span><br><span class="line"><span class="number">2</span>  <span class="keyword">var</span> b = a;</span><br><span class="line"><span class="number">3</span>  b.age = <span class="number">21</span>;</span><br><span class="line"><span class="number">4</span>  <span class="built_in">console</span>.log(a.age) <span class="comment">// 21</span></span><br></pre></td></tr></table></figure>
+<p>和上面 <code>值类型</code> 同理，对比一下上面的，但是输出的不一样，是 <code>21</code>，这就是 <code>值类型</code> 和 <code>引用类型</code> 的区别有什么区别的从内存中来说，<code>值类型</code> 是把每一个值存一个内存地址，比如说 <code>a</code> 存成 100，然后 <code>b</code> 又存成  <code>a</code>，<code>b</code> 也是 100，然后再把 <code>a</code> 改成 200，<code>a</code> 就变成了 200，但是 <code>b</code> 的值还是 100，由此可以证明，<code>a</code> 和 <code>b</code> 是独立的，不会互相影响</p>
+<p>但是引用类型就不一样，引用类型是我把 <code>a</code> 赋值为一个对象，这个对象存在另一个地方，<code>a</code> 的内存地址是通过指针指向对象这个地方，然后我们把 <code>b</code> 赋值成 <code>a</code> 的时候，在更改 <code>b.age</code> 的时候，这两个对象是指向一个内存地址的，所以当我们更改 <code>b.age = 21</code> 的时候，其实 <code>a.age</code> 就已经是 21 了，<code>a</code> 也指向这个对象，这就是值类型和引用类型的区别所在，它为什么要这样做呢，引用类型包括（对象，数组，函数），大家要记住，引用类型有什么特点呢，就是可以无限制扩展属性，可以加很多属性，如过我们属性加了很多之后呢，就会出现内存占用比较大的问题，所以说引用类型中是为了让内存共用一个空间，所以才出现引用的这种方式，对象，数组，函数，都会有这种属性</p>
+</li>
+<li><p>typeof 运算符详解</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>  <span class="keyword">typeof</span> <span class="literal">undefined</span> <span class="comment">// undefined</span></span><br><span class="line"><span class="number">2</span>  <span class="keyword">typeof</span> <span class="string">'abc'</span> <span class="comment">// string</span></span><br><span class="line"><span class="number">3</span>  <span class="keyword">typeof</span> <span class="number">123</span> <span class="comment">// number</span></span><br><span class="line"><span class="number">4</span>  <span class="keyword">typeof</span> <span class="literal">true</span> <span class="comment">// boolean</span></span><br><span class="line"><span class="number">5</span>  <span class="keyword">typeof</span> &#123;&#125; <span class="comment">// object</span></span><br><span class="line"><span class="number">6</span>  <span class="keyword">typeof</span> [] <span class="comment">// object</span></span><br><span class="line"><span class="number">7</span>  <span class="keyword">typeof</span> <span class="literal">null</span> <span class="comment">// object</span></span><br><span class="line"><span class="number">8</span>  <span class="keyword">typeof</span> <span class="built_in">console</span>.log <span class="comment">// function</span></span><br></pre></td></tr></table></figure>
+<p><code>typeof</code> 一共有 6 种形式，<code>undefined</code>、<code>string</code>、<code>number</code>、<code>boolean</code> 、<code>object</code>、<code>function</code>，需要注意的就是 <code>null</code>，它也是一个 <code>object</code> 对象，但是它是一个特殊的，因为它什么都没有，它只是一个空的指针而已，就是它定义了一个 <code>null</code> 一个位置，但是它并没有指向任何的引用类型的一个真实的对象，所以它是空的，但是它的类型也是一个 <code>object</code> 的类型，如果用来保存比较复杂的数据，可以声明为 <code>null</code>，还有一点需要注意，<code>typeof</code> 只能区分值类型的详细类型，看前4行，如果是引用类型的话，<code>typeof</code> 就没能为力了，引用类型包括，第 5 行的对象，第 6 行的数组，第 7 行的数组，包括第 8 行的函数，但是 <code>typeof</code> 能区分出第 8 行函数来，为什么会这样呢，因为函数是一个非常特殊的一个引用类型，在 js 中函数的地位非常非常高，所以 <code>typeof</code> 能区分函数</p>
+</li>
+</ul>
+</li>
+<li><p>变量计算</p>
+<ul>
+<li><p>值类型-强制类型转换</p>
+<ul>
+<li><p>字符串拼接</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>  <span class="keyword">var</span> a = <span class="number">100</span> + <span class="number">10</span> <span class="comment">// 110</span></span><br><span class="line"><span class="number">2</span>  <span class="keyword">var</span> b = <span class="number">100</span> + <span class="string">'10'</span> <span class="comment">// '10010'</span></span><br></pre></td></tr></table></figure>
+<p>这就是在字符穿拼接类型时候发生的转化</p>
+</li>
+<li><p>== 运算符</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>  <span class="number">100</span> == <span class="string">'100'</span> <span class="comment">// true</span></span><br><span class="line"><span class="number">2</span>  <span class="number">0</span> == <span class="string">''</span> <span class="comment">// true</span></span><br><span class="line"><span class="number">3</span>  <span class="literal">null</span> == <span class="literal">undefined</span> <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>是不是很奇怪呢，所以说 <code>==</code> 计算大家一定要慎用，它会进行类型转换，他会让前面的数和后面的数是相等的，如果上面第 3 行都换成 <code>===</code> 就不会出现这种问题</p>
+</li>
+<li><p>if 语句</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>  <span class="keyword">var</span> a = <span class="literal">true</span>;</span><br><span class="line"><span class="number">2</span>  <span class="keyword">if</span> (a) &#123;</span><br><span class="line"><span class="number">3</span>    <span class="comment">// ....</span></span><br><span class="line"><span class="number">4</span>  &#125;</span><br><span class="line"><span class="number">5</span>  <span class="keyword">var</span> b = <span class="number">100</span>;</span><br><span class="line"><span class="number">6</span>  <span class="keyword">if</span> (b) &#123;</span><br><span class="line"><span class="number">7</span>	 <span class="comment">// ....    </span></span><br><span class="line"><span class="number">8</span>  &#125;</span><br><span class="line"><span class="number">9</span>  <span class="keyword">var</span> c = <span class="string">''</span>;</span><br><span class="line"><span class="number">10</span> <span class="keyword">if</span> (c) &#123;</span><br><span class="line"><span class="number">11</span>   <span class="comment">// ....    </span></span><br><span class="line"><span class="number">12</span> &#125;</span><br></pre></td></tr></table></figure>
+<p><code>a</code> 和 <code>b</code> 都会走 <code>if</code> 语句，因为会把 <code>a</code> 和 <code>b</code> 强制转换成 <code>boolean</code> 类型，但是 <code>c</code> 就不会走 <code>if</code> 语句，因为 <code>c</code> 强制类型转换之后 <code>&#39;&#39;</code> 字符串为 <code>false</code> 所以不会走 <code>if</code> 语句，所以 <code>if</code> 语句会做一个强制类型转换</p>
+</li>
+<li><p>逻辑运算</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>  <span class="built_in">console</span>.log(<span class="number">10</span> &amp;&amp; <span class="number">0</span>);	<span class="comment">// 0</span></span><br><span class="line"><span class="number">2</span>  <span class="built_in">console</span>.log(<span class="string">''</span> || <span class="string">'abc'</span>);	<span class="comment">// 'abc'</span></span><br><span class="line"><span class="number">3</span>  <span class="built_in">console</span>.log(!<span class="built_in">window</span>.abc);	<span class="comment">// true</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">5</span>  <span class="comment">// 判断一个变量会被当作 true 还是 false</span></span><br><span class="line"><span class="number">6</span>  <span class="keyword">var</span> a = <span class="number">100</span>;</span><br><span class="line"><span class="number">7</span>  <span class="built_in">console</span>.log(!!a) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>第 1 行 10 <code>&amp;&amp;</code> 0 它返回的是 0，它转换的是什么呢，就是把 10 转换成 <code>true</code> 了，所以会继续走后面的，所以是 0，第 2 行空字符串转换成 <code>false</code> 了，是 ‘abc’，第三行 ！window.abc，经过 ！转换就变成 <code>true</code> 了，这就是与、或、非，这三个逻辑运算符的转换，最后的是两个！就是 <code>true</code></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="js-中的内置函数有哪些"><a href="#js-中的内置函数有哪些" class="headerlink" title="js 中的内置函数有哪些"></a>js 中的内置函数有哪些</h4><ul>
+<li><p>Object</p>
+</li>
+<li><p>Array</p>
+</li>
+<li><p>Boolean</p>
+</li>
+<li><p>Number</p>
+</li>
+<li><p>String</p>
+</li>
+<li><p>Function</p>
+</li>
+<li><p>Date</p>
+</li>
+<li><p>RegExp</p>
+</li>
+<li><p>Error</p>
+<blockquote>
+<p>我们 <code>js</code> 作为一个语言来说，你不考虑浏览器环境，不考虑 <code>window</code> 啊，也不考虑 <code>Node.js</code> 那些东西，<code>global</code> 啊，等，不考虑运行环境，<code>js</code> 作为一个单纯的语言来讲，它其实是内置了一些东西，就是上面的函数而已，那么内置的函数有什么作用呢，这就是原型和原形链上面的问题了，下面会讲，你只要知道 <code>js</code> 内置了这些函数就行了</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="如何理解-JSON"><a href="#如何理解-JSON" class="headerlink" title="如何理解 JSON"></a>如何理解 JSON</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">JSON.stringify(&#123;a:10,b:20&#125;)</span><br><span class="line">JSON.parse('&#123;"a":10,"b":20&#125;')</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><code>JSON</code> 只是 <code>js</code> 当中的一个内置对象而已，也是内置在 <code>js</code> 中的基本语法里面，我们常用的 <code>JSON</code> <code>api</code> 只有两个，第一个是 <code>stringify</code> 把对象变成字符串，第二个是 <code>parse</code> 把字符串变成对象，<code>JSON</code> 同时也是一种数据格式。</p>
+</blockquote>
+<h4 id="原型和原型链"><a href="#原型和原型链" class="headerlink" title="原型和原型链"></a>原型和原型链</h4><ul>
+<li><p>构造函数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>  <span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params">name, age</span>) </span>&#123;</span><br><span class="line"><span class="number">2</span>    <span class="keyword">this</span>.name = name;</span><br><span class="line"><span class="number">3</span>    <span class="keyword">this</span>.age = age;</span><br><span class="line"><span class="number">4</span>    <span class="keyword">this</span>.class = <span class="string">'class-1'</span></span><br><span class="line"><span class="number">5</span>    <span class="comment">// return this 默认有这一行</span></span><br><span class="line"><span class="number">6</span>  &#125;</span><br><span class="line"><span class="number">7</span>  <span class="keyword">var</span> f = <span class="keyword">new</span> Foo(<span class="string">'lisi'</span>, <span class="number">20</span>)</span><br><span class="line"><span class="number">8</span>  <span class="comment">// var f1 = new Foo('zhangsan', 22) // 创建多个对象</span></span><br></pre></td></tr></table></figure>
+<p>构造函数有一个特点就是第 1 行构造函数 <code>Foo</code> 的 F 是大写的，意识就是，你基本上要是见到大写字母开头的函数，那这个函数就是构造函数，我们以后写代码的时候，用到构造函数的时候，也要用大写字母开头，如果不用大写字母开头，将会给其它阅读你代码的人，带来很大的麻烦，而且这样不良好的代码习惯，不会受那些比较高级的程序员的待见，从第 2 行 到第 4 行，我们是进行了一个赋值， 第 7 行我们定义了一个 <code>f</code> 然后 <code>new</code> 了一个实例的过程，我们把 <code>&#39;lisi&#39;</code> 这个字符串传进去，20 数字，然后 <code>f</code> 就是一个对象，第 8 行 也是定义一个变量给他 <code>new</code> 一个实例来，就是说通过 <code>Foo</code> 这个构造函数可以构造出很多个不同的实例来，构造函数这就像一个模版的机制，这个时候它是怎么执行的呢，咱们用第 7 行做一个列子，第 7 行里面，<code>new</code> 完实例之后，传值之后，第一行里面执行的时候，name 就是 <code>&#39;lisi&#39;</code>，<code>age</code> 就是 20，第 2 行，和第 3 行，就是一个赋值的过程，第 5 行就是一个 <code>this</code> ，<code>this</code> 是一个什么东西，正常构造函数返回的就是一个 <code>this</code>，写上也可以，不写也行，我们看一下 <code>new</code> 一个构造函数返回的过程，首先 <code>new</code> 的时候把参数传进去，然后 <code>new</code> 执行的时候呢，它里面的 <code>this</code> 会变成一个空对象，然后第 2 ~ 4 行是一个赋值的过程，最后再把 <code>this</code> 给返回，返回之后呢，就赋值给 <code>f</code> 了，然后 <code>f</code> 就具备了，<code>f.name = &#39;lisi&#39;</code>，<code>f.age = 20</code>，这就是构造函数的一个基本的使用</p>
+</li>
+<li><p>构造函数 - 扩展</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>  <span class="keyword">var</span> a = &#123;&#125;  <span class="comment">// 其实是 var a = new Object()的语法糖</span></span><br><span class="line"><span class="number">2</span>  <span class="keyword">var</span> a = []	<span class="comment">// 其实是 var a = new Array()的语法糖</span></span><br><span class="line"><span class="number">3</span>  <span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>)</span>&#123;...&#125;  <span class="comment">// 其实是 var Foo = new Function(...)</span></span><br><span class="line"><span class="number">4</span>  使用 <span class="keyword">instanceof</span> 判断一个函数是否是一个变量的构造函数</span><br></pre></td></tr></table></figure>
+<p>第 1 行 <code>a</code> 的构造函数是谁，第 2 行 <code>a</code> 的构造函数是谁，第 3 行 <code>Foo</code> 的构造函数是谁，所有的引用类型都有构造函数，对象也有构造函数，数组也有构造函数，第 1 行的构造函数是 <code>Object</code>，第 2 行的构造函数是 <code>Array</code>，第 3 行的构造函数是 <code>Function</code>，但是呢虽然这么说，在开发中都推荐使用前面的书写方式，绝对不推荐后面的书写方式，只是让大家知道这个流程而已，也许面试的时候也会用到。</p>
+</li>
+<li><p>原型规则和示例</p>
+<ul>
+<li><p>所有的引用类型（数组，对象，函数），都具有对象特性，即可自由扩展属性（除了 <code>&#39;null&#39;</code> 外）</p>
+</li>
+<li><p>所有的引用类型（数组，对象，函数），都有一个 <code>proto</code> (隐式原型) 属性，属性值是一个普通的对象</p>
+</li>
+<li><p>所有的函数，都有一个 <code>prototype</code> (显式原型) 属性，属性值也是一个普通的对象</p>
+</li>
+<li><p>所有的引用类型（数组，对象，函数），<code>proto</code> 属性值都指向它的构造函数的 <code>prototype</code> 属性值</p>
+</li>
+<li><p>当试图得到一个引用类型的某个属性值时，如果这个变量本身没有这个属性，那么它会去 <code>proto</code> （即它的构造函数的 <code>prototype</code> ）中去寻找。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>   <span class="keyword">var</span> obj = &#123;&#125;; obj.a = <span class="number">100</span>;</span><br><span class="line"><span class="number">2</span>   <span class="keyword">var</span> arr = []; arr.a = <span class="number">100</span>;</span><br><span class="line"><span class="number">3</span>   <span class="function"><span class="keyword">function</span> <span class="title">fn</span> (<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="number">4</span>   fn.a = <span class="number">100</span>;</span><br><span class="line"><span class="number">5</span>   <span class="built_in">console</span>.log(obj.__proto__) <span class="comment">// 引用类型</span></span><br><span class="line"><span class="number">6</span>   <span class="built_in">console</span>.log(arr.__proto__) <span class="comment">// 引用类型</span></span><br><span class="line"><span class="number">7</span>   <span class="built_in">console</span>.log(fn.__proto__)</span><br><span class="line"><span class="number">8</span></span><br><span class="line"><span class="number">9</span>   <span class="built_in">console</span>.log(fn.prototype) <span class="comment">// 函数</span></span><br><span class="line"><span class="number">10</span></span><br><span class="line"><span class="number">11</span>  <span class="built_in">console</span>.log(obj.__proto === <span class="built_in">Object</span>.prototype) <span class="comment">// 相等</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>   <span class="comment">// 构造函数</span></span><br><span class="line"><span class="number">2</span>   <span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params">name, age</span>) </span>&#123;</span><br><span class="line"><span class="number">3</span>    <span class="keyword">this</span>.name = name;</span><br><span class="line"><span class="number">4</span>   &#125;</span><br><span class="line"><span class="number">5</span>   Foo.prototype.alertName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="number">6</span>    alert(<span class="keyword">this</span>.name)</span><br><span class="line"><span class="number">7</span>   &#125;</span><br><span class="line"><span class="number">8</span>   <span class="comment">// 创建示例</span></span><br><span class="line"><span class="number">9</span>   <span class="keyword">var</span> f = <span class="keyword">new</span> Foo(<span class="string">'zhangsan'</span>);</span><br><span class="line"><span class="number">10</span>  f.printName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="number">11</span>    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line"><span class="number">12</span>  &#125;</span><br><span class="line"><span class="number">13</span>  <span class="comment">// 测试</span></span><br><span class="line"><span class="number">14</span>  f.printName() <span class="comment">// zhangsan</span></span><br><span class="line"><span class="number">15</span>  f.alertName() <span class="comment">// zhangsan</span></span><br></pre></td></tr></table></figure>
+<p>第 2~4 行定义了一个构造函数，看第 5 行之前说过了，所有的函数都有一个 <code>prototype</code>（显式原型），而显式原型是一个普通对象，那我完全可以对这个对象扩展属性，然后我们给它加了一个 <code>alertName</code> 的属性，并且赋值了一个函数，函数的内容就是 <code>alert(this.name)</code>，然后第 9 行，我通过 <code>Foo</code> 这个构造函数来构造了一个对象，然后 <code>printName</code> 是 <code>f</code> 扩展的属性，第 14 行在用的时候 <code>f.printName()</code>，<code>f</code> 是一个用 <code>Foo</code> <code>new</code> 出来的一个对象，然后它有什么属性呢，就有一个 <code>name</code> 属性第 3 行里面，然后第 10 行，又给 <code>f</code> 添加了一个 <code>printName</code> 的属性，属性值是一个函数，所以执行的时候打印的就是 <code>&#39;zhangsan&#39;</code>，第 15 行在执行 <code>f.alertName()</code> 的时候，<code>f</code> 对象没有这个属性，<code>f</code> 的 <code>proto</code> (隐式原型)指向了 <code>Foo</code> 的 <code>prototype</code> (显式原型)，上面也说过了，所以 <code>f</code> 也会有 <code>alertName</code> 这个属性，加上一句就是 <code>f</code> 中的 <code>this</code> 永远指向 <code>f</code>本身。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 循环对象自身的属性</span></span><br><span class="line"><span class="keyword">var</span> item</span><br><span class="line"><span class="keyword">for</span> (item <span class="keyword">in</span> f) &#123;</span><br><span class="line">	<span class="comment">// 高级浏览器已经在 for in 中屏蔽了来自原型的属性</span></span><br><span class="line">	<span class="comment">// 但是建议大家加一个判断，保证程序的健壮性</span></span><br><span class="line">    <span class="keyword">if</span>(f.hasOwnProperty(item))&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(item)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>for in</code> 是可以对一个对像进行循环的，那如果对 <code>f</code> 进行循环的话，<code>f</code> 自己也算上，原型也算上，一共三个属性，但是我又不想要原型上的属性 ，只想循环自身的属性，就用上面的这中方法，就是遍历的时候，判断一下，是不是能通过，<code>hasOwnProperty</code> 的验证，如果通过之后就说明 它是 <code>f</code> 自身的属性，如果没通过就说明是原型的属性。</p>
+</li>
+</ul>
+</li>
+<li><p>原型链</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>   <span class="comment">// 构造函数</span></span><br><span class="line"><span class="number">2</span>   <span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params">name, age</span>) </span>&#123;</span><br><span class="line"><span class="number">3</span>    <span class="keyword">this</span>.name = name;</span><br><span class="line"><span class="number">4</span>   &#125;</span><br><span class="line"><span class="number">5</span>   Foo.prototype.alertName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="number">6</span>    alert(<span class="keyword">this</span>.name)</span><br><span class="line"><span class="number">7</span>   &#125;</span><br><span class="line"><span class="number">8</span>   <span class="comment">// 创建示例</span></span><br><span class="line"><span class="number">9</span>   <span class="keyword">var</span> f = <span class="keyword">new</span> Foo(<span class="string">'zhangsan'</span>);</span><br><span class="line"><span class="number">10</span>  f.printName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="number">11</span>    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line"><span class="number">12</span>  &#125;</span><br><span class="line"><span class="number">13</span>  <span class="comment">// 测试</span></span><br><span class="line"><span class="number">14</span>  f.printName() <span class="comment">// zhangsan</span></span><br><span class="line"><span class="number">15</span>  f.alertName() <span class="comment">// zhangsan</span></span><br><span class="line"><span class="number">16</span>  f.toString()  <span class="comment">// 要去 f.__proto__.__proto__ 中查找</span></span><br></pre></td></tr></table></figure>
+<p>在上面原型规则和示例中说了，第 14 行 <code>f.printName()</code> 获取的是 <code>f</code> 本身的一个属性，也执行了,第 15 行 <code>f.alertName()</code> 中获取的是 <code>proto(隐式原型)</code> 的属性，也就是 <code>f</code> 构造函数 <code>prototype(显式原型)</code> 的值，因为 <code>f</code> 的 <code>proto(隐式原型)</code> 和构造函数中的 <code>prototype(显式原型)</code> 是相等的，所以也执行了，然后第 16 行大家想一下是什么东西，<code>f.toString()</code>，当执行这个函数的时候，大家回忆一下之前原型规则里面的第 5 个规则，当试图得到一个引用类型的某个属性值时，如果这个变量本身没有这个属性，那么它会去 <code>proto</code> （即它的构造函数的 <code>prototype</code> ）中去寻找，它自身的 <code>proto(隐式原型)</code> 就是它构造函数的 <code>prototype(显式原型)</code>，也就是构造函数是第 5 行 <code>Foo</code>，<code>(显式原型)</code> 就是 <code>Foo.prototype</code> 中去找，然后 <code>Foo.prototype</code> 构造函数的 <code>(显式原型)</code> 中并没有 <code>toString()</code> 这个东西，对不对，但是重点来了，<code>Foo.prototype</code> 就是构造函数的 <code>(显式原型)</code>，它也是一个对象对不对，然后在它中去找 <code>toString()</code> 这个方法，那是不是也要向 <code>Foo.prototype</code> 中的 <code>proto(隐式原型)</code> 中去找，对不对，之前说过一个函数都会有 <code>prototype(显式原型)</code>，<code>(显式原型)</code> 它指向的是一个普通的对象，那普通的对象，它的构造函数是什么呢，构造函数肯定是 <code>Object</code>，然后刚才说了，要在 <code>Foo.prototype</code> 中去找 <code>toString()</code>，那指向的肯定就是它本身的 <code>proto(隐式原型)</code>，也就是说我们要去，<code>Object</code> 中的 <code>prototype(显式原型)</code> 中去找 <code>toString()</code>，然后就找到了，所以我们第 16 行有一个注释，<strong>要去 f.<strong>proto</strong>.<strong>proto</strong> 中查找</strong>，因为 <code>f.proto(隐式原型)</code> 只是 <code>f</code> 的构造函数，<code>Foo</code> 的 <code>prototype(显式原型)</code>，然后 <code>Foo(显式原型)</code> 呢，他也是一个对象，它在这个对象中找 <code>toString()</code> 没有，就要向它的这个 <code>proto(隐式原型)</code> 中去找了，所以 <strong>f.<strong>proto</strong>.proto</strong>，指向的就是这个对象的构造函数了，也就是 <code>Object</code> 的构造函数，然后就找到了，我画了一个图大家看一下:</p>
+<p><img src="/assets/yuan.png" alt="Alt text"></p>
+<p>大家来看方框的代表的是构造函数，圆角的代表的是一个对象，从左下角往右上角看，左下角，<code>Foo</code> 是构造函数对不对，然后它 <code>new</code> 出来一个 <code>f</code>，然后 <code>Foo</code> 本身箭头往右指是一个 <code>Foo.prototype(显式原型)</code>，显示原型就是一个对象，那它 <code>new</code> 出来的 <code>f</code> 有一个 <code>proto(隐式原型)</code>，也是这个对象，之前说过，<code>new</code> 出来的对象的 <code>(隐式原型)</code> 就等于构造函数的 <code>(显式原型)</code> 也就是 <code>Foo.prototype</code> 也是一个对象，那它的构造函数是谁呢，就是 <code>Object</code>，那 <code>Object</code> 也是一个构造函数，那它就肯定有 <code>Object.prototype(显式原型)</code>，也是一个对象，那 <code>Foo.prototype</code> 是一个对象，那 <code>Foo.prototype</code> 的 <code>proto(隐式原型)</code> 肯定就指向了它的构造函数的<code>prototype(显式原型)</code>，就是 <code>Object.prototype</code>，那 <code>Object.prototype</code>，也是一个对象，那这里有一个特例，那它的 <code>proto(隐式原型)</code> 指向的就是一个 <code>null</code>，这是 <code>javascript</code> 为了避免死循环做的一个特例，到这就截止了，然后我们来看代码第 16 行的 <code>f.toString()</code> 是怎么找的呢，我先从 <code>f</code> 上找，<code>f</code> 上找不到，去它的 <code>proto(隐式原型)</code>，顺着弧线往上走，找到了 <code>Foo.prototype</code>，也没有，没有怎么办，在顺着这个弧线往上找，找到了 <code>Object.prototype</code>，然后就找到了 <code>toString()</code>，就执行了这个方法，有点绕，大家如果不明白结合结合一下代码和图再看看。</p>
+</li>
+<li><p>Instanceof</p>
+<blockquote>
+<p>用于判断引用类型属于哪个构造函数的方法，比如说我们上一个代码的时候，第 9 行 new Foo 是 f，那我们就通过</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="number">1</span>  f <span class="keyword">instanceof</span> Foo</span><br><span class="line">&gt;<span class="number">2</span>  f 的 __proto__一层一层往上，能否对应到 Foo.prototype</span><br><span class="line">&gt;<span class="number">3</span>  再试着判断 f <span class="keyword">instanceof</span> <span class="built_in">Object</span> <span class="comment">// 正确</span></span><br><span class="line">&gt;<span class="number">4</span>  虽然说 f 是 Foo <span class="keyword">new</span> 出来的对象，但是呢，Foo 的上一层是 <span class="built_in">Object</span>，所以第 <span class="number">3</span> 行肯定是正确的</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
+<h4 id="如何准确的判断一个变量是不是数组"><a href="#如何准确的判断一个变量是不是数组" class="headerlink" title="如何准确的判断一个变量是不是数组"></a>如何准确的判断一个变量是不是数组</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [];</span><br><span class="line">arr <span class="keyword">instanceof</span> <span class="built_in">Object</span> <span class="comment">// true</span></span><br><span class="line"><span class="keyword">typeof</span> arr <span class="comment">// Object, typeof 是无法判断是数组的</span></span><br></pre></td></tr></table></figure>
+<h4 id="写一个原型链继承的列子"><a href="#写一个原型链继承的列子" class="headerlink" title="写一个原型链继承的列子"></a>写一个原型链继承的列子</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>   <span class="comment">// 动物</span></span><br><span class="line"><span class="number">2</span>   <span class="function"><span class="keyword">function</span> <span class="title">Animal</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="number">3</span>    <span class="keyword">this</span>.eat = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="number">4</span>        <span class="built_in">console</span>.log(<span class="string">'animal eat'</span>)；</span><br><span class="line"><span class="number">5</span>    &#125;</span><br><span class="line"><span class="number">6</span>   &#125;</span><br><span class="line"><span class="number">7</span>   <span class="comment">// 狗</span></span><br><span class="line"><span class="number">8</span>   <span class="function"><span class="keyword">function</span> <span class="title">Dog</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="number">9</span>    <span class="keyword">this</span>.bark = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="number">10</span>        <span class="built_in">console</span>.log(<span class="string">'dog bark'</span>)；</span><br><span class="line"><span class="number">11</span>    &#125;</span><br><span class="line"><span class="number">12</span>  &#125;</span><br><span class="line"><span class="number">13</span>  Dog.prototype = <span class="keyword">new</span> Animal()；</span><br><span class="line"><span class="number">14</span>  <span class="comment">// 哈士奇</span></span><br><span class="line"><span class="number">15</span>  <span class="keyword">var</span> hashiqi = <span class="keyword">new</span> Dog()；</span><br></pre></td></tr></table></figure>
+<p>首先我们先构造一个函数是 <code>Animal</code> 是动物，第 8 行定义了一个 <code>Dog</code> 狗，这两个里面都有一个属性，第 13 行 <code>Dog.prototype</code> 赋值成 <code>new Animal()</code>，之前已经说过了，<code>Dog.prototype</code> 构造函数的显式原型，它是一个已经有的一个对象，那我们完全可以把这个对象改掉嘛，改成 <code>new Animal()</code>，<code>new Animal()</code> 返回的就是一个 <code>Animal</code> 的一个对象，就是 <code>eat</code> 的一个属性，也就是说我们把 <code>Dog</code> 的显式原型，赋值成一个对象，这个对象有一个 <code>eat</code> 的属性，第 15 行我们定义一个 <code>hashiqi</code> 为 <code>new Dog()</code>，然后大家看，这个时候，哈士奇它有什么属性，<code>Dog</code> 本身它有一个 <code>bark</code> 属性，那哈士奇肯定也有这个属性，我们可以通过 <code>hashiqi.eat</code> 去执行，<code>hashiqi.eat</code> 它会从 <code>Dog</code> 的 <code>proto(显式原型)</code> 中去取，<code>Dog</code> 的显式原型就是一个 <code>new Animal()</code>，已经有了 <code>eat</code> 属性的一个对象，所以 <code>hashiqi</code> 就有了这个属性，但是建议不要再面试中写这样的例子，点 <code>low</code></p>
+<h4 id="zepto-或其他框架-源码中如何使用原型链"><a href="#zepto-或其他框架-源码中如何使用原型链" class="headerlink" title="zepto (或其他框架) 源码中如何使用原型链"></a>zepto (或其他框架) 源码中如何使用原型链</h4><ul>
+<li><p>阅读原码是高效提高技能的方式</p>
+</li>
+<li><p>但不能 “埋头苦钻” 有技巧在其中</p>
+</li>
+</ul>
+
+    </article>
+    <!-- 前后页  -->
+    <ul class="post-pager">
+        
+        
+            <li class="previous">
+                <a href= "/2018/06/14/详解-CSS-七种三栏布局技巧/" title= 详解 CSS 七种三栏布局技巧 >
+                    <span>Previous Post</span>
+                    <span>详解 CSS 七种三栏布局技巧</span>
+                </a>
+            </li>
+        
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<div id="lv-container" data-id="city" data-uid= MTAyMC8zMzIxNC85Nzcx>
+    <script type="text/javascript">
+        (function (d, s) {
+            var j, e = d.getElementsByTagName(s)[0];
+            if (typeof LivereTower === 'function') { return; }
+            j = d.createElement(s);
+            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+            j.async = true;
+
+            e.parentNode.insertBefore(j, e);
+        })(document, 'script');
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+
+<!-- City版安装代码已完成 -->
+
+
+    
+    
+    <!--PC版-->
+
+    <!--PC版-->
+
+
+    
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:973480801@qq.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="https://github.com/songda1013" class="iconfont-archer github" target="_blank" title="github"></a>
+            
+        
+    
+        
+    
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Personal<a href="https://hexo.io/" target="_blank">Technology</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">Blog <a href="https://songda1013.github.io/" target="_blank">A-AD</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+        <span id="busuanzi_container_site_pv">VISITOR VOLUME: <span id="busuanzi_value_site_pv"></span>
+        </span>
+    </div>
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper">
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#变量类型和计算"><span class="toc-number">1.</span> <span class="toc-text">变量类型和计算</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#js-中的内置函数有哪些"><span class="toc-number">2.</span> <span class="toc-text">js 中的内置函数有哪些</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#如何理解-JSON"><span class="toc-number">3.</span> <span class="toc-text">如何理解 JSON</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#原型和原型链"><span class="toc-number">4.</span> <span class="toc-text">原型和原型链</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#如何准确的判断一个变量是不是数组"><span class="toc-number">5.</span> <span class="toc-text">如何准确的判断一个变量是不是数组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#写一个原型链继承的列子"><span class="toc-number">6.</span> <span class="toc-text">写一个原型链继承的列子</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#zepto-或其他框架-源码中如何使用原型链"><span class="toc-number">7.</span> <span class="toc-text">zepto (或其他框架) 源码中如何使用原型链</span></a></li></ol>
+    </div>
+    
+    <div class="back-top">&#xe639;</div>
+    <div class="sidebar">
+    <div class="sidebar-header sidebar-header-show-archive">
+        <div class="sidebar-category">
+            <span class="sidebar-archive-link"><span class="iconfont-archer">&#xe67d;</span>Archive</span>
+            <span class="sidebar-tags-link"><span class="iconfont-archer">&#xe610;</span>Tag</span>
+        </div>
+    </div>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-archive">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-archive"> Total : 36 </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/21</span><a class="archive-post-title" href= "/2018/06/21/Javascript-基础需要掌握的技术点/" >Javascript 基础需要掌握的技术点</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/14</span><a class="archive-post-title" href= "/2018/06/14/详解-CSS-七种三栏布局技巧/" >详解 CSS 七种三栏布局技巧</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/11</span><a class="archive-post-title" href= "/2018/06/11/完全理解px-dpr-dpi-dip/" >完全理解px,dpr,dpi,dip</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/07</span><a class="archive-post-title" href= "/2018/06/07/5分钟学会-CSS-Grid-布局/" >5分钟学会 CSS Grid 布局</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/07</span><a class="archive-post-title" href= "/2018/06/07/float-与inline-block-的区别是什么/" >float 与 inline-block 的区别是什么</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/06</span><a class="archive-post-title" href= "/2018/06/06/link和-import的区别/" >link和@import的区别</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/05</span><a class="archive-post-title" href= "/2018/06/05/前端新手常见问题浮动与定位/" >前端新手常见问题浮动与定位</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/05</span><a class="archive-post-title" href= "/2018/06/05/谈谈dispaly-position-float/" >谈谈dispaly position float</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/05</span><a class="archive-post-title" href= "/2018/06/05/16中方法实现水平居中垂直居中/" >16中方法实现水平居中垂直居中</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/05</span><a class="archive-post-title" href= "/2018/06/05/CSS实现隐藏页面的5种方式/" >CSS实现隐藏页面的5种方式</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/29</span><a class="archive-post-title" href= "/2018/05/29/IE8项目总结/" >IE8项目总结</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/19</span><a class="archive-post-title" href= "/2018/05/19/基于vue-cli脚手架使用vue-router路由/" >基于vue-cli脚手架使用vue-router路由</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/18</span><a class="archive-post-title" href= "/2018/05/18/Vue-cli脚手架搭建/" >Vue-cli脚手架搭建</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/14</span><a class="archive-post-title" href= "/2018/05/14/移动端适配/" >移动端适配</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/02</span><a class="archive-post-title" href= "/2018/04/02/如何能省略不必要的渲染/" >React中如何能省略不必要的渲染!</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/30</span><a class="archive-post-title" href= "/2018/03/30/React中什么是虚拟DOM/" >React中什么是Virtual DOM?</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/30</span><a class="archive-post-title" href= "/2018/03/30/为什么使用React/" >为什么使用React</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/29</span><a class="archive-post-title" href= "/2018/03/29/CSS3新特性的概述/" >CSS3新特性的概述</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/29</span><a class="archive-post-title" href= "/2018/03/29/盒模型，boxsizing/" >盒模型，boxsizing</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/26</span><a class="archive-post-title" href= "/2018/03/26/css、js放置位置和原因/" >css、js放置位置和原因 </a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/18</span><a class="archive-post-title" href= "/2018/03/18/HTML废弃的标签/" >HTML废弃的标签</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/05</span><a class="archive-post-title" href= "/2018/03/05/减肥ING/" >减肥ING</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/12</span><a class="archive-post-title" href= "/2018/02/12/JavaScritp变量-匈牙利命名法/" >JavaScritp变量--匈牙利命名法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/12</span><a class="archive-post-title" href= "/2018/02/12/HTML5-canvas介绍及应用/" >HTML5 canvas介绍及应用</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/07</span><a class="archive-post-title" href= "/2018/02/07/react-webpack简单配置/" >react-webpack简单配置</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/05</span><a class="archive-post-title" href= "/2018/02/05/javascript代码规范/" >javascript代码规范</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/04</span><a class="archive-post-title" href= "/2018/02/04/meta标签/" >meta标签</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/04</span><a class="archive-post-title" href= "/2018/02/04/HTML5-data-自定义属性/" >HTML5 data-* 自定义属性</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/31</span><a class="archive-post-title" href= "/2018/01/31/html和xhtml和xml的区别/" >html和xhtml和xml的区别</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/30</span><a class="archive-post-title" href= "/2018/01/30/React中state和props分别是什么？/" >React中state和props分别是什么？</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/30</span><a class="archive-post-title" href= "/2018/01/30/React中元素与组件的区别/" >React中元素与组件的区别,和组件有几种类型</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/30</span><a class="archive-post-title" href= "/2018/01/30/EJS模版/" >EJS模版</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/26</span><a class="archive-post-title" href= "/2018/01/26/grunt的安装与介绍/" >grunt的安装与介绍</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/15</span><a class="archive-post-title" href= "/2018/01/15/HTML标准模式，和怪异模式/" >HTML标准模式，和怪异模式</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/13</span><a class="archive-post-title" href= "/2018/01/13/HTML5新特性，语义化/" >HTML5新特性，语义化</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/01/12/hello-world/" >Hello World</a>
+        </li>
+    
+    </div>
+  </div>
+        <div class="sidebar-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name"><a href= "#">减肥</a></span>
+    
+    </div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: false
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tag-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var jsInfo = {
+        root: '/'
+    }
+</script>
+    <!-- 不蒜子  -->
+    
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ统计  -->
+    
+    </div>
+    </body>
+</html>
+
+

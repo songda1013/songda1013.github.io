@@ -158,22 +158,20 @@
     
     
         <article class="index-post">
-            <a class="abstract-title" href = "/2018/06/15/移动端布局方案/" >
+            <a class="abstract-title" href = "/2018/06/21/Javascript-基础需要掌握的技术点/" >
                 
-                    <span>移动端布局方案</span>
+                    <span>Javascript 基础需要掌握的技术点</span>
             </a>
-            <a class="content-show-full" href = "/2018/06/15/移动端布局方案/" >
+            <a class="content-show-full" href = "/2018/06/21/Javascript-基础需要掌握的技术点/" >
                 <div class="abstract-content">
-                    hotCss
-让移动端开发更方便
+                    变量类型和计算
+变量类型
 
-介绍
-hotCss 不是一个库，也不是一个框架，它是移动端开发解决方案，让移动端开发更方便。
-使用动态 HTML 根字体大小和 viewport scale。
-遵循视觉一致性原则。在不同的屏幕和不同的设备像素密度下，让你的页面看起来是一样的
-不仅便捷了你的布局，用起来也十分的简单，让我们整理一下项目的结构
-
-12345678910├── example	//所有的示例都在这个目录下│   ├── duang│   ├── normal│   └── wolf│└── src	//主要文件在这里    ├── hotcss.js    ├── px2re...
+值类型和引用类型
+12341  var a = 100;2  var b = a;3  a = 200;4  console.log(b)  // 100
+我们先定义一个 a = 100; 在定义一个 b = a; 然后在把 a 赋值为 200； 这时候在打印 b，b 的值是 100，每个变量的值都不会相互影响，这就是值类型的特点
+12341  var a = &#123;age:20&#125;2  var b = a;3  b.age = 21;4  console.log(a.age) // 21
+和上面 值类型 同理，对比一下上面的，但是输出的不一样，...
                 </div>
             </a>
             <div class="abstract-post-meta">
@@ -181,7 +179,7 @@ hotCss 不是一个库，也不是一个框架，它是移动端开发解决方�
                 
                 <!-- date  -->
                 <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/06/15</span>
+                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2018/06/21</span>
                 </div>
             </div>
         </article>
@@ -1027,12 +1025,6 @@ Opacityopacity 属性的意识就是设置让一个元素的透明度，它不�
     
     
     
-    
-    
-    
-    
-    
-    
     <div class="total-archive"> Total : 36 </div>
     
     <div class="post-archive">
@@ -1045,7 +1037,7 @@ Opacityopacity 属性的意识就是设置让一个元素的透明度，它不�
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/15</span><a class="archive-post-title" href= "/2018/06/15/移动端布局方案/" >移动端布局方案</a>
+            <span class="archive-post-date">06/21</span><a class="archive-post-title" href= "/2018/06/21/Javascript-基础需要掌握的技术点/" >Javascript 基础需要掌握的技术点</a>
         </li>
     
     
@@ -1209,6 +1201,16 @@ Opacityopacity 属性的意识就是设置让一个元素的透明度，它不�
         </li>
     
     
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/15</span><a class="archive-post-title" href= "/2018/01/15/HTML标准模式，和怪异模式/" >HTML标准模式，和怪异模式</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/13</span><a class="archive-post-title" href= "/2018/01/13/HTML5新特性，语义化/" >HTML5新特性，语义化</a>
+        </li>
+    
+    
     
     
     
@@ -1220,25 +1222,6 @@ Opacityopacity 属性的意识就是设置让一个元素的透明度，它不�
     
         <li class="archive-post-item">
             <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2018/01/12/hello-world/" >Hello World</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> 2018 </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">01/15</span><a class="archive-post-title" href= "/2018/01/15/HTML标准模式，和怪异模式/" >HTML标准模式，和怪异模式</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">01/13</span><a class="archive-post-title" href= "/2018/01/13/HTML5新特性，语义化/" >HTML5新特性，语义化</a>
         </li>
     
     </div>
