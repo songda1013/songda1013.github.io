@@ -208,7 +208,7 @@
 <h4 id="语法-Syntax"><a href="#语法-Syntax" class="headerlink" title="语法 Syntax"></a>语法 Syntax</h4><h4 id="Sass-Sass"><a href="#Sass-Sass" class="headerlink" title="Sass(Sass)"></a>Sass(Sass)</h4><p>Sass 有两种语法格式，首先是（Sassy Css)，这种只是在 Css 基础语法中扩展的，所有的 Css 语法在 Sass 中都是通用的，同时加上 Sass 的特色功能，此外，Sass 也支持大多数 Css hacks 写法以及浏览器前缀写法 (vendor-specific syntax)，以及早期的 IE 滤镜写法。这种格式以 .scss 作为拓展名。</p>
 <p>另一种也是最早的 Sass 语法格式，被称为缩进格式 (Indented Sass) 通常简称 “Sass”，是一种简化格式。它使用 “缩进” 代替 “花括号” 表示属性属于某个选择器，用 “换行” 代替 “分号” 分隔属性，很多人认为这样做比 SCSS 更容易阅读，书写也更快速。缩进格式也可以使用 Sass 的全部功能，只是与 SCSS 相比个别地方采取了不同的表达方式。</p>
 <h4 id="Less"><a href="#Less" class="headerlink" title="Less"></a>Less</h4><p>Less 在某种程度上很像 Sass，它和 Css 也是完全兼容的，要有分号，要有冒号，要有大括号。</p>
-<h4 id="Stylus"><a href="#Stylus" class="headerlink" title="Stylus"></a>Stylus</h4><p>他的语法和 Sass 有一点点类似，但是最大的特点便是没有分号，没有冒号，没有大括号，通过缩进和换行。一切的定义方式都是按照编程的风格定义的，像编程一样的函数调用，像编程一样的变量定义，像编程一样的书写方式。<br> 除此之外，他还有一个最大的优点便是他随意的格式，官方推荐的是无分号，无冒号，无大括号，但是他可以有分号，可以有冒号，也可以有大括号，也就是说你愿意的话，你完全可以当做普通的 CSS 文件来写，甚至是 Less,Sass 等其他预处理器的风格。所以这也就是我为什么用这个的原因。</p>
+<h4 id="Stylus"><a href="#Stylus" class="headerlink" title="Stylus"></a>Stylus</h4><p>他的语法和 Sass 有一点点类似，但是最大的特点便是没有分号，没有冒号，没有大括号，通过缩进和换行。一切的定义方式都是按照编程的风格定义的，像编程一样的函数调用，像编程一样的变量定义，像编程一样的书写方式。<br>除此之外，他还有一个最大的优点便是他随意的格式，官方推荐的是无分号，无冒号，无大括号，但是他可以有分号，可以有冒号，也可以有大括号，也就是说你愿意的话，你完全可以当做普通的 CSS 文件来写，甚至是 Less,Sass 等其他预处理器的风格。所以这也就是我为什么用这个的原因。</p>
 <h4 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h4><ul>
 <li>Sass (<code>//</code>, <code>/* */</code>)，多行注释会完整的输出到编译之后的文件，但是单行不会，所以如果是对文件描述的可以使用多行注释，如果只是开发相关的，请使用单行注释。当然这些行为参数可以控制。<br> 可以使用 <code>!</code> 作为多行注释的第一个字符，表示即使在压缩模式下也保留这条注释并输出到 CSS 文件中，通常用于版权的添加。</li>
 </ul>
@@ -265,7 +265,7 @@
 <li>Sass，通过一个 @function 来定义一个函数，然后通过 @return 返回一个值</li>
 <li>Less，准确说没有函数这个概念，但是他有 混入(Mixin) 来充当函数的概念。不过这个也是合理的，毕竟 CSS 是最后需要输出一段字符串，一切操作都是为了生成字符串，所以没有函数也是完全可以接受的。</li>
 </ul>
-<h4 id="嵌套-Nest-rules"><a href="#嵌套-Nest-rules" class="headerlink" title="嵌套 Nest rules"></a>嵌套 Nest rules</h4><p> 所有的预处理中都有嵌套的功能，而且语法都是类似的，将 Rule 写在某个 Rule 里面，便可以实现嵌套的功能。<br> 不需要每次都输入父选择器了，方便快捷高效。<br> 同理，也都有 <code>&amp;</code> 父选择引用，可以方便的在 Rule 内部定义父级的 Rule，一般用来定义 <code>hover</code> 或者相连的选择器 <code>&amp;.other-class</code>。</p>
+<h4 id="嵌套-Nest-rules"><a href="#嵌套-Nest-rules" class="headerlink" title="嵌套 Nest rules"></a>嵌套 Nest rules</h4><p>所有的预处理中都有嵌套的功能，而且语法都是类似的，将 Rule 写在某个 Rule 里面，便可以实现嵌套的功能。<br>不需要每次都输入父选择器了，方便快捷高效。<br>同理，也都有 <code>&amp;</code> 父选择引用，可以方便的在 Rule 内部定义父级的 Rule，一般用来定义 <code>hover</code> 或者相连的选择器 <code>&amp;.other-class</code>。</p>
 <p>Less 中还支持嵌套 Directive，比如 media, keyframe 等等。这些 Directives 及时再非常深的地方，也会一起冒泡到顶级。 </p>
 <h4 id="混合-Mixins"><a href="#混合-Mixins" class="headerlink" title="混合 Mixins"></a>混合 Mixins</h4><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><ul>
 <li>Sass 会复杂一些，需要使用 <code>@mixin</code> 指令定义。简写为 <code>=</code> </li>
@@ -397,6 +397,13 @@
     </article>
     <!-- 前后页  -->
     <ul class="post-pager">
+        
+            <li class="next">
+                <a href= "/2018/06/30/uni-app小小总结/" title= uni-app小小总结 >
+                    <span>Next Post</span>
+                    <span>uni-app小小总结</span>
+                </a>
+            </li>
         
         
             <li class="previous">
@@ -1008,7 +1015,44 @@
     
     
     
-    <div class="total-archive"> Total : 37 </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-archive"> Total : 38 </div>
     
     <div class="post-archive">
     
@@ -1017,6 +1061,11 @@
     
     <div class="archive-year"> 2018 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/30</span><a class="archive-post-title" href= "/2018/06/30/uni-app小小总结/" >uni-app小小总结</a>
+        </li>
     
     
         <li class="archive-post-item">
